@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Amir Sasani - Homepage</title>
+    <title>Amir Sasani - Home</title>
     <style>
         /* Reset default margins and padding */
         * {
@@ -16,6 +16,8 @@
         body {
             font-family: Arial, sans-serif;
             line-height: 1.6;
+            background-color: #000000; /* Black background */
+            color: #ffffff; /* White text */
         }
 
         /* Navbar styling */
@@ -28,22 +30,22 @@
         }
 
         .navbar a {
-            color: white;
+            color: #ffffff; /* White text for navbar links */
             text-align: center;
             padding: 14px 16px;
             text-decoration: none;
-            font-size: clamp(14px, 4vw, 17px); /* Responsive font size */
+            font-size: clamp(14px, 4vw, 17px);
             flex-grow: 1;
         }
 
         .navbar a:hover {
-            background-color: #ddd;
-            color: black;
+            background-color: #555; /* Slightly lighter gray on hover */
+            color: #ffffff; /* Keep text white on hover */
         }
 
         .navbar a.active {
-            background-color: #4CAF50;
-            color: white;
+            background-color: #a00326; /* Custom active tab color */
+            color: #ffffff;
         }
 
         /* Content styling */
@@ -51,12 +53,12 @@
             padding: 20px;
             text-align: center;
             max-width: 1200px;
-            margin: 0 auto; /* Center content */
+            margin: 0 auto;
         }
 
         .profile-img {
             width: 100%;
-            max-width: 200px; /* Max size for larger screens */
+            max-width: 200px;
             height: auto;
             border-radius: 50%;
             margin: 20px auto;
@@ -64,34 +66,35 @@
         }
 
         .journey-links a {
-            color: #4CAF50;
+            color: #a00326; /* Matching active tab color for links */
             text-decoration: none;
             font-weight: bold;
         }
 
         .journey-links a:hover {
             text-decoration: underline;
+            color: #ffffff; /* White on hover for contrast */
         }
 
         h1, h2, h3 {
             margin-bottom: 15px;
-            font-size: clamp(1.5rem, 5vw, 2.5rem); /* Responsive headings */
+            font-size: clamp(1.5rem, 5vw, 2.5rem);
         }
 
         p {
-            font-size: clamp(1rem, 3vw, 1.2rem); /* Responsive paragraph text */
+            font-size: clamp(1rem, 3vw, 1.2rem);
             margin-bottom: 10px;
         }
 
         /* Media Queries for Responsiveness */
         @media (max-width: 768px) {
             .navbar {
-                flex-direction: column; /* Stack nav items on smaller screens */
+                flex-direction: column;
             }
 
             .navbar a {
                 padding: 12px;
-                width: 100%; /* Full width for mobile */
+                width: 100%;
             }
 
             .content {
@@ -99,13 +102,13 @@
             }
 
             .profile-img {
-                max-width: 150px; /* Smaller image on mobile */
+                max-width: 150px;
             }
         }
 
         @media (max-width: 480px) {
             .navbar a {
-                font-size: 14px; /* Smaller font on very small screens */
+                font-size: 14px;
             }
 
             .content {
@@ -113,7 +116,7 @@
             }
 
             .profile-img {
-                max-width: 120px; /* Even smaller on tiny screens */
+                max-width: 120px;
             }
         }
     </style>
@@ -130,9 +133,21 @@
     <!-- Home Page Content -->
     <div class="content">
         <h1>Welcome to My Journey</h1>
-        <!-- Replace with your actual image path -->
-        <img src="./repo/Am S-hoodie.jpg" alt="Profile Picture" class="profile-img"  width="200" height="260">
+        <img src="./repo/Am S-hoodie.jpg" alt="Am-S-2" width="200" height="260" alt="Profile Picture" class="profile-img">
         <h2>About Me</h2>
         <p>Hello! I'm [Your Name]. Welcome to my personal website where I share my professional journeys.</p>
         
-        <div
+        <div class="journey-links">
+            <p>Explore my journeys:</p>
+            <p>Check out my <a href="qa-journey.html">QA Journey</a> to see my experience in Quality Assurance.</p>
+            <p>Dive into my <a href="ml-journey.html">Machine Learning Journey</a> to learn about my ML projects.</p>
+            <!-- Add more journey links here as needed -->
+        </div>
+
+        <h3>Contact Information</h3>
+        <p>Email: your.email@example.com</p>
+        <p>LinkedIn: linkedin.com/in/your-profile</p>
+        <p>GitHub: github.com/your-username</p>
+    </div>
+</body>
+</html>
