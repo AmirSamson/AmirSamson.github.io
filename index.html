@@ -18,6 +18,7 @@
             line-height: 1.6;
             background-color: #000000; /* Black background */
             color: #ffffff; /* White text */
+            transition: all 0.3s ease; /* Smooth transitions for body */
         }
 
         /* Navbar styling */
@@ -36,11 +37,15 @@
             text-decoration: none;
             font-size: clamp(14px, 4vw, 17px);
             flex-grow: 1;
+            position: relative;
+            transition: all 0.3s ease; /* Smooth hover transitions */
         }
 
         .navbar a:hover {
             background-color: #555; /* Slightly lighter gray on hover */
             color: #ffffff; /* Keep text white on hover */
+            transform: scale(1.05); /* Slight zoom effect */
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.3); /* Subtle glow */
         }
 
         .navbar a.active {
@@ -54,6 +59,7 @@
             text-align: center;
             max-width: 1200px;
             margin: 0 auto;
+            transition: all 0.3s ease; /* Smooth transitions for content */
         }
 
         .profile-img {
@@ -63,27 +69,66 @@
             border-radius: 50%;
             margin: 20px auto;
             display: block;
+            transition: all 0.3s ease; /* Smooth hover transitions for image */
+        }
+
+        .profile-img:hover {
+            transform: scale(1.1); /* Slight zoom on hover */
+            box-shadow: 0 0 15px rgba(160, 3, 38, 0.7); /* Glow with #a00326 */
         }
 
         .journey-links a {
             color: #a00326; /* Matching active tab color for links */
             text-decoration: none;
             font-weight: bold;
+            position: relative;
+            transition: all 0.3s ease; /* Smooth hover transitions */
         }
 
         .journey-links a:hover {
             text-decoration: underline;
             color: #ffffff; /* White on hover for contrast */
+            transform: scale(1.05); /* Slight zoom effect */
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.5); /* Subtle text glow */
         }
 
         h1, h2, h3 {
             margin-bottom: 15px;
             font-size: clamp(1.5rem, 5vw, 2.5rem);
+            transition: all 0.3s ease; /* Smooth transitions for headings */
         }
 
         p {
             font-size: clamp(1rem, 3vw, 1.2rem);
             margin-bottom: 10px;
+            transition: all 0.3s ease; /* Smooth transitions for paragraphs */
+        }
+
+        .no-bullets-list p {
+            font-size: clamp(1rem, 3vw, 1.2rem); /* Match paragraph font size */
+            margin-bottom: 10px; /* Space between items */
+            text-align: center;
+            transition: all 0.3s ease; /* Smooth transitions for list items */
+        }
+
+        .no-bullets-list p:hover {
+            color: #a00326; /* Highlight with active tab color on hover */
+            transform: scale(1.03); /* Slight zoom effect */
+            text-shadow: 0 0 5px rgba(160, 3, 38, 0.5); /* Subtle glow */
+        }
+
+        /* Contact icon styling */
+        .contact-icon {
+            width: 30px; /* Adjusted size to match your current images */
+            height: auto;
+            vertical-align: middle; /* Align with text */
+            margin-right: 8px; /* Space between icon and text */
+            transition: all 0.3s ease; /* Smooth hover transitions for icons */
+        }
+
+        .contact-icon:hover {
+            transform: scale(1.1); /* Slight zoom on hover */
+            filter: brightness(150%); /* Brighten the icon slightly */
         }
 
         /* Media Queries for Responsiveness */
@@ -104,6 +149,28 @@
             .profile-img {
                 max-width: 150px;
             }
+
+            .navbar a:hover {
+                transform: scale(1.02); /* Reduce zoom on smaller screens */
+                box-shadow: 0 0 5px rgba(255, 255, 255, 0.3); /* Smaller glow */
+            }
+
+            .profile-img:hover {
+                transform: scale(1.05); /* Reduce zoom on smaller screens */
+                box-shadow: 0 0 10px rgba(160, 3, 38, 0.7); /* Smaller glow */
+            }
+
+            .journey-links a:hover {
+                transform: scale(1.02); /* Reduce zoom on smaller screens */
+            }
+
+            .no-bullets-list p:hover {
+                transform: scale(1.01); /* Reduce zoom on smaller screens */
+            }
+
+            .contact-icon:hover {
+                transform: scale(1.05); /* Reduce zoom on smaller screens */
+            }
         }
 
         @media (max-width: 480px) {
@@ -117,6 +184,28 @@
 
             .profile-img {
                 max-width: 120px;
+            }
+
+            .navbar a:hover {
+                transform: none; /* No zoom on very small screens */
+                box-shadow: none; /* No glow on very small screens */
+            }
+
+            .profile-img:hover {
+                transform: none; /* No zoom on very small screens */
+                box-shadow: none; /* No glow on very small screens */
+            }
+
+            .journey-links a:hover {
+                transform: none; /* No zoom on very small screens */
+            }
+
+            .no-bullets-list p:hover {
+                transform: none; /* No zoom on very small screens */
+            }
+
+            .contact-icon:hover {
+                transform: none; /* No zoom on very small screens */
             }
         }
     </style>
@@ -135,63 +224,42 @@
         <h1>Welcome to My Journey</h1>
         <img src="./repo/Am S-hoodie.jpg" alt="Am-S-2" width="200" height="260" alt="Profile Picture" class="profile-img">
         <h2>About Me</h2>
-         <p>Hi my name is Amir Sasani (Samson). I am  a QA Engineer, a Machine Learning enthusiastic and a programmer to be. While I am 
-            a Life-long learner, I am also a curios adventurer for poking the system to find its thresholds, with a passion for new technologies!</p>
-<br>
-            <p><b>Entry 1 – Where It All Started</b> 😄</p>
-        <p>My QA journey began with a simple app crash — a small glitch ✏️ 
-that sparked a lifelong obsession with quality. Testing quickly became more than a job; 
-it was a curiosity-driven mission to uncover why things break and how to prevent it.</p>
+        <p>Hi my name is Amir Sasani (Samson). I am a QA Engineer, a Machine Learning enthusiast, and a programmer to be. While I am a life-long learner, I am also a curious adventurer for poking the system to find its thresholds, with a passion for new technologies!</p>
+        <br>
+        <p><b>Entry 1 – Where It All Started</b> 😄</p>
+        <p>My QA journey began with a simple app crash — a small glitch ✏️ that sparked a lifelong obsession with quality. Testing quickly became more than a job; it was a curiosity-driven mission to uncover why things break and how to prevent it.</p>
 
         <br>
         <p><b>Entry 2 – Tools & Growth </b> 🛠️</p>
-        <p>Over the past 8 years, I’ve tested mobile apps, web platforms, macOS, 
-and Windows software — learning the ins and outs of:</p>
+        <p>Over the past 8 years, I’ve tested mobile apps, web platforms, macOS, and Windows software — learning the ins and outs of:</p>
       
         <div class="no-bullets-list">
             <p>Test planning & case design 📋</p>
             <p>Manual, API, and automated testing (Postman, Playwright, K6) 🤖</p>
-            <p>CI/CD pipelines & SQL for deep dives into data </p>
+            <p>CI/CD pipelines & SQL for deep dives into data 📊</p>
         </div>
-        <p>I also discovered the joy of mentoring junior testers 🎓 and shaping processes that make QA a team responsibility, 
-not a last-minute checkpoint .</p>
+        <p>I also discovered the joy of mentoring junior testers 🎓 and shaping processes that make QA a team responsibility, not a last-minute checkpoint ⏰.</p>
 
         <br>
-        <p><b>Entry 3 – Quality Beyond Bugs</b></p>
-        <p>For me, QA isn’t just about finding defects — it’s about protecting the user experience. 
-Every test is a chance to make sure someone out there has a seamless, frustration-free interaction.</p>
+        <p><b>Entry 3 – Quality Beyond Bugs</b> 🌟</p>
+        <p>For me, QA isn’t just about finding defects — it’s about protecting the user experience. Every test is a chance to make sure someone out there has a seamless, frustration-free interaction 😊.</p>
         <p>That’s the part that keeps me passionate — because great experiences start with great quality ✅.</p>
 
         <br><hr><hr><br>
         
-             <p><b>Approaches to Teamwork:</b></p>
-        <p>Collaboration and open communication are at the heart of my teamwork philosophy. 
-            I strongly believe in the power of a diverse team working together, collaborating, facing challenges, 
-            communicating and believing in team spirit, to come up with innovative solutions. 
-            By fostering an environment of trust, respect, and transparency, 
-            I strive to build strong relationships with team members and create a positive work culture.</p>
+        <p><b>Approaches to Teamwork:</b></p>
+        <p>Collaboration and open communication are at the heart of my teamwork philosophy. I strongly believe in the power of a diverse team working together, collaborating, facing challenges, communicating, and believing in team spirit, to come up with innovative solutions. By fostering an environment of trust, respect, and transparency, I strive to build strong relationships with team members and create a positive work culture.</p>
         
+        <br><p><b>My Hobbies and Interests:</b></p>
+        <p>In my so-called <b>“Free-time”</b> I am occupied with many things. Doing workouts (Calisthenics or Weight Training), Playing guitar (You can see me playing the guitar in any given free time - on Vacation, after working hours, right before I go to sleep, right after I have lunch, or around a campfire 😄). I enjoy music a lot, and I believe what seasons this thing that we call <b>Life</b>, is music which swiftly floats our presence from one scene to another. (getting poetic back there 😄)</p>
         
-      <br> <p><b>My Hobbies and Interests:</b></p>
-<p>In my so called <b>“Free-time”</b> I am occupied with many things. 
-    Doing workouts (Calisthenics or Weight Training), 
-    Playing guitar (You can see me playing the guitar in any given free time - on Vacation, after working hours, 
-    right before I go to sleep, right after I have lunch, or around camp fire. 😄). 
-    I enjoy music a lot and I believe what seasons this thing that we call <b>Life</b>, 
-    is music which swiftly floats our presence from one scene to another. (getting poetic back there 😄 )</p>
-   
-<p>I also like reading, listening to podcasts specially Neuroscience, making good <b>coffee</b>, writing, cooking, 
-    jogging and watching Super-Hero movies and Anime Series. Boy… I have to confess, <b>Anime</b> is the other thing which surely satisfies me.
-I like Silence. You know, like mountains-like silence. Silence and Philosophy.
+        <p>I also like reading, listening to podcasts, especially Neuroscience, making good <b>coffee</b>, writing, cooking, jogging, and watching Super-Hero movies and Anime Series. Boy… I have to confess, <b>Anime</b> is the other thing which surely satisfies me. I like Silence. You know, like mountains-like silence. Silence and Philosophy.</p>
 
-<p>I can pretty much say I like everything and nothing, I may seem simple on the outside, but I am complicated on the inside, so to speak.
-    Anyways, thanks for reading. this says pretty much everything about Me.</p>
+        <p>I can pretty much say I like everything and nothing; I may seem simple on the outside, but I am complicated on the inside, so to speak. Anyways, thanks for reading. This says pretty much everything about Me.</p>
 
-<p>Hope you enjoyed!</p>
-             
-             
-             
-            <br> <p><b>Now, wanna know my journey in details?? Checkour other tabs!</b></p>
+        <p>Hope you enjoyed!</p>
+        
+        <br><p><b>Now, wanna know my journey in details?? Check out other tabs!</b></p>
         <br><hr><hr><br>
         
         <div class="journey-links">
@@ -202,9 +270,9 @@ I like Silence. You know, like mountains-like silence. Silence and Philosophy.
         </div>
 
         <br><h3>Contact Information</h3>
-        <p><img src="./repo/gmail-svgrepo-com.svg" alt="Mail" width="30" height="20"> <a href="mailto:amirhsamson93 at gmail dot com">amirhsamson93@gmail.com</a></p>
-        <p><img src="./repo/linkedin-svgrepo-com.svg" alt="Mail" width="30" height="20"> <a href="https://www.linkedin.com/in/amir-samson/">LinkedIn page</a></p>
-        <p><img src="./repo/github-color-svgrepo-com.svg" alt="Mail" width="30" height="20"> <a href="https://github.com/AmirSamson/">GitHub page</a></p>
+        <p><img src="./repo/gmail-svgrepo-com.svg" alt="Mail" class="contact-icon"> <a href="mailto:amirhsamson93@gmail.com">amirhsamson93@gmail.com</a></p>
+        <p><img src="./repo/linkedin-svgrepo-com.svg" alt="LinkedIn" class="contact-icon"> <a href="https://www.linkedin.com/in/amir-samson/">LinkedIn page</a></p>
+        <p><img src="./repo/github-color-svgrepo-com.svg" alt="GitHub" class="contact-icon"> <a href="https://github.com/AmirSamson/">GitHub page</a></p>
     </div>
 </body>
 </html>
