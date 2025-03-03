@@ -6,109 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>QA Journey</title>
     <style>
-        /* Reset default margins and padding */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            background-color: #000000; /* Black background */
-            color: #ffffff; /* White text */
-        }
-
-        /* Navbar styling */
-        .navbar {
-            background-color: #333;
-            overflow: hidden;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        .navbar a {
-            color: #ffffff; /* White text for navbar links */
-            text-align: center;
-            padding: 14px 16px;
-            text-decoration: none;
-            font-size: clamp(14px, 4vw, 17px);
-            flex-grow: 1;
-        }
-
-        .navbar a:hover {
-            background-color: #555; /* Slightly lighter gray on hover */
-            color: #ffffff; /* Keep text white on hover */
-        }
-
-        .navbar a.active {
-            background-color: #a00326; /* Custom active tab color */
-            color: #ffffff;
-        }
-
-        /* Content styling */
-        .content {
-            padding: 20px;
-            text-align: center;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .journey-links a {
-            color: #a00326; /* Matching active tab color for links */
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .journey-links a:hover {
-            text-decoration: underline;
-            color: #ffffff; /* White on hover for contrast */
-        }
-
-        h1, h2, h3 {
-            margin-bottom: 15px;
-            font-size: clamp(1.5rem, 5vw, 2.5rem);
-        }
-
-        p {
-            font-size: clamp(1rem, 3vw, 1.2rem);
-            margin-bottom: 10px;
-        }
-
-        ul {
-            list-style-position: inside;
-            margin: 0 auto;
-            max-width: 600px;
-            text-align: left;
-        }
-
-        /* Media Queries for Responsiveness */
-        @media (max-width: 768px) {
-            .navbar {
-                flex-direction: column;
-            }
-
-            .navbar a {
-                padding: 12px;
-                width: 100%;
-            }
-
-            .content {
-                padding: 15px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .navbar a {
-                font-size: 14px;
-            }
-
-            .content {
-                padding: 10px;
-            }
-        }
+        /* Use the same <style> block from index.html above */
     </style>
 </head>
 <body>
@@ -117,24 +15,39 @@
         <a href="index.html">Home</a>
         <a class="active" href="qa-journey.html">QA Journey</a>
         <a href="CS-journey.html">Computer Science Journey</a>
-        <!-- Add more tabs here as needed -->
     </div>
 
     <!-- QA Journey Content -->
     <div class="content">
         <h1>My QA Journey</h1>
-        <ul>
-            <li>Year 1: [experience]</li>
-            <li>Year 2: [experience]</li>
-            <li>Projects: [projects]</li>
-        </ul>
-        <p>to be filled....</p>
-
-        <br><hr><hr><br>
+        <p>Here you can add your QA journey details:</p>
+        <div class="no-bullets-list">
+            <p>Year 1: [Your experience]</p>
+            <p>Year 2: [Your experience]</p>
+            <p>Projects: [Your projects]</p>
+        </div>
+            <p>To be filled....</p>
+        
         <div class="journey-links">
             <p><b>Explore other journeys:</b></p>
             <p>Return to <a href="index.html">Home</a> for an overview.</p>
-            <p>Check out my <a href="CS-journey.html">Computer Science Journey</a> for CS projects.</p>
+            <p>Check out my <a href="CS-journey.html">Computer Science Journey</a> for CS experiences.</p>
+        </div>
+
+        <br><h3>Contact Information</h3>
+        <div class="contact-info">
+            <div class="contact-item">
+                <img src="./repo/mail-icon.svg" alt="Email" class="contact-icon">
+                <a href="mailto:amirhsamson93@gmail.com" class="contact-link">amirhsamson93@gmail.com</a>
+            </div>
+            <div class="contact-item">
+                <img src="./repo/linkedin-icon.svg" alt="LinkedIn" class="contact-icon">
+                <a href="https://www.linkedin.com/in/amir-samson/" class="contact-link">LinkedIn page</a>
+            </div>
+            <div class="contact-item">
+                <img src="./repo/github-icon.svg" alt="GitHub" class="contact-icon">
+                <a href="https://github.com/AmirSamson/" class="contact-link">GitHub page</a>
+            </div>
         </div>
     </div>
 </body>
