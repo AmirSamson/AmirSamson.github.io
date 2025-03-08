@@ -87,7 +87,7 @@
             left: 50%;
             width: 4px;
             height: 100%;
-            background: linear-gradient(to bottom, #a00326, #333); /* Gradient timeline line */
+            background: linear-gradient(to bottom, #a00326, #333);
             transform: translateX(-50%);
             z-index: 0;
         }
@@ -110,19 +110,8 @@
             transform: translateY(0);
         }
 
-        .timeline-section::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 16px;
-            height: 16px;
-            background-color: #a00326;
-            border-radius: 50%;
-            transform: translate(-50%, -50%);
-            box-shadow: 0 0 8px rgba(160, 3, 38, 0.5);
-            z-index: 2;
-        }
+        /* Removed the ::before pseudo-element that created the red dot */
+        /* .timeline-section::before { ... } */
 
         .timeline-section h3 {
             margin-bottom: 16px;
@@ -259,17 +248,12 @@
             }
 
             .timeline::before {
-                left: 24px; /* Move timeline line to the left on mobile */
+                left: 24px;
             }
 
             .timeline-section {
                 margin: 24px 0;
                 padding: 16px;
-            }
-
-            .timeline-section::before {
-                left: 24px;
-                transform: translateY(-50%);
             }
 
             .navbar a:hover, .journey-links a:hover, .contact-item:hover, .contact-icon:hover {
@@ -395,7 +379,7 @@
         // Function to handle scroll animation for timeline sections
         function handleScroll() {
             const sections = document.querySelectorAll('.timeline-section');
-            const triggerPoint = window.innerHeight * 0.8; // Trigger animation when 80% of the section is in view
+            const triggerPoint = window.innerHeight * 0.8;
 
             sections.forEach(section => {
                 const sectionTop = section.getBoundingClientRect().top;
@@ -405,10 +389,7 @@
             });
         }
 
-        // Add scroll event listener
         window.addEventListener('scroll', handleScroll);
-
-        // Trigger on page load to catch sections already in view
         window.addEventListener('load', handleScroll);
     </script>
 </body>
