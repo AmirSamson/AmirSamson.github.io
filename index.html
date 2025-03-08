@@ -14,20 +14,19 @@
         }
 
         body {
-            font-family: 'Roboto', Arial, sans-serif; /* Material Design font */
+            font-family: 'Roboto', Arial, sans-serif;
             line-height: 1.6;
-            background-color: #000000; /* Black background */
-            color: #ffffff; /* White text */
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* Material Design easing */
+            background-color: #000000;
+            color: #ffffff;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        /* Load Roboto font from Google Fonts */
         @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
 
-        /* Navbar styling (Material Design App Bar) */
+        /* Navbar styling */
         .navbar {
-            background-color: #333; /* Dark gray for app bar */
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Material shadow */
+            background-color: #333;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
             overflow: hidden;
             display: flex;
             flex-wrap: wrap;
@@ -38,40 +37,40 @@
         }
 
         .navbar a {
-            color: #ffffff; /* White text for navbar links */
+            color: #ffffff;
             text-align: center;
             padding: 14px 16px;
             text-decoration: none;
             font-size: clamp(14px, 4vw, 17px);
-            font-weight: 500; /* Medium weight for Material Design */
+            font-weight: 500;
             flex-grow: 1;
             position: relative;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* Material easing */
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .navbar a:hover {
-            background-color: #555; /* Slightly lighter gray on hover */
-            color: #ffffff; /* Keep text white on hover */
-            transform: translateY(-2px); /* Material lift effect */
-            box-shadow: 0 2px 4px rgba(255, 255, 255, 0.2); /* Subtle white glow */
+            background-color: #555;
+            color: #ffffff;
+            transform: translateY(-2px);
+            box-shadow: 0 2px 4px rgba(255, 255, 255, 0.2);
         }
 
         .navbar a.active {
-            background-color: #a00326; /* Custom active tab color (Material primary) */
+            background-color: #a00326;
             color: #ffffff;
-            box-shadow: 0 2px 4px rgba(160, 3, 38, 0.4); /* Material shadow for active */
+            box-shadow: 0 2px 4px rgba(160, 3, 38, 0.4);
         }
 
-        /* Content styling (Material Card-like) */
+        /* Content styling */
         .content {
-            padding: 24px; /* Material padding (24px is a common unit) */
+            padding: 24px;
             text-align: center;
             max-width: 1200px;
             margin: 0 auto;
-            background: transparent; /* No background for content, just elevation */
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Material shadow for elevation */
-            border-radius: 4px; /* Slight rounding for Material Design */
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* Material easing */
+            background: transparent;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            border-radius: 4px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .profile-img {
@@ -79,114 +78,153 @@
             max-width: 200px;
             height: auto;
             border-radius: 50%;
-            margin: 24px auto; /* Material padding */
+            margin: 24px auto;
             display: block;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Enhanced Material shadow */
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* Material easing */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .profile-img:hover {
-            transform: translateY(-4px); /* Material lift effect */
-            box-shadow: 0 8px 16px rgba(160, 3, 38, 0.4); /* Enhanced #a00326 glow */
+            transform: translateY(-4px);
+            box-shadow: 0 8px 16px rgba(160, 3, 38, 0.4);
         }
 
-        .journey-links a {
-            color: #a00326; /* Matching active tab color for links (Material primary) */
-            text-decoration: none;
-            font-weight: 500; /* Medium weight for Material Design */
+        /* Timeline styling */
+        .timeline {
             position: relative;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* Material easing */
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 24px 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(to bottom, #a00326, #333);
+            transform: translateX(-50%);
+            z-index: 0;
+        }
+
+        .timeline-section {
+            position: relative;
+            margin: 48px 0;
+            padding: 24px;
+            background-color: #333;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 1;
+        }
+
+        .timeline-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Removed the ::before pseudo-element that created the red dot */
+        /* .timeline-section::before { ... } */
+
+        .timeline-section h2, .timeline-section h3 {
+            margin-bottom: 16px;
+            font-size: clamp(1.25rem, 4vw, 1.75rem);
+            font-weight: 500;
+            color: #a00326;
+        }
+
+        .timeline-section p {
+            font-size: clamp(1rem, 3vw, 1.2rem);
+            margin-bottom: 16px;
+            font-weight: 400;
+        }
+
+        .no-bullets-list p {
+            font-size: clamp(1rem, 3vw, 1.2rem);
+            margin-bottom: 16px;
+            text-align: center;
+            font-weight: 400;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .no-bullets-list p:hover {
+            color: #a00326;
+            transform: translateY(-2px);
+            text-shadow: 0 2px 4px rgba(160, 3, 38, 0.3);
+        }
+
+        /* Journey links */
+        .journey-links a {
+            color: #a00326;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .journey-links a:hover {
             text-decoration: underline;
-            color: #ffffff; /* White on hover for contrast */
-            text-shadow: 0 2px 4px rgba(255, 255, 255, 0.3); /* Subtle white glow */
-            transform: translateY(-2px); /* Material lift effect */
+            color: #ffffff;
+            text-shadow: 0 2px 4px rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
         }
 
-        h1, h2, h3 {
-            margin-bottom: 16px; /* Material spacing */
-            font-size: clamp(1.5rem, 5vw, 2.5rem);
-            font-weight: 500; /* Medium weight for Material Design */
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* Material easing */
-        }
-
-        p {
-            font-size: clamp(1rem, 3vw, 1.2rem);
-            margin-bottom: 16px; /* Material spacing */
-            font-weight: 400; /* Regular weight for Material Design */
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* Material easing */
-        }
-
-        .no-bullets-list p {
-            font-size: clamp(1rem, 3vw, 1.2rem); /* Match paragraph font size */
-            margin-bottom: 16px; /* Material spacing */
-            text-align: center;
-            font-weight: 400; /* Regular weight for Material Design */
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* Material easing */
-        }
-
-        .no-bullets-list p:hover {
-            color: #a00326; /* Highlight with active tab color on hover */
-            transform: translateY(-2px); /* Material lift effect */
-            text-shadow: 0 2px 4px rgba(160, 3, 38, 0.3); /* Subtle #a00326 glow */
-        }
-
-        /* Contact section styling (Material Cards) */
+        /* Contact section styling */
         .contact-info {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 16px; /* Material spacing */
-            margin-top: 24px; /* Material padding */
+            gap: 16px;
+            margin-top: 24px;
         }
 
         .contact-item {
             display: flex;
             align-items: center;
-            background-color: #333; /* Matching navbar background for contrast */
-            padding: 12px 16px; /* Material padding */
-            border-radius: 8px; /* Material rounded corners */
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Material shadow */
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* Material easing */
+            background-color: #333;
+            padding: 12px 16px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .contact-item:hover {
-            background-color: #a00326; /* Active tab color on hover (Material primary) */
-            transform: translateY(-4px); /* Material lift effect */
-            box-shadow: 0 4px 8px rgba(160, 3, 38, 0.4); /* Enhanced #a00326 shadow */
+            background-color: #a00326;
+            transform: translateY(-4px);
+            box-shadow: 0 4px 8px rgba(160, 3, 38, 0.4);
         }
 
         .contact-icon {
-            width: 20px; /* Material icon size */
+            width: 20px;
             height: auto;
             vertical-align: middle;
-            margin-right: 12px; /* Material spacing */
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* Material easing */
+            margin-right: 12px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .contact-icon:hover {
-            transform: scale(1.1); /* Slight zoom on hover */
-            filter: brightness(150%); /* Brighten the icon slightly */
+            transform: scale(1.1);
+            filter: brightness(150%);
         }
 
         .contact-link {
-            color: #ffffff; /* White text for links */
+            color: #ffffff;
             text-decoration: none;
             font-size: clamp(1rem, 3vw, 1.1rem);
-            font-weight: 500; /* Medium weight for Material Design */
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* Material easing */
+            font-weight: 500;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .contact-link:hover {
-            color: #ffffff; /* White on hover for contrast (Material Design often keeps link color consistent) */
+            color: #ffffff;
             text-decoration: underline;
-            text-shadow: 0 2px 4px rgba(255, 255, 255, 0.3); /* Subtle white glow */
+            text-shadow: 0 2px 4px rgba(255, 255, 255, 0.3);
         }
 
-        /* Media Queries for Responsiveness (Material Design breakpoints) */
-        @media (max-width: 600px) { /* Material Design breakpoint for mobile */
+        /* Media Queries for Responsiveness */
+        @media (max-width: 600px) {
             .navbar {
                 flex-direction: column;
             }
@@ -197,63 +235,60 @@
             }
 
             .content {
-                padding: 16px; /* Reduced Material padding */
+                padding: 16px;
             }
 
             .profile-img {
                 max-width: 150px;
             }
 
-            .contact-info {
-                flex-direction: column; /* Stack items on mobile */
-                gap: 12px; /* Reduced spacing on mobile */
+            .timeline::before {
+                left: 24px;
             }
 
-            .navbar a:hover {
-                transform: translateY(-1px); /* Reduced lift on mobile */
-                box-shadow: 0 1px 2px rgba(255, 255, 255, 0.2); /* Smaller glow */
+            .timeline-section {
+                margin: 24px 0;
+                padding: 16px;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .navbar a:hover, .journey-links a:hover, .no-bullets-list p:hover, .contact-item:hover, .contact-icon:hover {
+                transform: translateY(-1px);
+                box-shadow: 0 1px 2px rgba(255, 255, 255, 0.2);
             }
 
             .profile-img:hover {
-                transform: translateY(-2px); /* Reduced lift on mobile */
-                box-shadow: 0 4px 8px rgba(160, 3, 38, 0.4); /* Smaller shadow */
-            }
-
-            .journey-links a:hover {
-                transform: translateY(-1px); /* Reduced lift on mobile */
-            }
-
-            .no-bullets-list p:hover {
-                transform: translateY(-1px); /* Reduced lift on mobile */
-            }
-
-            .contact-item:hover {
-                transform: translateY(-2px); /* Reduced lift on mobile */
-                box-shadow: 0 2px 4px rgba(160, 3, 38, 0.4); /* Smaller shadow */
-            }
-
-            .contact-icon:hover {
-                transform: scale(1.05); /* Reduced zoom on mobile */
+                transform: translateY(-2px);
+                box-shadow: 0 4px 8px rgba(160, 3, 38, 0.4);
             }
         }
 
-        @media (max-width: 360px) { /* Extra small screens */
+        @media (max-width: 360px) {
             .navbar a {
                 font-size: 14px;
             }
 
             .content {
-                padding: 12px; /* Minimal padding on very small screens */
+                padding: 12px;
             }
 
             .profile-img {
                 max-width: 120px;
             }
 
+            .timeline-section {
+                margin: 16px 0;
+                padding: 12px;
+            }
+
             .navbar a:hover, .profile-img:hover, .journey-links a:hover, .no-bullets-list p:hover, .contact-item:hover, .contact-icon:hover {
-                transform: none; /* Remove hover effects on very small screens */
-                box-shadow: none; /* No glow on very small screens */
-                text-shadow: none; /* No text glow on very small screens */
+                transform: none;
+                box-shadow: none;
+                text-shadow: none;
             }
         }
     </style>
@@ -264,59 +299,75 @@
         <a class="active" href="index.html">Home</a>
         <a href="qa-journey.html">QA Journey</a>
         <a href="CS-journey.html">Computer Science Journey</a>
-        <!-- Add more tabs here as needed -->
     </div>
 
     <!-- Home Page Content -->
     <div class="content">
         <h1>Welcome to My Journey</h1>
-        <img src="./repo/Am S-hoodie.jpg" alt="Am-S-2" width="200" height="260" alt="Profile Picture" class="profile-img">
-        <h2>About Me</h2>
-        <p>Hi my name is Amir Sasani (Samson). I am a QA Engineer, a Machine Learning enthusiast, and a programmer to be. While I am a life-long learner, I am also a curious adventurer for poking the system to find its thresholds, with a passion for new technologies!</p>
-        <br>
-        <p><b>Entry 1 – Where It All Started</b> 😄</p>
-        <p>My QA journey began with a simple app crash — a small glitch ✏️ that sparked a lifelong obsession with quality. Testing quickly became more than a job; it was a curiosity-driven mission to uncover why things break and how to prevent it.</p>
+        <img src="./repo/Am S-hoodie.jpg" alt="Am-S-2" width="200" height="260" class="profile-img">
 
-        <br>
-        <p><b>Entry 2 – Tools & Growth </b> 🛠️</p>
-        <p>Over the past 8 years, I’ve tested mobile apps, web platforms, macOS, and Windows software — learning the ins and outs of:</p>
-      
-        <div class="no-bullets-list">
-            <p>Test planning & case design 📋</p>
-            <p>Manual, API, and automated testing (Postman, Playwright, K6) 🤖</p>
-            <p>CI/CD pipelines & SQL for deep dives into data 📊</p>
+        <div class="timeline">
+            <!-- Introduction -->
+            <div class="timeline-section">
+                <h2>About Me</h2>
+                <p>Hi, my name is Amir Sasani (Samson). I am a QA Engineer, a Machine Learning enthusiast, and a programmer-to-be. While I am a lifelong learner, I am also a curious adventurer, always poking the system to find its thresholds, with a passion for new technologies!</p>
+            </div>
+
+            <!-- Entry 1 -->
+            <div class="timeline-section">
+                <h3>Entry 1 – Where It All Started 😄</h3>
+                <p>My QA journey began with a simple app crash — a small glitch ✏️ that sparked a lifelong obsession with quality. Testing quickly became more than a job; it was a curiosity-driven mission to uncover why things break and how to prevent it.</p>
+            </div>
+
+            <!-- Entry 2 -->
+            <div class="timeline-section">
+                <h3>Entry 2 – Tools & Growth 🛠️</h3>
+                <p>Over the past 8 years, I’ve tested mobile apps, web platforms, macOS, and Windows software — learning the ins and outs of:</p>
+                <div class="no-bullets-list">
+                    <p>Test planning & case design 📋</p>
+                    <p>Manual, API, and automated testing (Postman, Playwright, K6) 🤖</p>
+                    <p>CI/CD pipelines & SQL for deep dives into data 📊</p>
+                </div>
+                <p>I also discovered the joy of mentoring junior testers 🎓 and shaping processes that make QA a team responsibility, not a last-minute checkpoint ⏰.</p>
+            </div>
+
+            <!-- Entry 3 -->
+            <div class="timeline-section">
+                <h3>Entry 3 – Quality Beyond Bugs 🌟</h3>
+                <p>For me, QA isn’t just about finding defects — it’s about protecting the user experience. Every test is a chance to make sure someone out there has a seamless, frustration-free interaction 😊.</p>
+                <p>That’s the part that keeps me passionate — because great experiences start with great quality ✅.</p>
+            </div>
+
+            <!-- Approaches to Teamwork -->
+            <div class="timeline-section">
+                <h3>Approaches to Teamwork</h3>
+                <p>Collaboration and open communication are at the heart of my teamwork philosophy. I strongly believe in the power of a diverse team working together, collaborating, facing challenges, communicating, and believing in team spirit, to come up with innovative solutions. By fostering an environment of trust, respect, and transparency, I strive to build strong relationships with team members and create a positive work culture.</p>
+            </div>
+
+            <!-- Hobbies and Interests -->
+            <div class="timeline-section">
+                <h3>My Hobbies and Interests</h3>
+                <p>In my so-called <b>“Free-time”</b> I am occupied with many things. Doing workouts (Calisthenics or Weight Training), Playing guitar (You can see me playing the guitar in any given free time - on Vacation, after working hours, right before I go to sleep, right after I have lunch, or around a campfire 😄). I enjoy music a lot, and I believe what seasons this thing that we call <b>Life</b>, is music which swiftly floats our presence from one scene to another. (getting poetic back there 😄)</p>
+                <p>I also like reading, listening to podcasts, especially Neuroscience, making good <b>coffee</b>, writing, cooking, jogging, and watching Super-Hero movies and Anime Series. Boy… I have to confess, <b>Anime</b> is the other thing which surely satisfies me. I like Silence. You know, like mountains-like silence. Silence and Philosophy.</p>
+                <p>I can pretty much say I like everything and nothing; I may seem simple on the outside, but I am complicated on the inside, so to speak. Anyways, thanks for reading. This says pretty much everything about Me.</p>
+                <p>Hope you enjoyed!</p>
+            </div>
+
+            <!-- Call to Action -->
+            <div class="timeline-section">
+                <h3>Explore More!</h3>
+                <p><b>Now, wanna know my journey in detail? Check out the other tabs!</b></p>
+            </div>
         </div>
-        <p>I also discovered the joy of mentoring junior testers 🎓 and shaping processes that make QA a team responsibility, not a last-minute checkpoint ⏰.</p>
 
-        <br>
-        <p><b>Entry 3 – Quality Beyond Bugs</b> 🌟</p>
-        <p>For me, QA isn’t just about finding defects — it’s about protecting the user experience. Every test is a chance to make sure someone out there has a seamless, frustration-free interaction 😊.</p>
-        <p>That’s the part that keeps me passionate — because great experiences start with great quality ✅.</p>
-
-        <br><hr><hr><br>
-        
-        <p><b>Approaches to Teamwork:</b></p>
-        <p>Collaboration and open communication are at the heart of my teamwork philosophy. I strongly believe in the power of a diverse team working together, collaborating, facing challenges, communicating, and believing in team spirit, to come up with innovative solutions. By fostering an environment of trust, respect, and transparency, I strive to build strong relationships with team members and create a positive work culture.</p>
-        
-        <br><p><b>My Hobbies and Interests:</b></p>
-        <p>In my so-called <b>“Free-time”</b> I am occupied with many things. Doing workouts (Calisthenics or Weight Training), Playing guitar (You can see me playing the guitar in any given free time - on Vacation, after working hours, right before I go to sleep, right after I have lunch, or around a campfire 😄). I enjoy music a lot, and I believe what seasons this thing that we call <b>Life</b>, is music which swiftly floats our presence from one scene to another. (getting poetic back there 😄)</p>
-        
-        <p>I also like reading, listening to podcasts, especially Neuroscience, making good <b>coffee</b>, writing, cooking, jogging, and watching Super-Hero movies and Anime Series. Boy… I have to confess, <b>Anime</b> is the other thing which surely satisfies me. I like Silence. You know, like mountains-like silence. Silence and Philosophy.</p>
-
-        <p>I can pretty much say I like everything and nothing; I may seem simple on the outside, but I am complicated on the inside, so to speak. Anyways, thanks for reading. This says pretty much everything about Me.</p>
-
-        <p>Hope you enjoyed!</p>
-        
-        <br><p><b>Now, wanna know my journey in details?? Check out other tabs!</b></p>
-        <br><hr><hr><br>
-        
+        <!-- Journey Links -->
         <div class="journey-links">
             <p><b>Explore my journeys:</b></p>
             <p>Check out my <a href="qa-journey.html">QA Journey</a> to see my experiences in Quality Assurance.</p>
-            <p>Dive into my <a href="CS-journey.html">Computer Science Journey</a> to explore about my journey in CS.</p>
-            <!-- Add more journey links here as needed -->
+            <p>Dive into my <a href="CS-journey.html">Computer Science Journey</a> to explore my journey in CS.</p>
         </div>
 
+        <!-- Contact Information -->
         <br><h3>Contact Information</h3>
         <div class="contact-info">
             <div class="contact-item">
@@ -333,5 +384,24 @@
             </div>
         </div>
     </div>
+
+    <!-- JavaScript for Scroll Animation -->
+    <script>
+        // Function to handle scroll animation for timeline sections
+        function handleScroll() {
+            const sections = document.querySelectorAll('.timeline-section');
+            const triggerPoint = window.innerHeight * 0.8;
+
+            sections.forEach(section => {
+                const sectionTop = section.getBoundingClientRect().top;
+                if (sectionTop < triggerPoint) {
+                    section.classList.add('visible');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', handleScroll);
+        window.addEventListener('load', handleScroll);
+    </script>
 </body>
 </html>
