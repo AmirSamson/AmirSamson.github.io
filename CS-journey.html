@@ -14,78 +14,213 @@
         }
 
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Roboto', Arial, sans-serif; /* Material Design font */
             line-height: 1.6;
-            background-color: #000000; /* Black background */
-            color: #ffffff; /* White text */
+            background-color: #000000;
+            color: #ffffff;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
+
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
 
         /* Navbar styling */
         .navbar {
             background-color: #333;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
             overflow: hidden;
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
 
         .navbar a {
-            color: #ffffff; /* White text for navbar links */
+            color: #ffffff;
             text-align: center;
             padding: 14px 16px;
             text-decoration: none;
             font-size: clamp(14px, 4vw, 17px);
+            font-weight: 500;
             flex-grow: 1;
+            position: relative;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .navbar a:hover {
-            background-color: #555; /* Slightly lighter gray on hover */
-            color: #ffffff; /* Keep text white on hover */
+            background-color: #555;
+            color: #ffffff;
+            transform: translateY(-2px);
+            box-shadow: 0 2px 4px rgba(255, 255, 255, 0.2);
         }
 
         .navbar a.active {
-            background-color: #a00326; /* Custom active tab color */
+            background-color: #a00326;
             color: #ffffff;
+            box-shadow: 0 2px 4px rgba(160, 3, 38, 0.4);
         }
 
         /* Content styling */
         .content {
-            padding: 20px;
+            padding: 24px;
             text-align: center;
             max-width: 1200px;
             margin: 0 auto;
+            background: transparent;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            border-radius: 4px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Timeline styling */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 24px 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(to bottom, #a00326, #333);
+            transform: translateX(-50%);
+            z-index: 0;
+        }
+
+        .timeline-section {
+            position: relative;
+            margin: 48px 0;
+            padding: 24px;
+            background-color: #333;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 1;
+        }
+
+        .timeline-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Removed the ::before pseudo-element that created the red dot */
+        /* .timeline-section::before { ... } */
+
+        .timeline-section h2, .timeline-section h3 {
+            margin-bottom: 16px;
+            font-size: clamp(1.25rem, 4vw, 1.75rem);
+            font-weight: 500;
+            color: #a00326;
+        }
+
+        .timeline-section p {
+            font-size: clamp(1rem, 3vw, 1.2rem);
+            margin-bottom: 16px;
+            font-weight: 400;
+        }
+
+        .timeline-section ul {
+            list-style: none;
+            text-align: left;
+            max-width: 600px;
+            margin: 0 auto 16px;
+        }
+
+        .timeline-section ul li {
+            font-size: clamp(1rem, 3vw, 1.2rem);
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 24px;
+        }
+
+        .timeline-section ul li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: #a00326;
+            font-size: 1.5rem;
+        }
+
+        /* Journey links */
+        .journey-links {
+            margin-top: 24px;
         }
 
         .journey-links a {
-            color: #a00326; /* Matching active tab color for links */
+            color: #a00326;
             text-decoration: none;
-            font-weight: bold;
+            font-weight: 500;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .journey-links a:hover {
             text-decoration: underline;
-            color: #ffffff; /* White on hover for contrast */
+            color: #ffffff;
+            text-shadow: 0 2px 4px rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
         }
 
-        h1, h2, h3 {
-            margin-bottom: 15px;
-            font-size: clamp(1.5rem, 5vw, 2.5rem);
+        /* Contact section styling */
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 16px;
+            margin-top: 24px;
         }
 
-        p {
-            font-size: clamp(1rem, 3vw, 1.2rem);
-            margin-bottom: 10px;
+        .contact-item {
+            display: flex;
+            align-items: center;
+            background-color: #333;
+            padding: 12px 16px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        ul {
-            list-style-position: inside;
-            margin: 0 auto;
-            max-width: 600px;
-            text-align: left;
+        .contact-item:hover {
+            background-color: #a00326;
+            transform: translateY(-4px);
+            box-shadow: 0 4px 8px rgba(160, 3, 38, 0.4);
+        }
+
+        .contact-icon {
+            width: 20px;
+            height: auto;
+            vertical-align: middle;
+            margin-right: 12px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .contact-icon:hover {
+            transform: scale(1.1);
+            filter: brightness(150%);
+        }
+
+        .contact-link {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: clamp(1rem, 3vw, 1.1rem);
+            font-weight: 500;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .contact-link:hover {
+            color: #ffffff;
+            text-decoration: underline;
+            text-shadow: 0 2px 4px rgba(255, 255, 255, 0.3);
         }
 
         /* Media Queries for Responsiveness */
-        @media (max-width: 768px) {
+        @media (max-width: 600px) {
             .navbar {
                 flex-direction: column;
             }
@@ -96,17 +231,47 @@
             }
 
             .content {
-                padding: 15px;
+                padding: 16px;
+            }
+
+            .timeline::before {
+                left: 24px;
+            }
+
+            .timeline-section {
+                margin: 24px 0;
+                padding: 16px;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .navbar a:hover, .journey-links a:hover, .contact-item:hover, .contact-icon:hover {
+                transform: translateY(-1px);
+                box-shadow: 0 1px 2px rgba(255, 255, 255, 0.2);
             }
         }
 
-        @media (max-width: 480px) {
+        @media (max-width: 360px) {
             .navbar a {
                 font-size: 14px;
             }
 
             .content {
-                padding: 10px;
+                padding: 12px;
+            }
+
+            .timeline-section {
+                margin: 16px 0;
+                padding: 12px;
+            }
+
+            .navbar a:hover, .journey-links a:hover, .contact-item:hover, .contact-icon:hover {
+                transform: none;
+                box-shadow: none;
+                text-shadow: none;
             }
         }
     </style>
@@ -117,36 +282,85 @@
         <a href="index.html">Home</a>
         <a href="qa-journey.html">QA Journey</a>
         <a class="active" href="CS-journey.html">Computer Science Journey</a>
-        <!-- Add more tabs here as needed -->
     </div>
 
-    <!-- ML Journey Content -->
+    <!-- CS Journey Content -->
     <div class="content">
         <h1>My Computer Science Journey</h1>
-        
-        <ul>
-            <li>Project 1: [Description]</li>
-            <li>Project 2: [Description]</li>
-            <li>Skills Learned: [List skills]</li>
+        <div class="timeline">
+            <!-- Introduction -->
+            <div class="timeline-section">
+                <h2>Where It All Began</h2>
+                <p>I started this journey because of a simple CAPTCHA. My interest in Computer Science was sparked during my early years as a QA Engineer. While writing a routine automation test for a login page, I encountered a CAPTCHA that halted the test. This curiosity led me to explore the technology behind it, igniting my passion for the field.</p>
+            </div>
 
-        </ul>
-        
-        <br><p>I started this all because of a simple CAPTCHA. To address this more accurately, my interest in embarking on a journey in Computer Science stems from the early years of my career as a QA engineer. 
-        While writing a routine automation test for a login page on a website, I noticed that the test run could not proceed any further, simply because of a CAPTCHA which was at the bottom of the page. 
-        This made me curious to research about CAPTCHA and its underlying technology. This exploration led me to understand the principles of image processing, pattern recognition, and optical character 
-        recognition (OCR) that underpin CAPTCHA systems. Moving on, I thought to myself if a robot/machine could learn the details of a picture and make a decision based on that, then what are the other 
-        applications of this magnificent technology and its applications. Fascinated by this technology, I delved into the realm of Augmented Reality (AR) and Virtual Reality (VR) and continued the research. 
-        Regarding that I hold 2 years of experience in the game industry as a Game designer and a QA Engineer, I knew for a fact that if I could dive deeper into Computer Vision as an academic study, I could 
-        understand and utilize this technology in a more advanced sense. Ultimately, I would be able to apply what I have gained, into the development of more immersive and realistic games utilizing 
-        computer vision, specifically AR and VR. </p>
-        <br>
-        
-        <br><hr><hr><br>
+            <!-- Exploration of CAPTCHA -->
+            <div class="timeline-section">
+                <h3>Exploring CAPTCHA Technology</h3>
+                <p>This exploration introduced me to image processing, pattern recognition, and optical character recognition (OCR)—the foundations of CAPTCHA systems. I wondered what other applications this technology could have, opening a new world of possibilities.</p>
+            </div>
+
+            <!-- Interest in AR/VR -->
+            <div class="timeline-section">
+                <h3>Diving into AR and VR</h3>
+                <p>Fascinated by this technology, I delved into Augmented Reality (AR) and Virtual Reality (VR). With my 2 years of experience in the game industry as a Game Designer and QA Engineer, I saw the potential to combine Computer Vision with game development for more immersive experiences.</p>
+            </div>
+
+            <!-- Projects and Skills -->
+            <div class="timeline-section">
+                <h3>Projects and Skills</h3>
+                <p>Here’s what I’ve been working on and learning along the way:</p>
+                <ul>
+                    <li>Project 1: [Description]</li>
+                    <li>Project 2: [Description]</li>
+                    <li>Skills Learned: [List skills]</li>
+                </ul>
+                <p>Ultimately, I aim to apply my knowledge of Computer Vision, specifically AR and VR, to create more immersive and realistic games, leveraging my background in the game industry.</p>
+            </div>
+        </div>
+
+        <!-- Journey Links -->
         <div class="journey-links">
             <p><b>Explore other journeys:</b></p>
             <p>Return to <a href="index.html">Home</a> for an overview.</p>
-            <p>Check out my <a href="qa-journey.html">QA Journey</a> for QA experience.</p>
+            <p>Check out my <a href="qa-journey.html">QA Journey</a> for QA experiences.</p>
+        </div>
+
+        <!-- Contact Information -->
+        <br><h3>Contact Information</h3>
+        <div class="contact-info">
+            <div class="contact-item">
+                <img src="./repo/mail-icon.svg" alt="Email" class="contact-icon">
+                <a href="mailto:amirhsamson93@gmail.com" class="contact-link">amirhsamson93@gmail.com</a>
+            </div>
+            <div class="contact-item">
+                <img src="./repo/linkedin-icon.svg" alt="LinkedIn" class="contact-icon">
+                <a href="https://www.linkedin.com/in/amir-samson/" class="contact-link">LinkedIn page</a>
+            </div>
+            <div class="contact-item">
+                <img src="./repo/github-icon.svg" alt="GitHub" class="contact-icon">
+                <a href="https://github.com/AmirSamson/" class="contact-link">GitHub page</a>
+            </div>
         </div>
     </div>
+
+    <!-- JavaScript for Scroll Animation -->
+    <script>
+        // Function to handle scroll animation for timeline sections
+        function handleScroll() {
+            const sections = document.querySelectorAll('.timeline-section');
+            const triggerPoint = window.innerHeight * 0.8;
+
+            sections.forEach(section => {
+                const sectionTop = section.getBoundingClientRect().top;
+                if (sectionTop < triggerPoint) {
+                    section.classList.add('visible');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', handleScroll);
+        window.addEventListener('load', handleScroll);
+    </script>
 </body>
 </html>
