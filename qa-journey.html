@@ -14,78 +14,237 @@
         }
 
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Roboto', Arial, sans-serif;
             line-height: 1.6;
-            background-color: #000000; /* Black background */
-            color: #ffffff; /* White text */
+            background-color: #000000;
+            color: #ffffff;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
+
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
 
         /* Navbar styling */
         .navbar {
             background-color: #333;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
             overflow: hidden;
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
 
         .navbar a {
-            color: #ffffff; /* White text for navbar links */
+            color: #ffffff;
             text-align: center;
             padding: 14px 16px;
             text-decoration: none;
             font-size: clamp(14px, 4vw, 17px);
+            font-weight: 500;
             flex-grow: 1;
+            position: relative;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .navbar a:hover {
-            background-color: #555; /* Slightly lighter gray on hover */
-            color: #ffffff; /* Keep text white on hover */
+            background-color: #555;
+            color: #ffffff;
+            transform: translateY(-2px);
+            box-shadow: 0 2px 4px rgba(255, 255, 255, 0.2);
         }
 
         .navbar a.active {
-            background-color: #a00326; /* Custom active tab color */
+            background-color: #a00326;
             color: #ffffff;
+            box-shadow: 0 2px 4px rgba(160, 3, 38, 0.4);
         }
 
         /* Content styling */
         .content {
-            padding: 20px;
+            padding: 24px;
             text-align: center;
             max-width: 1200px;
             margin: 0 auto;
+            background: transparent;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            border-radius: 4px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Timeline styling */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 24px 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(to bottom, #a00326, #333); /* Gradient timeline line */
+            transform: translateX(-50%);
+            z-index: 0;
+        }
+
+        .timeline-section {
+            position: relative;
+            margin: 48px 0;
+            padding: 24px;
+            background-color: #333;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 1;
+        }
+
+        .timeline-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .timeline-section::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 16px;
+            height: 16px;
+            background-color: #a00326;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 0 8px rgba(160, 3, 38, 0.5);
+            z-index: 2;
+        }
+
+        .timeline-section h3 {
+            margin-bottom: 16px;
+            font-size: clamp(1.25rem, 4vw, 1.75rem);
+            font-weight: 500;
+            color: #a00326;
+        }
+
+        .timeline-section p {
+            font-size: clamp(1rem, 3vw, 1.2rem);
+            margin-bottom: 16px;
+            font-weight: 400;
+        }
+
+        .timeline-section a {
+            color: #a00326;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .timeline-section a:hover {
+            text-decoration: underline;
+            color: #ffffff;
+            text-shadow: 0 2px 4px rgba(255, 255, 255, 0.3);
+        }
+
+        .timeline-section ul {
+            list-style: none;
+            text-align: left;
+            max-width: 600px;
+            margin: 0 auto 16px;
+        }
+
+        .timeline-section ul li {
+            font-size: clamp(1rem, 3vw, 1.2rem);
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 24px;
+        }
+
+        .timeline-section ul li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: #a00326;
+            font-size: 1.5rem;
+        }
+
+        /* Journey links */
+        .journey-links {
+            margin-top: 24px;
         }
 
         .journey-links a {
-            color: #a00326; /* Matching active tab color for links */
+            color: #a00326;
             text-decoration: none;
-            font-weight: bold;
+            font-weight: 500;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .journey-links a:hover {
             text-decoration: underline;
-            color: #ffffff; /* White on hover for contrast */
+            color: #ffffff;
+            text-shadow: 0 2px 4px rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
         }
 
-        h1, h2, h3 {
-            margin-bottom: 15px;
-            font-size: clamp(1.5rem, 5vw, 2.5rem);
+        /* Contact section styling */
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 16px;
+            margin-top: 24px;
         }
 
-        p {
-            font-size: clamp(1rem, 3vw, 1.2rem);
-            margin-bottom: 10px;
+        .contact-item {
+            display: flex;
+            align-items: center;
+            background-color: #333;
+            padding: 12px 16px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        ul {
-            list-style-position: inside;
-            margin: 0 auto;
-            max-width: 600px;
-            text-align: left;
+        .contact-item:hover {
+            background-color: #a00326;
+            transform: translateY(-4px);
+            box-shadow: 0 4px 8px rgba(160, 3, 38, 0.4);
+        }
+
+        .contact-icon {
+            width: 20px;
+            height: auto;
+            vertical-align: middle;
+            margin-right: 12px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .contact-icon:hover {
+            transform: scale(1.1);
+            filter: brightness(150%);
+        }
+
+        .contact-link {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: clamp(1rem, 3vw, 1.1rem);
+            font-weight: 500;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .contact-link:hover {
+            color: #ffffff;
+            text-decoration: underline;
+            text-shadow: 0 2px 4px rgba(255, 255, 255, 0.3);
         }
 
         /* Media Queries for Responsiveness */
-        @media (max-width: 768px) {
+        @media (max-width: 600px) {
             .navbar {
                 flex-direction: column;
             }
@@ -96,17 +255,47 @@
             }
 
             .content {
-                padding: 15px;
+                padding: 16px;
+            }
+
+            .timeline::before {
+                left: 24px; /* Move timeline line to the left on mobile */
+            }
+
+            .timeline-section {
+                margin: 24px 0;
+                padding: 16px;
+            }
+
+            .timeline-section::before {
+                left: 24px;
+                transform: translateY(-50%);
+            }
+
+            .navbar a:hover, .journey-links a:hover, .contact-item:hover, .contact-icon:hover {
+                transform: translateY(-1px);
+                box-shadow: 0 1px 2px rgba(255, 255, 255, 0.2);
             }
         }
 
-        @media (max-width: 480px) {
+        @media (max-width: 360px) {
             .navbar a {
                 font-size: 14px;
             }
 
             .content {
-                padding: 10px;
+                padding: 12px;
+            }
+
+            .timeline-section {
+                margin: 16px 0;
+                padding: 12px;
+            }
+
+            .navbar a:hover, .journey-links a:hover, .contact-item:hover, .contact-icon:hover {
+                transform: none;
+                box-shadow: none;
+                text-shadow: none;
             }
         }
     </style>
@@ -117,26 +306,110 @@
         <a href="index.html">Home</a>
         <a class="active" href="qa-journey.html">QA Journey</a>
         <a href="CS-journey.html">Computer Science Journey</a>
-        <!-- Add more tabs here as needed -->
     </div>
 
     <!-- QA Journey Content -->
     <div class="content">
         <h1>My QA Journey</h1>
-        <ul>
-            <li>Year 1: [experience]</li>
-            <li>Year 2: [experience]</li>
-            <li>Projects: [projects]</li>
-        </ul>
-        <p>Add more paragraphs, images, or sections as needed!</p>
-        <p>to be filled....</p>
+        <div class="timeline">
+            <!-- Fanafzar - FanGames -->
+            <div class="timeline-section">
+                <h3>Fanafzar - FanGames</h3>
+                <p>My QA journey kicked off at Fanafzar - FanGames as a QA Tester and Localization Tester. We were in the business of publishing and localizing games—over 30 titles from companies worldwide! We didn’t stick to one genre; we covered everything: Action, MMO, RPG, Sports (Soccer, NBA, you name it), and more. Some of the titles I worked on included:</p>
+                <p>OverKill 3, Top Farm, Farm Town, Farm Paradise, Crime Coast, Mad Tanks, Nova Empire, البطال شرق - Rise of Heroes, Defense Zone 3, Dragon Ninjas, CandyDash, Warzone Clash of Generals, Lewandowski: Football Star, Best Bug Brawl, Vip Hokm (by CASUALINO), KillTwins: Football Game, and NBA General Manager 2019.</p>
+                <p>This experience gave me a bird’s-eye view of game testing across different genres. I learned how to adapt to various game mechanics and ensure quality in diverse contexts.</p>
+                <p>Later, we developed two Hybrid Cloud-Based Game-Marketplace Android apps: <a href="https://web.archive.org/web/20190613232601/http://www.bazigushi.com/">BaziGushi</a> and <a href="http://porbazi.com/">Porbazi</a>, published on Iranian Android marketplaces like Cafe Bazar and Myket. This was my first real dive into testing Android apps, and I performed quality verification (QV) for both. Unfortunately, we faced a massive competitor with deep pockets for advertising, and despite our efforts, we couldn’t secure investor backing. The project shut down after a few weeks—a tough but valuable lesson in the competitive tech landscape.</p>
+            </div>
 
-        <br><hr><hr><br>
+            <!-- Simulator Developer AKA Zorvan -->
+            <div class="timeline-section">
+                <h3>Simulator Developer AKA Zorvan</h3>
+                <p>My next chapter took me to <a href="https://web.archive.org/web/20180830171458/http://simulator.ir/games/">Simulator Developer</a> (also known as <a href="https://web.archive.org/web/20170714111201/http://www.zorvangamestudio.com/">Zorvan Game Studio</a>). You can find an <a href="https://pitchbook.com/profiles/company/483860-80#overview">overview on Pitchbook</a>, as their website is no longer active. This was my first real experience in a proper game studio, and it was a game-changer—pun intended!</p>
+                <p>We worked on two mobile game projects: <a href="https://web.archive.org/web/20210516171858/http://zorvangamestudio.com/portfolio/tactics-game/">Tactics</a>, a real-time strategy game similar to Boom Beach, and <a href="http://web.archive.org/web/20210516183427/http://zorvangamestudio.com/portfolio/rastak-game/">Northern Farm</a>, a farming simulation game. Each project had its unique challenges, and I was mesmerized by the magic of game design.</p>
+                <p>While honing my QA skills, I dove deep into game mechanics, dynamics, and the behind-the-scenes magic. I became fascinated by the role of data in game design—statistics were everything! Data revealed players’ feelings, tastes, and preferences, guiding us on how to enhance their experience. It also showed us how campaigns and Live Operations impacted retention rates. However, data couldn’t fully explain why players churned, which remained a puzzle for game designers. I loved this challenge—it felt like a game within a game, a constant momentum of beating your own record to win more players or starting over.</p>
+                <p>I took several courses on game design to better understand how games are built and kept alive, which enriched my QA perspective and made me a more well-rounded tester.</p>
+            </div>
+
+            <!-- Alpha Cloud -->
+            <div class="timeline-section">
+                <h3>Alpha Cloud</h3>
+                <p>Sadly, Zorvan Game Studio disbanded, so I packed my bags and moved to <a href="https://playpod.ir/about/?lang=en">Playpod</a>, a company under the Eastern Wind umbrella (later acquired by <a href="https://www.alphaco.cloud/">Alpha Cloud</a>). Playpod was a groundbreaking Cloud-Gaming platform for eSports—the first cloud gaming console in the Middle East! It allowed players to enjoy top-ranked games for free on their phones (iOS and Android) or web browsers, without needing consoles like Xbox or PlayStation.</p>
+                <p>I joined as a QA Engineer and deepened my understanding of the Software Development Life Cycle (SDLC) and QA fundamentals. Working on Playpod exposed me to the technologies behind cloud platforms and cloud gaming. I honed my skills in ensuring seamless user experiences on a platform that demanded high performance and reliability, which was both challenging and rewarding.</p>
+            </div>
+
+            <!-- ICE GLOBAL -->
+            <div class="timeline-section">
+                <h3>ICE GLOBAL</h3>
+                <p>When I joined ICE Global, I thought QA would be straightforward—test features, report bugs, and move on. But I quickly learned that at ICE, quality was everyone’s job, and I became the voice of that quality.</p>
+                <p>I didn’t just test tickets; I lived inside them. I scrutinized user stories, challenged unclear requirements, double-checked designs, and hunted down edge cases no one else considered. My goal was to ensure that every feature made sense for resellers, customers, and internal teams. I cared about the user experience—did the flow make sense? Was the error message clear? Could a reseller navigate this at midnight with no support?</p>
+                <p>One defining moment came when our QA lead went on leave. Instead of staying in my lane, I stepped up. I ran daily standups, monitored channels, followed up with developers, product managers, and designers, and ensured nothing slipped through the cracks. It was tough, but it taught me that leadership isn’t a title—it’s about showing up when needed most.</p>
+                <p>Another highlight was a sprint where we boosted our delivery rate from 56% to 86%. It wasn’t magic; it was about working smarter. I made sure QA wasn’t a bottleneck but a catalyst, helping developers move faster with clear, proactive communication.</p>
+                <p>I also took pride in my documentation efforts. I documented every process, tricky flow, and lesson learned—not because I had to, but because I wanted the next QA to have a smoother ride. To me, documentation is how you say, “I care about this team’s future.”</p>
+                <p>At ICE, I learned that being a great QA isn’t about saying “no” the loudest. It’s about asking the right questions, connecting teams, seeing risks before they happen, and standing up for quality even under tight deadlines.</p>
+            </div>
+
+            <!-- Wins -->
+            <div class="timeline-section">
+                <h3>Some Wins I’m Proud Of</h3>
+                <ul>
+                    <li>Stepped in to <strong>lead QA efforts</strong> when the QA lead was away, managing all follow-ups, handovers, and processes.</li>
+                    <li>Owned and improved QA for features like the <strong>Mentorship Program, Reseller Journey, Fulfillment Process</strong>, and <strong>Wallet Management</strong>.</li>
+                    <li>Helped the team go from <strong>56% delivery to 86%</strong> in one sprint by improving QA collaboration with Product and Engineering.</li>
+                    <li>Found and escalated critical production issues, some of which were <strong>fixed within hours</strong> thanks to fast reactions and thorough investigations.</li>
+                    <li>Created clear, practical <strong>documentation</strong> to make onboarding easier and processes smoother for future teammates.</li>
+                    <li>Worked across <strong>Product, Design, and Engineering</strong> to close gaps and <strong>prevent issues before they reached production</strong>.</li>
+                    <li>Balanced speed and quality by focusing on what really mattered—<strong>the user’s experience</strong>.</li>
+                </ul>
+                <p>At the end of the day, my time at ICE wasn’t just about being a QA. It was about becoming someone the team could depend on, someone who wasn’t afraid to ask uncomfortable questions, and someone who never forgot that every ticket was a small part of someone’s experience with our product.</p>
+                <p>That’s the kind of QA I am. And that’s the kind of QA I’ll continue to be.</p>
+            </div>
+        </div>
+
+        <!-- Journey Links -->
         <div class="journey-links">
             <p><b>Explore other journeys:</b></p>
             <p>Return to <a href="index.html">Home</a> for an overview.</p>
-            <p>Check out my <a href="CS-journey.html">Computer Science Journey</a> for CS projects.</p>
+            <p>Check out my <a href="CS-journey.html">Computer Science Journey</a> for CS experiences.</p>
+        </div>
+
+        <!-- Contact Information -->
+        <br><h3>Contact Information</h3>
+        <div class="contact-info">
+            <div class="contact-item">
+                <img src="./repo/mail-icon.svg" alt="Email" class="contact-icon">
+                <a href="mailto:amirhsamson93@gmail.com" class="contact-link">amirhsamson93@gmail.com</a>
+            </div>
+            <div class="contact-item">
+                <img src="./repo/linkedin-icon.svg" alt="LinkedIn" class="contact-icon">
+                <a href="https://www.linkedin.com/in/amir-samson/" class="contact-link">LinkedIn page</a>
+            </div>
+            <div class="contact-item">
+                <img src="./repo/github-icon.svg" alt="GitHub" class="contact-icon">
+                <a href="https://github.com/AmirSamson/" class="contact-link">GitHub page</a>
+            </div>
         </div>
     </div>
+
+    <!-- JavaScript for Scroll Animation -->
+    <script>
+        // Function to handle scroll animation for timeline sections
+        function handleScroll() {
+            const sections = document.querySelectorAll('.timeline-section');
+            const triggerPoint = window.innerHeight * 0.8; // Trigger animation when 80% of the section is in view
+
+            sections.forEach(section => {
+                const sectionTop = section.getBoundingClientRect().top;
+                if (sectionTop < triggerPoint) {
+                    section.classList.add('visible');
+                }
+            });
+        }
+
+        // Add scroll event listener
+        window.addEventListener('scroll', handleScroll);
+
+        // Trigger on page load to catch sections already in view
+        window.addEventListener('load', handleScroll);
+    </script>
 </body>
 </html>
