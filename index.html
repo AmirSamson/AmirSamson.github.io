@@ -157,6 +157,51 @@
             text-shadow: 0 2px 4px rgba(160, 3, 38, 0.3);
         }
 
+
+
+        
+        /* Highlight Classes */
+        .highlight-red {
+            background-color: #a00326;
+            color: #ffffff;
+            padding: 2px 6px;
+            border-radius: 4px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .highlight-red:hover {
+            background-color: #c62828; /* Slightly lighter red on hover */
+            box-shadow: 0 2px 4px rgba(160, 3, 38, 0.4);
+        }
+
+        .highlight-light-red {
+            background-color: #ff6f61;
+            color: #000000;
+            padding: 2px 6px;
+            border-radius: 4px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .highlight-light-red:hover {
+            background-color: #ff8a80;
+            box-shadow: 0 2px 4px rgba(255, 111, 97, 0.4);
+        }
+
+        .highlight-yellow {
+            background-color: #fff176;
+            color: #000000;
+            padding: 2px 6px;
+            border-radius: 4px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .highlight-yellow:hover {
+            background-color: #ffee58;
+            box-shadow: 0 2px 4px rgba(255, 241, 118, 0.4);
+        }
+
+
+        
         /* Journey links */
         .journey-links a {
             color: #a00326;
@@ -311,8 +356,16 @@
             <!-- Introduction -->
             <div class="timeline-section">
                 <h2><b>About Me</b></h2>
-                <p>Hi, my name is Amir Sasani (Samson). I am a QA Engineer, a Machine Learning enthusiast, and a programmer-to-be. 
-                    While I am a lifelong learner, I am also a curious adventurer - always poking the system to find its thresholds, with a passion for new technologies!</p>
+                <p>Hi, my name is Amir Sasani (Samson). I am a QA Engineer, with Over <span class="highlight-red">7 years of experience</span> in testing applications 
+                across Android, iOS, MacOS, <b>PWA</b>, Frontend applications (web apps). Expertise in test planning, Test case design, <span class="highlight-yellow">UAT</span>, 
+                    Software development life cycle (<span class="highlight-yellow">SDLC</span>), and defect analysis.</p>
+                   <p>Hands on experience with manual testing, proficient in API testing (<span class="highlight-yellow">Postman</span>), 
+                       while experienced in automated testing (<span class="highlight-yellow">K6</span>& <span class="highlight-yellow">Playwright</span>), and Strong understanding 
+                       on Continuous Deployment (<span class="highlight-yellow">CI/CD</span> pipelines), SQL, MySQL databases and Agile Methodologies. 
+                       Coached and mentored a team of 4 QA engineers on QA practices
+                       and software testing processes. led 2 successful high-impact projects to 99.99% crash-free performance. </p>
+                    <p> I am also a Machine Learning enthusiast, and a programmer-to-be. While I am a lifelong learner, I am also a curious adventurer - always poking the system 
+                        to find its thresholds, with a passion for new technologies!</p>
             </div>
 
             <!-- Entry 1 -->
