@@ -3,21 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Amir Sasani (Samson) — QA Engineer with 8+ years in Quality Assurance, Mobile/Web Testing, and Computer Vision enthusiast.">
     <title>Amir Sasani — QA Engineer</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg: #0D0B1E;
-            --bg2: #110F24;
             --surface: #1A1730;
-            --purple: #a00326;
-            --purple2: #ff6f61;
-            --white: #F8FAFC;
+            --accent: #a00326;
+            --accent-light: #ff6f61;
+            --text: #F8FAFC;
             --slate: #CBD5E1;
-            --grad: linear-gradient(135deg, #a00326 0%, #ff6f61 100%);
         }
         * { margin:0; padding:0; box-sizing:border-box; }
         body {
@@ -25,60 +21,47 @@
             background: var(--bg);
             color: var(--slate);
             line-height: 1.6;
-            overflow-x: hidden;
         }
         nav {
             position: fixed;
             top: 0; left: 0; right: 0;
-            z-index: 1000;
             height: 56px;
+            background: rgba(13,11,30,0.95);
+            backdrop-filter: blur(20px);
             display: flex;
             align-items: center;
             justify-content: space-between;
             padding: 0 2rem;
-            background: rgba(13,11,30,0.95);
-            backdrop-filter: blur(20px);
+            z-index: 1000;
             border-bottom: 1px solid rgba(160,3,38,0.2);
         }
         .nav-brand {
             display: flex;
             align-items: center;
             gap: 10px;
+            color: var(--text);
             text-decoration: none;
-            color: var(--white);
             font-weight: 700;
         }
         .nav-logo {
             width: 32px; height: 32px;
-            background: var(--grad);
+            background: linear-gradient(135deg, #a00326, #ff6f61);
             border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
             font-family: 'JetBrains Mono', monospace;
-            font-size: 14px;
             color: white;
-        }
-        .nav-links {
-            display: flex;
-            gap: 2rem;
         }
         .nav-links a {
             color: var(--slate);
             text-decoration: none;
+            margin-left: 2rem;
             font-weight: 500;
             transition: color 0.2s;
         }
         .nav-links a:hover, .nav-links a.active {
-            color: var(--white);
-        }
-        .nav-hire {
-            background: var(--grad);
             color: white;
-            padding: 8px 20px;
-            border-radius: 9999px;
-            font-weight: 600;
-            text-decoration: none;
         }
         .hero {
             min-height: 100vh;
@@ -93,51 +76,92 @@
             display: grid;
             grid-template-columns: 1fr 420px;
             gap: 4rem;
-            align-items: center;
         }
-        .hero-left h1 {
+        h1 {
             font-size: clamp(2.8rem, 5vw, 4.5rem);
             font-weight: 800;
+            color: var(--text);
             line-height: 1.05;
-            color: var(--white);
         }
         .hero-role {
-            color: var(--purple2);
+            color: var(--accent-light);
             font-family: 'JetBrains Mono', monospace;
-            font-size: 1.1rem;
             margin: 1rem 0;
         }
-        .hero-tagline {
-            font-size: 1.2rem;
-            max-width: 500px;
-            color: var(--slate);
-        }
-        .hero-btns {
-            margin-top: 2rem;
-            display: flex;
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
             gap: 1rem;
+            margin: 2rem 0;
         }
-        .btn-primary {
-            background: var(--grad);
-            color: white;
+        .stat {
+            background: var(--surface);
+            padding: 1rem;
+            border-radius: 12px;
+            text-align: center;
+        }
+        .stat-num {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--accent);
+        }
+        .btn {
             padding: 12px 28px;
             border-radius: 9999px;
             font-weight: 600;
             text-decoration: none;
+            display: inline-block;
         }
-        .hcard {
+        .btn-primary {
+            background: var(--accent);
+            color: white;
+        }
+        .section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .sec-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        .sec-num {
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--accent-light);
+        }
+        .timeline, .cards {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+        .card, .timeline-item {
             background: var(--surface);
-            border: 1px solid rgba(160,3,38,0.3);
             border-radius: 16px;
-            padding: 1.5rem;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            padding: 2rem;
+            border: 1px solid rgba(160,3,38,0.2);
         }
-        /* Add more sections styling similar to target */
-        .sec { padding: 4rem 2rem; max-width: 1200px; margin: 0 auto; }
-        .sec-hd { display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem; }
-        .sec-num { font-family: 'JetBrains Mono', monospace; color: var(--purple2); }
-        /* Timeline, Galleries, etc. adapted from your previous design */
-        /* ... (full CSS would be very long — contact me for complete file if needed) */
+        .gallery {
+            display: flex;
+            overflow-x: auto;
+            gap: 1rem;
+            padding: 1rem 0;
+        }
+        .gallery img {
+            width: 180px;
+            border-radius: 12px;
+            flex-shrink: 0;
+        }
+        footer {
+            text-align: center;
+            padding: 3rem;
+            font-size: 0.9rem;
+            color: var(--slate);
+        }
+        @media (max-width: 900px) {
+            .hero-inner { grid-template-columns: 1fr; }
+        }
     </style>
 </head>
 <body>
@@ -151,32 +175,129 @@
             <a href="#experience">Experience</a>
             <a href="#skills">Skills</a>
             <a href="#projects">Projects</a>
-            <a href="#contact" class="nav-hire">Contact</a>
+            <a href="#contact" class="btn-primary">Contact</a>
         </div>
     </nav>
 
+    <!-- HERO -->
     <section class="hero" id="hero">
         <div class="hero-inner">
-            <div class="hero-left">
-                <div class="hero-pill">OPEN TO WORK • ANY TIMEZONE</div>
-                <h1>Amir Sasani <span style="background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">(Samson)</span></h1>
-                <div class="hero-role">QA Engineer • ML Enthusiast</div>
-                <p class="hero-tagline">8+ years ensuring quality across mobile, web, and cloud platforms. Passionate about Computer Vision, AR/VR, and building seamless user experiences.</p>
-                <div class="hero-btns">
-                    <a href="#contact" class="btn-primary">Get in touch</a>
-                    <a href="#experience" class="btn-outline">View Journey</a>
+            <div>
+                <div style="display:inline-flex; align-items:center; gap:8px; background:rgba(160,3,38,0.15); padding:6px 16px; border-radius:9999px; margin-bottom:1rem;">
+                    <span style="display:inline-block; width:8px; height:8px; background:#34D399; border-radius:50%; animation:ping 2s infinite;"></span>
+                    OPEN TO WORK — ANY TIMEZONE
+                </div>
+                <h1>Amir Sasani <span style="color:var(--accent-light);">(Samson)</span></h1>
+                <p class="hero-role">QA Engineer • Computer Vision Enthusiast • Lifelong Learner</p>
+                <p style="max-width:480px; font-size:1.1rem;">8+ years crafting exceptional digital experiences through rigorous testing, automation, and a passion for quality.</p>
+                <div style="margin-top:2rem;">
+                    <a href="#contact" class="btn-primary" style="margin-right:1rem;">Let's Connect</a>
+                    <a href="#experience" style="color:var(--accent-light); text-decoration:none;">Explore My Journey ↓</a>
                 </div>
             </div>
-            <!-- Stats Card (like target) -->
-            <div class="hcard">
-                <!-- Your profile image and stats here -->
+            <!-- Stats Card -->
+            <div style="background:var(--surface); border-radius:16px; padding:2rem; border:1px solid rgba(160,3,38,0.3);">
+                <img src="./repo/Am S-hoodie.jpg" alt="Amir Sasani" style="width:100%; border-radius:12px; margin-bottom:1.5rem;">
+                <div class="stats">
+                    <div class="stat"><div class="stat-num">8+</div><div>Years QA</div></div>
+                    <div class="stat"><div class="stat-num">25+</div><div>Projects</div></div>
+                    <div class="stat"><div class="stat-num">3</div><div>Domains</div></div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- About, Experience (your timeline), Skills, Projects (your galleries), Contact sections follow similar structure as target site -->
+    <!-- ABOUT -->
+    <section class="section" id="about">
+        <div class="sec-header">
+            <span class="sec-num">01 —</span>
+            <h2>About Me</h2>
+        </div>
+        <div class="card">
+            <p>Hi, I'm Amir Sasani (Samson). I'm a passionate QA Engineer and Machine Learning enthusiast with a strong background in testing mobile, web, and desktop applications.</p>
+            <p>In my free time, I enjoy calisthenics, playing guitar, reading about neuroscience, making coffee, and watching anime. Music and philosophy are my constant companions.</p>
+        </div>
+    </section>
 
-    <!-- JavaScript for smooth scroll, tab switching, scroll animations, etc. -->
+    <!-- EXPERIENCE -->
+    <section class="section" id="experience">
+        <div class="sec-header">
+            <span class="sec-num">02 —</span>
+            <h2>Experience</h2>
+        </div>
+        <div style="display:flex; gap:1rem; margin-bottom:1rem;">
+            <button onclick="switchTab(0)" class="tab-btn active">QA Journey</button>
+            <button onclick="switchTab(1)" class="tab-btn">CS Journey</button>
+        </div>
+        <!-- QA Tab -->
+        <div id="qa-tab" class="tab-content">
+            <!-- Your full QA timeline from previous qa-journey.html here (shortened for brevity) -->
+            <div class="timeline-item">
+                <h3>Fanafzar - FanGames</h3>
+                <p>QA Tester & Localization Tester for 30+ games...</p>
+            </div>
+            <!-- Add more timeline items as needed -->
+        </div>
+        <!-- CS Tab -->
+        <div id="cs-tab" class="tab-content" style="display:none;">
+            <div class="card">
+                <h3>Where It All Began</h3>
+                <p>My journey started with a CAPTCHA that sparked my interest in Computer Vision, AR/VR, and game development.</p>
+            </div>
+        </div>
+    </section>
 
+    <!-- SKILLS -->
+    <section class="section" id="skills">
+        <div class="sec-header">
+            <span class="sec-num">03 —</span>
+            <h2>Skills & Tools</h2>
+        </div>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(140px,1fr)); gap:1rem;">
+            <!-- Add your skills as chips -->
+        </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="section" id="projects">
+        <div class="sec-header">
+            <span class="sec-num">04 —</span>
+            <h2>Projects</h2>
+        </div>
+        <div class="gallery">
+            <!-- Your game images and app screenshots here -->
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section" id="contact">
+        <div class="sec-header">
+            <span class="sec-num">05 —</span>
+            <h2>Contact</h2>
+        </div>
+        <div class="card">
+            <p>amirhsamson93@gmail.com</p>
+            <p>LinkedIn • GitHub</p>
+        </div>
+    </section>
+
+    <footer>
+        © 2026 Amir Sasani • QA Engineer • Lahore, Pakistan
+    </footer>
+
+    <script>
+        function switchTab(n) {
+            document.querySelectorAll('.tab-content').forEach(el => el.style.display = 'none');
+            document.getElementById(n === 0 ? 'qa-tab' : 'cs-tab').style.display = 'block';
+            document.querySelectorAll('.tab-btn').forEach((btn, i) => btn.classList.toggle('active', i === n));
+        }
+        // Smooth scroll for nav links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+    </script>
 </body>
 </html>
