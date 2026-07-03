@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Amir Sasani — QA Engineer</title>
+    <title>Amir Sasani — Senior QA Engineer</title>
     <link rel="icon" type="image/x-icon" href="./repo/favicon.ico">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
@@ -211,6 +211,86 @@
         .project-links a:hover {
             color: white;
         }
+
+        /* Platforms & Domains Styles */
+        .platforms-section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .platforms-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 4rem;
+        }
+        
+        .platform-card {
+            background: var(--surface);
+            border-radius: 16px;
+            padding: 1.8rem 1.2rem;
+            text-align: center;
+            border: 1px solid rgba(160,3,38,0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .platform-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--accent);
+        }
+        
+        .platform-icon {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        
+        .platform-card h3 {
+            color: var(--text);
+            margin-bottom: 0.4rem;
+            font-size: 1.25rem;
+        }
+        
+        .platform-card p {
+            color: var(--slate);
+            font-size: 0.95rem;
+            line-height: 1.4;
+        }
+        
+        .tags-container {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        
+        .tag-group {
+            background: var(--surface);
+            border-radius: 12px;
+            padding: 1.2rem;
+            border: 1px solid rgba(160,3,38,0.15);
+        }
+        
+        .tag-group h4 {
+            color: var(--accent-light);
+            margin-bottom: 1rem;
+            font-size: 1rem;
+            font-family: 'JetBrains Mono', monospace;
+        }
+        
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .tag {
+            background: rgba(160,3,38,0.12);
+            color: var(--accent-light);
+            padding: 6px 14px;
+            border-radius: 9999px;
+            font-size: 0.9rem;
+        }
         footer {
             text-align: center;
             padding: 3rem;
@@ -246,8 +326,9 @@
                     OPEN TO WORK — ANY TIMEZONE
                 </div>
                 <h1>Amir Sasani <span style="color:var(--accent-light);">(Samson)</span></h1>
-                <p class="hero-role">QA Engineer • Computer Vision Enthusiast • Lifelong Learner</p>
-                <p style="max-width:480px; font-size:1.1rem;">8+ years crafting exceptional digital experiences through rigorous testing, automation, and a passion for quality.</p>
+                <p class="hero-role">Senior QA Engineer • Computer Vision Enthusiast • Lifelong Learner</p>
+                <p style="max-width:480px; font-size:1.1rem;"> 7+ years of QA experience in Fintech and e-commerce applications across mobile (Android, iOS), Windows, and web platforms. 
+                    5+ Projects: E-commerce, Fintech, Web-apps, Games - ensuring quality through shift-left testing, team leadership & client collaboration.</p>
                 <div style="margin-top:2rem;">
                     <a href="#contact" class="btn-primary" style="margin-right:1rem;">Let's Connect</a>
                     <a href="#experience" style="color:var(--accent-light); text-decoration:none;">Explore My Journey ↓</a>
@@ -273,6 +354,7 @@
         </div>
         <div class="card">
             <p>Hi, I'm Amir Sasani (Samson). I'm a passionate QA Engineer and Machine Learning enthusiast with a strong background in testing mobile, web, and desktop applications.</p>
+            <p>My interests extend beyond QA into Frontend Development, Game Design, Content Creation, Localization, Video Editing, and Computer Science. I enjoy exploring how technology, design, and user experience intersect to create products that people genuinely enjoy using.</p>
             <p>In my free time, I enjoy calisthenics, playing guitar, reading about neuroscience, making coffee, and watching anime. Music and philosophy are my constant companions.</p>
         </div>
     </section>
@@ -315,6 +397,61 @@
             <!-- Add your skills as chips -->
         </div>
     </section>
+
+    <!-- PLATFORMS & DOMAINS -->
+<section class="platforms-section" id="platforms">
+    <div class="sec-header">
+        <span class="sec-num">04 —</span>
+        <h2>Platforms & Domains</h2>
+    </div>
+
+    <div class="platforms-grid">
+        <div class="platform-card">
+            <span class="platform-icon">🛒</span>
+            <h3>E-Commerce</h3>
+            <p>Resale • Payments • Marketplace</p>
+        </div>
+        <div class="platform-card">
+            <span class="platform-icon">📱</span>
+            <h3>Mobile</h3>
+            <p>iOS & Android</p>
+        </div>
+        <div class="platform-card">
+            <span class="platform-icon">🌐</span>
+            <h3>Web Apps</h3>
+            <p>SaaS • WebView • PWA</p>
+        </div>
+        <div class="platform-card">
+            <span class="platform-icon">💰</span>
+            <h3>Fintech</h3>
+            <p>Banking • Payments • Finance</p>
+        </div>
+        <div class="platform-card">
+            <span class="platform-icon">🎮</span>
+            <h3>Games</h3>
+            <p>PC • Mobile • Localization</p>
+        </div>
+        <div class="platform-card">
+            <span class="platform-icon">🪟</span>
+            <h3>Windows Apps</h3>
+            <p>Desktop Applications</p>
+        </div>
+    </div>
+
+    <div class="tags-container">
+        <div class="tag-group">
+            <h4>Platforms</h4>
+            <div class="tags">
+                <span class="tag">Web</span>
+                <span class="tag">iOS</span>
+                <span class="tag">Android</span>
+                <span class="tag">SaaS</span>
+                <span class="tag">PWA</span>
+                <span class="tag">Windows</span>
+            </div>
+        </div>
+    </div>
+</section>
 
     <!-- PROJECTS -->
     <section class="section" id="projects">
@@ -363,7 +500,7 @@
             
             <a href="mailto:amirhsamson93@gmail.com" style="text-decoration: none; color: inherit;">
                 <div style="background: #1A1730; padding: 1.25rem 1.5rem; border-radius: 12px; display: flex; align-items: center; gap: 1rem; transition: all 0.3s;">
-                    <div style="width: 48px; height: 48px; background: #a00326; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.4rem;">✉️</div>
+                    <div style="width: 48px; height: 48px; background: #a00326; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.4rem;">📧</div>
                     <div>
                         <div style="font-size: 0.9rem; color: #94A3B8;">EMAIL</div>
                         <div style="color: white; font-weight: 500;">amirhsamson93@gmail.com</div>
