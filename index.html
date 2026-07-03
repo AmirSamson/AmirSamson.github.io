@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Amir Sasani — QA Engineer</title>
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="./repo/favicon.ico">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -44,14 +44,11 @@
             font-weight: 700;
         }
         .nav-logo {
-            width: 32px; height: 32px;
-            background: linear-gradient(135deg, #a00326, #ff6f61);
+            width: 32px;
+            height: 32px;
             border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: 'JetBrains Mono', monospace;
-            color: white;
+            object-fit: cover;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
         }
         .nav-links a {
             color: var(--slate);
@@ -153,6 +150,67 @@
             border-radius: 12px;
             flex-shrink: 0;
         }
+                /* Projects Styles */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 2rem;
+        }
+        .project-card {
+            background: var(--surface);
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid rgba(160,3,38,0.2);
+            transition: all 0.3s ease;
+        }
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+        }
+        .project-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+        .project-info {
+            padding: 1.5rem;
+        }
+        .project-info h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+            color: var(--text);
+        }
+        .project-info p {
+            color: var(--slate);
+            margin-bottom: 1rem;
+            line-height: 1.5;
+        }
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 1.2rem;
+        }
+        .tag {
+            background: rgba(160,3,38,0.15);
+            color: var(--accent-light);
+            font-size: 0.8rem;
+            padding: 4px 10px;
+            border-radius: 9999px;
+            font-family: 'JetBrains Mono', monospace;
+        }
+        .project-links {
+            display: flex;
+            gap: 1rem;
+        }
+        .project-links a {
+            color: var(--accent-light);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .project-links a:hover {
+            color: white;
+        }
         footer {
             text-align: center;
             padding: 3rem;
@@ -167,7 +225,7 @@
 <body>
     <nav>
         <a href="#" class="nav-brand">
-            <div class="nav-logo">AS</div>
+            <img src="./repo/favicon-32x32.png" alt="Amir Sasani" class="nav-logo">
             <span>Amir Sasani</span>
         </a>
         <div class="nav-links">
@@ -199,9 +257,9 @@
             <div style="background:var(--surface); border-radius:16px; padding:2rem; border:1px solid rgba(160,3,38,0.3);">
                 <img src="./repo/Am S-hoodie.jpg" alt="Amir Sasani" style="width:100%; border-radius:12px; margin-bottom:1.5rem;">
                 <div class="stats">
-                    <div class="stat"><div class="stat-num">8+</div><div>Years QA</div></div>
-                    <div class="stat"><div class="stat-num">25+</div><div>Projects</div></div>
-                    <div class="stat"><div class="stat-num">3</div><div>Domains</div></div>
+                    <div class="stat"><div class="stat-num">7+</div><div>Years QA</div></div>
+                    <div class="stat"><div class="stat-num">5+</div><div>Projects</div></div>
+                    <div class="stat"><div class="stat-num">3+</div><div>Domains</div></div>
                 </div>
             </div>
         </div>
@@ -264,40 +322,173 @@
             <span class="sec-num">04 —</span>
             <h2>Projects</h2>
         </div>
-        <div class="gallery">
-            <!-- Your game images and app screenshots here -->
+
+        <div class="projects-grid" id="projects-grid"></div>
+
+        <div style="text-align: center; margin-top: 3rem;">
+            <button id="show-more-btn" class="btn-primary" style="padding: 14px 36px; font-size: 1.1rem;">
+                Show More Projects
+            </button>
         </div>
     </section>
 
     <!-- CONTACT -->
-    <section class="section" id="contact">
-        <div class="sec-header">
-            <span class="sec-num">05 —</span>
-            <h2>Contact</h2>
+<section class="section" id="contact" style="background: #0A0818; padding: 6rem 2rem;">
+    <div class="sec-header" style="max-width: 1200px; margin: 0 auto 3rem;">
+        <span class="sec-num">05 —</span>
+        <h2 style="color: white;">Contact</h2>
+        <div style="height: 3px; width: 60px; background: #a00326; margin-top: 8px;"></div>
+    </div>
+
+    <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; background: #110F24; border-radius: 20px; padding: 3rem; border: 1px solid rgba(160,3,38,0.2);">
+        
+        <!-- Left Side -->
+        <div>
+            <h2 style="font-size: 2.2rem; line-height: 1.2; margin-bottom: 1.5rem; color: white;">
+                Let's improve product quality <span style="color: #ff6f61;">together</span>
+            </h2>
+            <p style="font-size: 1.1rem; color: #CBD5E1; margin-bottom: 1.5rem;">
+                Open to Senior QA roles, contract testing engagements &amp; remote opportunities worldwide.<br><br>
+                Based in Istanbul, Turkey — available across any timezone.
+            </p>
+            
+            <div style="display: inline-flex; align-items: center; gap: 12px; background: rgba(52,211,153,0.15); color: #34D399; padding: 10px 20px; border-radius: 9999px; font-weight: 500; border: 1px solid rgba(52,211,153,0.3);">
+                <span style="display: inline-block; width: 10px; height: 10px; background: #34D399; border-radius: 50%; box-shadow: 0 0 8px #34D399;"></span>
+                Available now • Any timezone • Worldwide
+            </div>
         </div>
-        <div class="card">
-            <p>amirhsamson93@gmail.com</p>
-            <p>LinkedIn • GitHub</p>
+
+        <!-- Right Side - Contact Info -->
+        <div style="display: flex; flex-direction: column; gap: 1rem;">
+            
+            <a href="mailto:amirhsamson93@gmail.com" style="text-decoration: none; color: inherit;">
+                <div style="background: #1A1730; padding: 1.25rem 1.5rem; border-radius: 12px; display: flex; align-items: center; gap: 1rem; transition: all 0.3s;">
+                    <div style="width: 48px; height: 48px; background: #a00326; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.4rem;">✉️</div>
+                    <div>
+                        <div style="font-size: 0.9rem; color: #94A3B8;">EMAIL</div>
+                        <div style="color: white; font-weight: 500;">amirhsamson93@gmail.com</div>
+                    </div>
+                </div>
+            </a>
+
+            <a href="https://www.linkedin.com/in/amir-samson/" target="_blank" style="text-decoration: none; color: inherit;">
+                <div style="background: #1A1730; padding: 1.25rem 1.5rem; border-radius: 12px; display: flex; align-items: center; gap: 1rem; transition: all 0.3s;">
+                    <div style="width: 48px; height: 48px; background: #0A66C2; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem;">in</div>
+                    <div>
+                        <div style="font-size: 0.9rem; color: #94A3B8;">LINKEDIN</div>
+                        <div style="color: white; font-weight: 500;">linkedin.com/in/amir-samson</div>
+                    </div>
+                </div>
+            </a>
+
+            <a href="https://github.com/AmirSamson" target="_blank" style="text-decoration: none; color: inherit;">
+                <div style="background: #1A1730; padding: 1.25rem 1.5rem; border-radius: 12px; display: flex; align-items: center; gap: 1rem; transition: all 0.3s;">
+                    <div style="width: 48px; height: 48px; background: #333; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.6rem;">🐙</div>
+                    <div>
+                        <div style="font-size: 0.9rem; color: #94A3B8;">GITHUB</div>
+                        <div style="color: white; font-weight: 500;">github.com/AmirSamson</div>
+                    </div>
+                </div>
+            </a>
+
         </div>
-    </section>
+    </div>
+</section>
 
     <footer>
-        © 2026 Amir Sasani • QA Engineer • Lahore, Pakistan
+        © 2026 Amir Sasani • QA Engineer • Istanbul, Turkey
     </footer>
+<script>
+    // === Your existing scripts (unchanged) ===
+    function switchTab(n) {
+        document.querySelectorAll('.tab-content').forEach(el => el.style.display = 'none');
+        document.getElementById(n === 0 ? 'qa-tab' : 'cs-tab').style.display = 'block';
+        document.querySelectorAll('.tab-btn').forEach((btn, i) => btn.classList.toggle('active', i === n));
+    }
 
-    <script>
-        function switchTab(n) {
-            document.querySelectorAll('.tab-content').forEach(el => el.style.display = 'none');
-            document.getElementById(n === 0 ? 'qa-tab' : 'cs-tab').style.display = 'block';
-            document.querySelectorAll('.tab-btn').forEach((btn, i) => btn.classList.toggle('active', i === n));
-        }
-        // Smooth scroll for nav links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
-            });
+    // Smooth scroll for nav links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
         });
-    </script>
+    });
+
+    // === NEW PROJECTS SCRIPT ===
+    const projects = [
+        {
+            title: "Project Title 1",
+            desc: "Short description of the project and your contribution.",
+            image: "./repo/project1.jpg",
+            tags: ["Selenium", "Python", "Automation"],
+            live: "#",
+            github: "#"
+        },
+        {
+            title: "Project Title 2",
+            desc: "Another project description highlighting key features.",
+            image: "./repo/project2.jpg",
+            tags: ["Appium", "Mobile", "QA"],
+            live: "#",
+            github: "#"
+        },
+        {
+            title: "Project Title 3",
+            desc: "Describe this project here.",
+            image: "./repo/project3.jpg",
+            tags: ["API Testing", "Postman"],
+            live: "#",
+            github: "#"
+        },
+        {
+            title: "Project Title 4",
+            desc: "Add details about your fourth project.",
+            image: "./repo/project4.jpg",
+            tags: ["Computer Vision", "Testing"],
+            live: "#",
+            github: "#"
+        }
+        // Add more projects here...
+    ];
+
+    const projectsGrid = document.getElementById('projects-grid');
+    const showMoreBtn = document.getElementById('show-more-btn');
+    let visibleCount = 4;
+
+    function renderProjects(count) {
+        projectsGrid.innerHTML = '';
+        projects.slice(0, count).forEach(project => {
+            const card = document.createElement('div');
+            card.className = 'project-card';
+            card.innerHTML = `
+                <img src="${project.image}" alt="${project.title}">
+                <div class="project-info">
+                    <h3>${project.title}</h3>
+                    <p>${project.desc}</p>
+                    <div class="project-tags">
+                        ${project.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+                    </div>
+                    <div class="project-links">
+                        <a href="${project.live}" target="_blank">Live Demo →</a>
+                        <a href="${project.github}" target="_blank">GitHub</a>
+                    </div>
+                </div>
+            `;
+            projectsGrid.appendChild(card);
+        });
+    }
+
+    // Initial render
+    renderProjects(visibleCount);
+
+    // Show More Button
+    if (showMoreBtn) {
+        showMoreBtn.addEventListener('click', () => {
+            visibleCount = projects.length;
+            renderProjects(visibleCount);
+            showMoreBtn.style.display = 'none';
+        });
+    }
+</script>
 </body>
 </html>
