@@ -1,718 +1,364 @@
-<!-- qa-journey.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QA Journey</title>
+    <meta name="description" content="Amir Sasani's QA journey — from localization tester at FanGames to QA Lead on cloud gaming platforms and e-commerce at ICE Global.">
+    <meta name="theme-color" content="#0D0B1E">
+    <title>QA Journey — Amir Sasani</title>
     <link rel="icon" type="image/x-icon" href="./repo/favicon.ico">
-    <style>
-        /* Reset default margins and padding */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Roboto', Arial, sans-serif;
-            line-height: 1.6;
-            background-color: #000000;
-            color: #ffffff;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
-
-        /* Navbar styling */
-        .navbar {
-            background-color: #333;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-            overflow: hidden;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .navbar a {
-            color: #ffffff;
-            text-align: center;
-            padding: 14px 16px;
-            text-decoration: none;
-            font-size: clamp(14px, 4vw, 17px);
-            font-weight: 500;
-            flex-grow: 1;
-            position: relative;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .navbar a:hover {
-            background-color: #555;
-            color: #ffffff;
-            transform: translateY(-2px);
-            box-shadow: 0 2px 4px rgba(255, 255, 255, 0.2);
-        }
-
-        .navbar a.active {
-            background-color: #a00326;
-            color: #ffffff;
-            box-shadow: 0 2px 4px rgba(160, 3, 38, 0.4);
-        }
-
-        /* Content styling */
-        .content {
-            padding: 24px;
-            text-align: center;
-            max-width: 1200px;
-            margin: 0 auto;
-            background: transparent;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-            border-radius: 4px;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        /* Timeline styling */
-        .timeline {
-            position: relative;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 24px 0;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 50%;
-            width: 4px;
-            height: 100%;
-            background: linear-gradient(to bottom, #a00326, #333);
-            transform: translateX(-50%);
-            z-index: 0;
-        }
-
-        .timeline-section {
-            position: relative;
-            margin: 48px 0;
-            padding: 24px;
-            background-color: #333;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-            opacity: 0;
-            transform: translateY(50px);
-            transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-            z-index: 1;
-        }
-
-        .timeline-section.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .timeline-section h3 {
-            margin-bottom: 16px;
-            font-size: clamp(1.25rem, 4vw, 1.75rem);
-            font-weight: 500;
-            color: #a00326;
-        }
-
-        .timeline-section p {
-            font-size: clamp(1rem, 3vw, 1.2rem);
-            margin-bottom: 16px;
-            font-weight: 400;
-        }
-
-        .timeline-section a {
-            color: #a00326;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .timeline-section a:hover {
-            text-decoration: underline;
-            color: #ffffff;
-            text-shadow: 0 2px 4px rgba(255, 255, 255, 0.3);
-        }
-
-        .timeline-section ul {
-            list-style: none;
-            text-align: left;
-            max-width: 600px;
-            margin: 0 auto 16px;
-        }
-
-        .timeline-section ul li {
-            font-size: clamp(1rem, 3vw, 1.2rem);
-            margin-bottom: 8px;
-            position: relative;
-            padding-left: 24px;
-        }
-
-        .timeline-section ul li::before {
-            content: '•';
-            position: absolute;
-            left: 0;
-            color: #a00326;
-            font-size: 1.5rem;
-        }
-
-        /* Image Gallery Styling */
-        .image-gallery {
-            display: flex;
-            overflow-x: auto;
-            gap: 16px;
-            padding: 16px 0;
-            scroll-behavior: smooth;
-            -webkit-overflow-scrolling: touch; /* Smooth scrolling on mobile */
-            position: relative;
-        }
-
-        .image-gallery img {
-            width: 150px;
-            height: auto;
-            object-fit: cover;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            flex-shrink: 0; /* Prevent images from shrinking */
-        }
-
-        .image-gallery img:hover {
-            transform: scale(1.05);
-            box-shadow: 0 8px 16px rgba(160, 3, 38, 0.4);
-        }
-
-        /* Hide scrollbar but keep functionality */
-        .image-gallery::-webkit-scrollbar {
-            display: none;
-        }
-
-        .image-gallery {
-            -ms-overflow-style: none; /* IE and Edge */
-            scrollbar-width: none; /* Firefox */
-        }
-
-        /* Navigation Arrows */
-        .gallery-nav {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 8px;
-        }
-
-        .gallery-nav button {
-            background-color: #333;
-            border: none;
-            color: #ffffff;
-            padding: 8px 12px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 16px;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .gallery-nav button:hover {
-            background-color: #a00326;
-            transform: translateY(-2px);
-            box-shadow: 0 2px 4px rgba(160, 3, 38, 0.4);
-        }
-
-        /* Journey links */
-        .journey-links {
-            margin-top: 24px;
-        }
-
-        .journey-links a {
-            color: #a00326;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .journey-links a:hover {
-            text-decoration: underline;
-            color: #ffffff;
-            text-shadow: 0 2px 4px rgba(255, 255, 255, 0.3);
-            transform: translateY(-2px);
-        }
-
-        /* Contact section styling */
-        .contact-info {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 16px;
-            margin-top: 24px;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            background-color: #333;
-            padding: 12px 16px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .contact-item:hover {
-            background-color: #a00326;
-            transform: translateY(-4px);
-            box-shadow: 0 4px 8px rgba(160, 3, 38, 0.4);
-        }
-
-        .contact-icon {
-            width: 32px;
-            height: 32px;
-            vertical-align: middle;
-            margin-right: 16px;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .contact-icon:hover {
-            transform: scale(1.1);
-            filter: brightness(150%);
-        }
-
-        .contact-link {
-            color: #ffffff;
-            text-decoration: none;
-            font-size: clamp(1rem, 3vw, 1.1rem);
-            font-weight: 500;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .contact-link:hover {
-            color: #ffffff;
-            text-decoration: underline;
-            text-shadow: 0 2px 4px rgba(255, 255, 255, 0.3);
-        }
-
-        /* Media Queries for Responsiveness */
-        @media (max-width: 600px) {
-            .navbar {
-                flex-direction: column;
-            }
-
-            .navbar a {
-                padding: 12px;
-                width: 100%;
-            }
-
-            .content {
-                padding: 16px;
-            }
-
-            .timeline::before {
-                left: 24px;
-            }
-
-            .timeline-section {
-                margin: 24px 0;
-                padding: 16px;
-            }
-
-            .image-gallery img {
-                width: 120px; /* Slightly smaller on mobile */
-            }
-
-            .gallery-nav button {
-                padding: 6px 10px;
-                font-size: 14px;
-            }
-
-            .contact-info {
-                flex-direction: column;
-                gap: 12px;
-            }
-
-            .navbar a:hover, .journey-links a:hover, .contact-item:hover, .contact-icon:hover, .gallery-nav button:hover {
-                transform: translateY(-1px);
-                box-shadow: 0 1px 2px rgba(255, 255, 255, 0.2);
-            }
-        }
-
-        @media (max-width: 360px) {
-            .navbar a {
-                font-size: 14px;
-            }
-
-            .content {
-                padding: 12px;
-            }
-
-            .timeline-section {
-                margin: 16px 0;
-                padding: 12px;
-            }
-
-            .image-gallery img {
-                width: 100px; /* Even smaller on very small screens */
-            }
-
-            .gallery-nav button {
-                padding: 4px 8px;
-                font-size: 12px;
-            }
-
-            .navbar a:hover, .journey-links a:hover, .contact-item:hover, .contact-icon:hover, .gallery-nav button:hover {
-                transform: none;
-                box-shadow: none;
-                text-shadow: none;
-            }
-        }
-    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
-    <!-- Navigation Bar -->
-    <div class="navbar">
-        <a href="index.html">Home</a>
-        <a class="active" href="qa-journey.html">QA Journey</a>
-        <a href="CS-journey.html">Computer Science Journey</a>
+
+    <!-- NAV -->
+    <nav class="site-nav">
+        <a href="index.html" class="nav-brand">
+            <img src="./repo/favicon-32x32.png" alt="" class="nav-logo">
+            <span>Amir <em>Sasani</em></span>
+        </a>
+        <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="qa-journey.html" class="active">QA Journey</a>
+            <a href="CS-journey.html">CS Journey</a>
+            <a href="index.html#contact" class="nav-cta">Hire me</a>
+        </div>
+    </nav>
+
+    <!-- PAGE HERO -->
+    <header class="page-hero">
+        <div class="crumbs"><a href="index.html">HOME</a> / QA JOURNEY</div>
+        <h1>My <span>QA</span> Journey</h1>
+        <p class="sub">From localizing games in a small studio to leading QA on cloud-gaming platforms and a global e-commerce product — four chapters, one obsession: quality that users actually feel.</p>
+    </header>
+
+    <main class="timeline">
+
+        <!-- CHAPTER 1 — FanGames -->
+        <section class="chapter reveal">
+            <div class="chapter-kicker">CHAPTER 01</div>
+            <h2>FanGames (Fanafzar)</h2>
+            <p>My QA journey kicked off at <b>Fanafzar - FanGames</b> as a Localization Tester, and then becoming a QA Tester.
+            We were in the business of publishing, translating and localizing games—over 30 titles from companies worldwide!
+            Licensing, localizing, translating and publishing them among markets of Android apps and games, such as <b>CafeBazar</b>, <b>Myket</b>, etc.</p>
+
+            <div class="gallery">
+                <img src="./repo/Fangames - Fanafzar - Bazigushi porbazi/FanGames.jpg" alt="FanGames 0" loading="lazy">
+                <img src="./repo/Fangames - Fanafzar - Bazigushi porbazi/FanGames1.jpg" alt="FanGames 1" loading="lazy">
+                <img src="./repo/Fangames - Fanafzar - Bazigushi porbazi/FanGames2.jpg" alt="FanGames 2" loading="lazy">
+                <img src="./repo/Fangames - Fanafzar - Bazigushi porbazi/FanGames3-1.jpg" alt="FanGames 3" loading="lazy">
+            </div>
+
+            <p>At FanGames (in <a href="https://deadmage.com/">Dead Mage</a> game studio) We didn’t stick to one genre; we covered everything: Action, MMO, RPG, Sports (Soccer, NBA, you name it), and more.
+            We licensed, localized, tested and published games from across the world on local Android app-markets. Some of the titles I worked on included:</p>
+            <p>OverKill 3, Top Farm, Farm Town, Farm Paradise, Crime Coast, Mad Tanks, Nova Empire, البطال شرق - Rise of Heroes, Defense Zone 3, Dragon Ninjas, CandyDash, Warzone Clash of Generals,
+            Lewandowski: Football Star, Best Bug Brawl, <a href="https://viphokm.com/en/">Vip Hokm (by CASUALINO)</a>, SKillTwins: Football Game, and NBA General Manager 2019:</p>
+
+            <div class="gallery" id="game-titles-gallery">
+                <img src="./repo/Fangames - Fanafzar - Bazigushi porbazi/Crime coast.png" alt="Crime coast" loading="lazy">
+                <img src="./repo/Fangames - Fanafzar - Bazigushi porbazi/Nova Empire.jpg" alt="Nova Empire" loading="lazy">
+                <img src="./repo/Fangames - Fanafzar - Bazigushi porbazi/mad Tanks!.jpg" alt="mad Tanks!" loading="lazy">
+                <img src="./repo/Fangames - Fanafzar - Bazigushi porbazi/mad Tanks.jpg" alt="mad Tanks" loading="lazy">
+                <img src="./repo/Fangames - Fanafzar - Bazigushi porbazi/البطال شرق - Rise of Heroes1.jpg" alt="البطال شرق - Rise of Heroes1" loading="lazy">
+                <img src="./repo/Fangames - Fanafzar - Bazigushi porbazi/البطال شرق - Rise of Heroes2.jpg" alt="البطال شرق - Rise of Heroes2" loading="lazy">
+                <img src="./repo/Fangames - Fanafzar - Bazigushi porbazi/Defense Zone 3.jpg" alt="Defense Zone 3" loading="lazy">
+                <img src="./repo/Fangames - Fanafzar - Bazigushi porbazi/CandyDash.jpg" alt="CandyDash" loading="lazy">
+                <img src="./repo/Fangames - Fanafzar - Bazigushi porbazi/Warzone Clash of Generals.jpeg" alt="Warzone Clash of Generals" loading="lazy">
+                <img src="./repo/Fangames - Fanafzar - Bazigushi porbazi/Warzone Clash of Generals0.jpg" alt="Warzone Clash of Generals0" loading="lazy">
+                <img src="./repo/Fangames - Fanafzar - Bazigushi porbazi/Warzone Clash of Generals1.jpg" alt="Warzone Clash of Generals1" loading="lazy">
+                <img src="./repo/Fangames - Fanafzar - Bazigushi porbazi/Warzone Clash of Generals2.jpg" alt="Warzone Clash of Generals2" loading="lazy">
+                <img src="./repo/Fangames - Fanafzar - Bazigushi porbazi/Warzone Clash of Generals3.jpg" alt="Warzone Clash of Generals3" loading="lazy">
+                <img src="./repo/Fangames - Fanafzar - Bazigushi porbazi/Lewandowski- Football Star1.jpg" alt="Lewandowski- Football Star1" loading="lazy">
+                <img src="./repo/Fangames - Fanafzar - Bazigushi porbazi/Lewandowski- Football Star2.jpg" alt="Lewandowski- Football Star2" loading="lazy">
+                <img src="./repo/Fangames - Fanafzar - Bazigushi porbazi/Best Bug Brawl1.jpg" alt="Best Bug Brawl1" loading="lazy">
+                <img src="./repo/Fangames - Fanafzar - Bazigushi porbazi/Best Bug Brawl2.jpg" alt="Best Bug Brawl2" loading="lazy">
+                <img src="./repo/Fangames - Fanafzar - Bazigushi porbazi/Vip Hokm (by CASUALINO).jpg" alt="Vip Hokm (by CASUALINO)" loading="lazy">
+                <img src="./repo/Fangames - Fanafzar - Bazigushi porbazi/SKillTwins Football Game.jpg" alt="SKillTwins Football Game" loading="lazy">
+                <img src="./repo/Fangames - Fanafzar - Bazigushi porbazi/SKillTwins Football Game1.jpg" alt="SKillTwins Football Game1" loading="lazy">
+                <img src="./repo/Fangames - Fanafzar - Bazigushi porbazi/SKillTwins Football Game0.jpg" alt="SKillTwins Football Game0" loading="lazy">
+                <img src="./repo/Fangames - Fanafzar - Bazigushi porbazi/overkill-3-screenshot.avif" alt="overkill-3" loading="lazy">
+                <img src="./repo/Fangames - Fanafzar - Bazigushi porbazi/Top Farm.png" alt="Top Farm" loading="lazy">
+                <img src="./repo/Fangames - Fanafzar - Bazigushi porbazi/farm-town-village-build-story.png" alt="farm-town" loading="lazy">
+            </div>
+            <div class="gallery-nav">
+                <button aria-label="Scroll left" onclick="scrollGallery('game-titles-gallery', -1)">←</button>
+                <button aria-label="Scroll right" onclick="scrollGallery('game-titles-gallery', 1)">→</button>
+            </div>
+
+            <p>This experience gave me a bird’s-eye view of game testing across different genres.
+            I learned how to adapt to various game mechanics and ensure quality in diverse contexts.</p>
+            <p>Later on, we developed two Hybrid Cloud-Based Game-Marketplace Android apps: <a href="https://web.archive.org/web/20190613232601/http://www.bazigushi.com/"><b>BaziGushi</b></a>
+            and <a href="http://porbazi.com/"><b>Porbazi</b></a>, which were supposed to be published across different platforms via sponsorship of major Telecommunication companies such as
+            Hamrah Aval and MTN Irancell.
+            This was my first real dive into testing Android apps - learning and implementing testing methodologies such as Regression, User Acceptance Testing (UAT), on both of them from A to Z; And I performed quality verification (QV) for both.
+            Unfortunately, we faced a massive competitor with deep pockets for advertising, and despite our efforts, we couldn’t secure investor backing.
+            The project shut down after a few months—a tough but valuable lesson in the competitive tech landscape.</p>
+
+            <div class="gallery" id="android-apps-gallery">
+                <img src="./repo/Fangames - Fanafzar - Bazigushi porbazi/BaziGushi1.jpg" alt="BaziGushi 1" loading="lazy">
+                <img src="./repo/Fangames - Fanafzar - Bazigushi porbazi/BaziGushi2.jpg" alt="BaziGushi 2" loading="lazy">
+                <img src="./repo/Fangames - Fanafzar - Bazigushi porbazi/BaziGushi3.jpg" alt="BaziGushi 3" loading="lazy">
+                <img src="./repo/Fangames - Fanafzar - Bazigushi porbazi/BaziGushi4.jpg" alt="BaziGushi 4" loading="lazy">
+                <img src="./repo/Fangames - Fanafzar - Bazigushi porbazi/PorBazi.jpg" alt="PorBazi 0" loading="lazy">
+                <img src="./repo/Fangames - Fanafzar - Bazigushi porbazi/PorBazi0.jpg" alt="PorBazi 1" loading="lazy">
+                <img src="./repo/Fangames - Fanafzar - Bazigushi porbazi/PorBazi1.jpg" alt="PorBazi 2" loading="lazy">
+                <img src="./repo/Fangames - Fanafzar - Bazigushi porbazi/PorBazi2.jpg" alt="PorBazi 3" loading="lazy">
+                <img src="./repo/Fangames - Fanafzar - Bazigushi porbazi/PorBazi3.jpg" alt="PorBazi 4" loading="lazy">
+            </div>
+            <div class="gallery-nav">
+                <button aria-label="Scroll left" onclick="scrollGallery('android-apps-gallery', -1)">←</button>
+                <button aria-label="Scroll right" onclick="scrollGallery('android-apps-gallery', 1)">→</button>
+            </div>
+        </section>
+
+        <!-- CHAPTER 2 — Simulator Developer / Zorvan -->
+        <section class="chapter reveal">
+            <div class="chapter-kicker">CHAPTER 02</div>
+            <h2>Simulator Developer (AKA Zorvan)</h2>
+            <p>My next chapter took me to <a href="https://web.archive.org/web/20180830171458/http://simulator.ir/games/"><b>Simulator Developer</b></a>
+            (also known as <a href="https://web.archive.org/web/20170714111201/http://www.zorvangamestudio.com/"><b>Zorvan</b></a> Game Studio — find more on
+            <a href="https://pitchbook.com/profiles/company/483860-80#overview">Pitchbook</a>, or visit <a href="https://www.ircg.ir/fa/company/10">IRCG</a>, Iran's Computer and Video Games Foundation).
+            This was my first real experience in a game studio, and it was a game-changer. At the time, the studio had already released two successful game titles.</p>
+
+            <div class="sub-label">Titles</div>
+            <ul>
+                <li>The "AsmanDez I" (More on <a href="https://codamon.com/2010/07/azmandez-irans-first-mmo/">Codamon</a> and <a href="https://browsermmorpg.com/game-asmandez--678">BrowserMMO-RPG</a>)</li>
+                <li>The "AsmanDez II" (Visit game's <a href="http://asmandez.net/">website</a>)</li>
+            </ul>
+
+            <p>They built their reputation upon those successful titles,
+            by winning International awards, such as "Best Indie Game, Audience Award, MMO of the Year 2013"
+            (Check out <a href="https://www.mmooftheyear.com/asmandez-ii">MMO of The Year</a>,
+            <a href="https://www.hispantv.com/noticias/ciencia-tecnologia/142473/videojuego-irani-en-la-final-del-mmo">hispantv</a> news,
+            <a href="https://rinf.com/alt-news/breaking-news/german-contest-nominates-iranian-game/">rinf news</a> for "German Contest Nominates Video game",
+            and this article on <a href="https://en.ircg.ir/press/16/Iran-online-game-tops-German-contest">IRCG</a>: "Iran online game tops German contest").
+            They soon became famous among other game studios in Iran and in other places of the world. And now by joining them,
+            I could have had the opportunity to gain an invaluable experience while doing the QA work on their new games.</p>
+
+            <div class="gallery">
+                <img src="./repo/2. Simulator Developer AKA Zorvan/Zorvan.jpg" alt="Zorvan0" loading="lazy">
+                <img src="./repo/2. Simulator Developer AKA Zorvan/Zorvan1.jpg" alt="Zorvan1" loading="lazy">
+                <img src="./repo/2. Simulator Developer AKA Zorvan/Zorvan2.jpg" alt="Zorvan2" loading="lazy">
+                <img src="./repo/2. Simulator Developer AKA Zorvan/Zorvan3.jpg" alt="Zorvan3" loading="lazy">
+                <img src="./repo/2. Simulator Developer AKA Zorvan/Zorvan4.jpg" alt="Zorvan4" loading="lazy">
+            </div>
+
+            <p>We worked on two mobile game projects: <a href="https://web.archive.org/web/20210516171858/http://zorvangamestudio.com/portfolio/tactics-game/"><b>Tactics</b></a>,
+            a real-time strategy game similar to Boom Beach, and <a href="http://web.archive.org/web/20210516183427/http://zorvangamestudio.com/portfolio/rastak-game/"><b>Northern Farm</b></a>,
+            a farming simulation game where you could plant crops and go fishing and sell veggies to your neighbours.
+            Each project had its unique challenges, and I was mesmerized by the magic of game design. However, I had challenges on doing the QA on each project,
+            since each one had a different genre. For example, one challenge on Northern Farm was to make sure when campaigns finish no one is able to win an award
+            by taking advantage of using a VPN connection or slow connection, so that the server thinks they submitted before the finish time, etc.
+            Or on Tactics, one challenge was to check each weapon's damage, range of attack, and fire-rate so that in different combinations that each player selects to put them, they do not become OP.</p>
+
+            <div class="sub-label">Tactics project</div>
+            <div class="gallery" id="tactics-gallery">
+                <img src="./repo/2. Simulator Developer AKA Zorvan/Tactics1.jpg" alt="Tactics 1" loading="lazy">
+                <img src="./repo/2. Simulator Developer AKA Zorvan/Tactics2.jpg" alt="Tactics 2" loading="lazy">
+                <img src="./repo/2. Simulator Developer AKA Zorvan/Tactics5.jpg" alt="Tactics 5" loading="lazy">
+                <img src="./repo/2. Simulator Developer AKA Zorvan/Tactics4.jpg" alt="Tactics 4" loading="lazy">
+                <img src="./repo/2. Simulator Developer AKA Zorvan/Tactics3.jpg" alt="Tactics 3" loading="lazy">
+            </div>
+            <div class="gallery-nav">
+                <button aria-label="Scroll left" onclick="scrollGallery('tactics-gallery', -1)">←</button>
+                <button aria-label="Scroll right" onclick="scrollGallery('tactics-gallery', 1)">→</button>
+            </div>
+
+            <div class="sub-label">Northern Farm project</div>
+            <div class="gallery" id="northernfarm-gallery">
+                <img src="./repo/2. Simulator Developer AKA Zorvan/Northern Farm.jpg" alt="Northern Farm 1" loading="lazy">
+                <img src="./repo/2. Simulator Developer AKA Zorvan/Northern Farm2.jpg" alt="Northern Farm 2" loading="lazy">
+                <img src="./repo/2. Simulator Developer AKA Zorvan/Northern Farm3.jpg" alt="Northern Farm 3" loading="lazy">
+                <img src="./repo/2. Simulator Developer AKA Zorvan/Northern Farm4.jpg" alt="Northern Farm 4" loading="lazy">
+                <img src="./repo/2. Simulator Developer AKA Zorvan/assets.jpg" alt="assets" loading="lazy">
+            </div>
+            <div class="gallery-nav">
+                <button aria-label="Scroll left" onclick="scrollGallery('northernfarm-gallery', -1)">←</button>
+                <button aria-label="Scroll right" onclick="scrollGallery('northernfarm-gallery', 1)">→</button>
+            </div>
+
+            <p>While polishing my QA skills, I dove deep into game mechanics, dynamics, and learning the behind-the-scenes magic of making a game.
+            I became fascinated by the role of data in game design, and understood that statistics were everything! Data revealed players’ feelings, tastes, and preferences,
+            guiding us on how to enhance their experience. It also showed us how campaigns and <b>Live Ops</b> impacted the overall <b>retention rates</b>.
+            However, data couldn’t fully explain why players churned, which remained a puzzle for game designers.
+            I loved this challenge. It felt like a game within a game, a constant momentum of beating your own record to win more players or starting over.</p>
+
+            <h3>Some achievements I conquered during the time</h3>
+            <div class="metric-row">
+                <div class="metric"><b>35<span>%</span></b><small>fewer vague levels</small></div>
+                <div class="metric"><b>1500<span>+</span></b><small>test cases &amp; executions</small></div>
+                <div class="metric"><b>22<span>%</span></b><small>more in-app purchases</small></div>
+            </div>
+            <ul>
+                <li>Minimized vague levels by <b>35%</b> through first-time user experience tests (<b>FTUE</b>), exploratory gameplay tests, Playtests, UAT, and functional tests on mobile devices, sculpted a high-quality mobile game build version.</li>
+                <li>Leveraged over <b>1500</b> test cases and test executions in TestRail. Logged defects in JIRA and reported to Stakeholders.</li>
+                <li>Increased in-app purchases by <b>22%</b> through A/B testing on in-game item balancing and <b>Live-Ops</b> design.</li>
+            </ul>
+
+            <p>The whole exposure to game design and being in the studio triggered me to take several courses on Game Design and Computer Science to better understand how games
+            are built and kept alive, which enriched my QA perspective and made me a more well-rounded QA Tester.</p>
+
+            <div class="sub-label">Course titles</div>
+            <ul>
+                <li><b>“Computer Science and Programming Specialization”</b> - by London University: creating 2D graphics and creating interactive graphics with <b>JavaScript (P5.js)</b>.</li>
+                <li><b>“Introduction to Game Design”</b> - course by CalArts: Game design, Balancing Systems.</li>
+                <li><b>“Principles of Game Design”</b> - course by Michigan State University: game designing process, level designing, game balancing: rewarding systems, play patterns, balancing flow.</li>
+                <li><b>“Game Design and Development 1: 2D shooter”</b> - course by Michigan State University: designing a 2D shooter game with <b>Unity 3D engine</b>.</li>
+            </ul>
+        </section>
+
+        <!-- CHAPTER 3 — Alpha Cloud -->
+        <section class="chapter reveal">
+            <div class="chapter-kicker">CHAPTER 03</div>
+            <h2>Alpha Cloud</h2>
+            <p>Sadly, <b>Zorvan</b> Game Studio disbanded, so I packed my bags and moved to <a href="https://playpod.ir/en/"><b>Playpod</b></a>, a company under the Fanap holding umbrella
+            (later acquired by <a href="https://www.alphaco.cloud/"><b>Alpha Cloud</b></a>). Playpod was a groundbreaking Cloud-Gaming platform for eSports —
+            the first cloud gaming console in the Middle East! It allowed players to enjoy top-ranked games for free on their phones (iOS and Android), desktop computers (with minimum hardware)
+            or web browsers, without needing consoles like Xbox or PlayStation.</p>
+
+            <div class="gallery">
+                <img src="./repo/3. Alpha Cloud/Alpha.jpg" alt="Alpha0" loading="lazy">
+                <img src="./repo/3. Alpha Cloud/Alpha1.jpg" alt="Alpha1" loading="lazy">
+                <img src="./repo/3. Alpha Cloud/Alpha2.jpg" alt="Alpha2" loading="lazy">
+                <img src="./repo/3. Alpha Cloud/Alpha4.jpg" alt="Alpha4" loading="lazy">
+                <img src="./repo/3. Alpha Cloud/Alpha5.jpg" alt="Alpha5" loading="lazy">
+            </div>
+
+            <p>I joined as a QA Engineer and deepened my understanding of the Software Development Life Cycle (<b>SDLC</b>) and QA fundamentals.
+            Working on Playpod exposed me to the technologies behind cloud platforms (such as load testing via <b>K6</b> on Azure Kubernetes,
+            utilizing <b>Playwright</b> to automate some of QA work, monitoring tools like Fiddler, Grafana and Loki, etc.)
+            and cloud gaming. I sharpened my skills in ensuring seamless user experiences, collaborating with <b>+4 cross-functional</b> teams, bringing an impressive <b>28%</b> increment in bug fixes,
+            and <b>19%</b> in feature delivery; on a platform that demanded high performance and reliability, which was both challenging and rewarding.</p>
+
+            <div class="gallery" id="playpod-first-gallery">
+                <img src="./repo/3. Alpha Cloud/Playpod.png" alt="Playpod 1" loading="lazy">
+                <img src="./repo/3. Alpha Cloud/Playpod1.png" alt="Playpod 2" loading="lazy">
+                <img src="./repo/3. Alpha Cloud/Playpod5.jpg" alt="Playpod 3" loading="lazy">
+                <img src="./repo/3. Alpha Cloud/Playpod3.png" alt="Playpod 4" loading="lazy">
+                <img src="./repo/3. Alpha Cloud/Playpod4.png" alt="Playpod 5" loading="lazy">
+                <img src="./repo/3. Alpha Cloud/Playpod2.png" alt="Playpod 6" loading="lazy">
+            </div>
+            <div class="gallery-nav">
+                <button aria-label="Scroll left" onclick="scrollGallery('playpod-first-gallery', -1)">←</button>
+                <button aria-label="Scroll right" onclick="scrollGallery('playpod-first-gallery', 1)">→</button>
+            </div>
+
+            <p>After 1.5 years of hard work and dedication and showcasing my skills and the value I bring to the team, I was promoted to <b>QA Lead</b> role on <b>Alpha Cloud</b>.</p>
+            <p>This allowed me to have the starting ground for flourishing my skills and fostering a team dynamic as a leader on the new project which was <a href="https://arium.gg/"><b>Arium</b></a>,
+            building it from the ground up. During the time, I managed to spearhead and coach 4 junior testers on both cloud-gaming projects of <a href="https://arium.gg/"><b>Arium</b></a> and
+            <a href="https://playpod.ir/en/"><b>Playpod</b></a>, resulting in a remarkable <b>46%</b> increase in QA team capacity. Collaborated with <b>+4 cross-functional</b> teams on
+            multiple concurrent projects and attained a <b>99.99% crash-free</b> Android app delivery, through compatibility, UI, regression and manual testing while coaching the team.</p>
+
+            <div class="metric-row">
+                <div class="metric"><b>46<span>%</span></b><small>QA team capacity increase</small></div>
+                <div class="metric"><b>99.99<span>%</span></b><small>crash-free Android delivery</small></div>
+                <div class="metric"><b>28<span>%</span></b><small>more bug fixes</small></div>
+                <div class="metric"><b>19<span>%</span></b><small>more feature delivery</small></div>
+            </div>
+
+            <div class="gallery" id="playpod-second-gallery">
+                <img src="./repo/3. Alpha Cloud/arium.jpg" alt="arium 1" loading="lazy">
+                <img src="./repo/3. Alpha Cloud/arium1.png" alt="arium 2" loading="lazy">
+                <img src="./repo/3. Alpha Cloud/arium2.png" alt="arium 3" loading="lazy">
+                <img src="./repo/3. Alpha Cloud/arium3.png" alt="arium 4" loading="lazy">
+                <img src="./repo/3. Alpha Cloud/arium4.png" alt="arium 5" loading="lazy">
+                <img src="./repo/3. Alpha Cloud/arium5.png" alt="arium 6" loading="lazy">
+            </div>
+            <div class="gallery-nav">
+                <button aria-label="Scroll left" onclick="scrollGallery('playpod-second-gallery', -1)">←</button>
+                <button aria-label="Scroll right" onclick="scrollGallery('playpod-second-gallery', 1)">→</button>
+            </div>
+        </section>
+
+        <!-- CHAPTER 4 — ICE Global -->
+        <section class="chapter reveal">
+            <div class="chapter-kicker">CHAPTER 04</div>
+            <h2>ICE Global</h2>
+            <p>When I joined ICE Global, I thought QA would be straightforward—test features, report bugs, and move on. But I quickly learned that at ICE, quality was everyone’s job, and I became the voice of that quality.</p>
+            <p>I didn’t just test tickets; I lived inside them. I scrutinized user stories, challenged unclear requirements, double-checked designs, and hunted down edge cases no one else considered. My goal was to ensure that every feature made sense for resellers, customers, and internal teams. I cared about the user experience—did the flow make sense? Was the error message clear? Could a reseller navigate this at midnight with no support?</p>
+            <p>One defining moment came when our QA lead went on leave. Instead of staying in my lane, I stepped up. I ran daily standups, monitored channels, followed up with developers, product managers, and designers, and ensured nothing slipped through the cracks. It was tough, but it taught me that leadership isn’t a title—it’s about showing up when needed most.</p>
+
+            <div class="metric-row">
+                <div class="metric"><b>56<span>→</span>86<span>%</span></b><small>sprint delivery rate</small></div>
+            </div>
+
+            <p>Another highlight was a sprint where we boosted our delivery rate from 56% to 86%. It wasn’t magic; it was about working smarter. I made sure QA wasn’t a bottleneck but a catalyst, helping developers move faster with clear, proactive communication.</p>
+            <p>I also took pride in my documentation efforts. I documented every process, tricky flow, and lesson learned—not because I had to, but because I wanted the next QA to have a smoother ride. To me, documentation is how you say, “I care about this team’s future.”</p>
+            <p>At ICE, I learned that being a great QA isn’t about saying “no” the loudest. It’s about asking the right questions, connecting teams, seeing risks before they happen, and standing up for quality even under tight deadlines.</p>
+        </section>
+
+        <!-- WINS -->
+        <section class="chapter reveal">
+            <div class="chapter-kicker">HIGHLIGHTS</div>
+            <h2>Some wins I’m proud of</h2>
+            <ul class="wins">
+                <li>Stepped in to <strong>lead QA efforts</strong> when the QA lead was away, managing all follow-ups, handovers, and processes.</li>
+                <li>Owned and improved QA for features like the <strong>Mentorship Program, Reseller Journey, Fulfillment Process</strong>, and <strong>Wallet Management</strong>.</li>
+                <li>Helped the team go from <strong>56% delivery to 86%</strong> in one sprint by improving QA collaboration with Product and Engineering.</li>
+                <li>Found and escalated critical production issues, some of which were <strong>fixed within hours</strong> thanks to fast reactions and thorough investigations.</li>
+                <li>Created clear, practical <strong>documentation</strong> to make onboarding easier and processes smoother for future teammates.</li>
+                <li>Worked across <strong>Product, Design, and Engineering</strong> to close gaps and <strong>prevent issues before they reached production</strong>.</li>
+                <li>Balanced speed and quality by focusing on what really mattered—<strong>the user’s experience</strong>.</li>
+            </ul>
+            <p>At the end of the day, my time at ICE wasn’t just about being a QA. It was about becoming someone the team could depend on, someone who wasn’t afraid to ask uncomfortable questions, and someone who never forgot that every ticket was a small part of someone’s experience with our product.</p>
+            <p class="closing">That’s the kind of QA I am. And that’s the kind of QA I’ll continue to be.</p>
+        </section>
+    </main>
+
+    <!-- OTHER JOURNEYS -->
+    <div class="journey-links">
+        <a class="journey-card reveal" href="index.html">
+            <small>OVERVIEW</small>
+            <h3>Back to Home</h3>
+            <p>Return to the overview of skills, projects and contact details.</p>
+            <span class="go">Home →</span>
+        </a>
+        <a class="journey-card reveal" href="CS-journey.html">
+            <small>NEXT JOURNEY</small>
+            <h3>Computer Science Journey</h3>
+            <p>How a CAPTCHA pulled me into Computer Vision, AR/VR and game development.</p>
+            <span class="go">Explore →</span>
+        </a>
     </div>
 
-    <!-- QA Journey Content -->
-    <div class="content">
-        <h1>My QA Journey</h1>
-        <div class="timeline">
-            <!-- Fanafzar - FanGames -->
-            <div class="timeline-section">
-                <h3><b>FanGames (Fanafzar)</b></h3>
-                <p>My QA journey kicked off at <b>Fanafzar - FanGames</b> as a Localization Tester, and then becoming a QA Tester.
-                We were in the business of publishing, Translating and localizing games—over 30 titles from companies worldwide! 
-                Licencing, localizing, translating and publishing them among markets of Android apps and games, such as <b>CafeBazar</b>, <b>Myket</b>, etc.</p>
-
-                    <div class="image-gallery">
-                    <!-- Add up to 7 images here -->
-                    <img src="./repo/Fangames - Fanafzar - Bazigushi porbazi/FanGames.jpg" alt="FanGames 0" class="game-image">
-                    <img src="./repo/Fangames - Fanafzar - Bazigushi porbazi/FanGames1.jpg" alt="FanGames 1" class="game-image">
-                    <img src="./repo/Fangames - Fanafzar - Bazigushi porbazi/FanGames2.jpg" alt="FanGames 2" class="game-image">
-                    <img src="./repo/Fangames - Fanafzar - Bazigushi porbazi/FanGames3-1.jpg" alt="FanGames 3" class="game-image">
-                </div>
-
-
-                <p> At FanGames (in <a href="https://deadmage.com/">Dead Mage</a> game studio) We didn’t stick to one genre; we covered everything: Action, MMO, RPG, Sports (Soccer, NBA, you name it), and more. 
-                We licensed, localized, tested and published games from across the world on local Android app-markets. Some of the titles I worked on included:</p>
-                <p>OverKill 3, Top Farm, Farm Town, Farm Paradise, Crime Coast, Mad Tanks, Nova Empire, البطال شرق - Rise of Heroes, Defense Zone 3, Dragon Ninjas, CandyDash, Warzone Clash of Generals, 
-                Lewandowski: Football Star, Best Bug Brawl, <a href="https://viphokm.com/en/">Vip Hokm (by CASUALINO)</a> , SKillTwins: Football Game, and NBA General Manager 2019:</p>
-                
-                <!-- Scrollable gallery for up to 10 game title images -->
-                <div class="image-gallery" id="game-titles-gallery">
-                    <img src="./repo/Fangames - Fanafzar - Bazigushi porbazi/Crime coast.png" alt="Crime coast" class="game-image">
-                    <img src="./repo/Fangames - Fanafzar - Bazigushi porbazi/Nova Empire.jpg" alt="Nova Empire" class="game-image">
-                    <img src="./repo/Fangames - Fanafzar - Bazigushi porbazi/mad Tanks!.jpg" alt="mad Tanks!" class="game-image">
-                    <img src="./repo/Fangames - Fanafzar - Bazigushi porbazi/mad Tanks.jpg" alt="mad Tanks" class="game-image">
-                    <img src="./repo/Fangames - Fanafzar - Bazigushi porbazi/البطال شرق - Rise of Heroes1.jpg" alt="البطال شرق - Rise of Heroes1" class="game-image">
-                    <img src="./repo/Fangames - Fanafzar - Bazigushi porbazi/البطال شرق - Rise of Heroes2.jpg" alt="البطال شرق - Rise of Heroes2" class="game-image">
-                    <img src="./repo/Fangames - Fanafzar - Bazigushi porbazi/Defense Zone 3.jpg" alt="Defense Zone 3" class="game-image">
-                    <img src="./repo/Fangames - Fanafzar - Bazigushi porbazi/CandyDash.jpg" alt="CandyDash" class="game-image">
-                    <img src="./repo/Fangames - Fanafzar - Bazigushi porbazi/Warzone Clash of Generals.jpeg" alt="Warzone Clash of Generals" class="game-image">
-                    <img src="./repo/Fangames - Fanafzar - Bazigushi porbazi/Warzone Clash of Generals0.jpg" alt="Warzone Clash of Generals0" class="game-image">
-                    <img src="./repo/Fangames - Fanafzar - Bazigushi porbazi/Warzone Clash of Generals1.jpg" alt="Warzone Clash of Generals1" class="game-image">
-                    <img src="./repo/Fangames - Fanafzar - Bazigushi porbazi/Warzone Clash of Generals2.jpg" alt="Warzone Clash of Generals2" class="game-image">
-                    <img src="./repo/Fangames - Fanafzar - Bazigushi porbazi/Warzone Clash of Generals3.jpg" alt="Warzone Clash of Generals3" class="game-image">
-                    <img src="./repo/Fangames - Fanafzar - Bazigushi porbazi/Lewandowski- Football Star1.jpg" alt="Lewandowski- Football Star1" class="game-image">
-                    <img src="./repo/Fangames - Fanafzar - Bazigushi porbazi/Lewandowski- Football Star2.jpg" alt="Lewandowski- Football Star2" class="game-image">
-                    <img src="./repo/Fangames - Fanafzar - Bazigushi porbazi/Best Bug Brawl1.jpg" alt="Best Bug Brawl1" class="game-image"> 
-                    <img src="./repo/Fangames - Fanafzar - Bazigushi porbazi/Best Bug Brawl2.jpg" alt="Best Bug Brawl2" class="game-image">
-                    <img src="./repo/Fangames - Fanafzar - Bazigushi porbazi/Vip Hokm (by CASUALINO).jpg" alt="Vip Hokm (by CASUALINO)" class="game-image">
-                    <img src="./repo/Fangames - Fanafzar - Bazigushi porbazi/SKillTwins Football Game.jpg" alt="SKillTwins Football Game" class="game-image">
-                    <img src="./repo/Fangames - Fanafzar - Bazigushi porbazi/SKillTwins Football Game1.jpg" alt="SKillTwins Football Game1" class="game-image">
-                    <img src="./repo/Fangames - Fanafzar - Bazigushi porbazi/SKillTwins Football Game0.jpg" alt="SKillTwins Football Game0" class="game-image">
-                    <img src="./repo/Fangames - Fanafzar - Bazigushi porbazi/overkill-3-screenshot.avif" alt="overkill-3" class="game-image">
-                    <img src="./repo/Fangames - Fanafzar - Bazigushi porbazi/Top Farm.png" alt="Top Farm" class="game-image">
-                    <img src="./repo/Fangames - Fanafzar - Bazigushi porbazi/farm-town-village-build-story.png" alt="farm-town" class="game-image">
-
-                </div>
-                <div class="gallery-nav">
-                    <button onclick="scrollGallery('game-titles-gallery', -1)">←</button>
-                    <button onclick="scrollGallery('game-titles-gallery', 1)">→</button>
-                </div>
-                <br>
-                <p>This experience gave me a bird’s-eye view of game testing across different genres. 
-                I learned how to adapt to various game mechanics and ensure quality in diverse contexts.</p>
-                <p>Later on, we developed two Hybrid Cloud-Based Game-Marketplace Android apps: <a href="https://web.archive.org/web/20190613232601/http://www.bazigushi.com/"><b>BaziGushi</b></a> 
-                and <a href="http://porbazi.com/"><b>Porbazi</b></a>, which were suppose to be published across different platforms via sponsorship of major Telecommunication companies such as
-                    Hamrah Aval and MTN Irancell. 
-                This was my first real dive into testing Android apps - learning and implementing testing methodologies such as Regression, User Acceptance Testing (UAT), on both of them from A to Z; And I performed quality verification (QV) for both. 
-                Unfortunately, we faced a massive competitor with deep pockets for advertising, and despite our efforts, we couldn’t secure investor backing. 
-                The project shut down after a few months—a tough but valuable lesson in the competitive tech landscape.</p>
-                
-                <div class="image-gallery" id="android-apps-gallery">
-                    <img src="./repo/Fangames - Fanafzar - Bazigushi porbazi/BaziGushi1.jpg" alt="BaziGushi 1" class="game-image">
-                    <img src="./repo/Fangames - Fanafzar - Bazigushi porbazi/BaziGushi2.jpg" alt="BaziGushi 2" class="game-image">
-                    <img src="./repo/Fangames - Fanafzar - Bazigushi porbazi/BaziGushi3.jpg" alt="BaziGushi 3" class="game-image">
-                    <img src="./repo/Fangames - Fanafzar - Bazigushi porbazi/BaziGushi4.jpg" alt="BaziGushi 4" class="game-image">
-                    <img src="./repo/Fangames - Fanafzar - Bazigushi porbazi/PorBazi.jpg" alt="PorBazi 0" class="game-image">
-                    <img src="./repo/Fangames - Fanafzar - Bazigushi porbazi/PorBazi0.jpg" alt="PorBazi 1" class="game-image">
-                    <img src="./repo/Fangames - Fanafzar - Bazigushi porbazi/PorBazi1.jpg" alt="PorBazi 2" class="game-image">
-                    <img src="./repo/Fangames - Fanafzar - Bazigushi porbazi/PorBazi2.jpg" alt="PorBazi 3" class="game-image">
-                    <img src="./repo/Fangames - Fanafzar - Bazigushi porbazi/PorBazi3.jpg" alt="PorBazi 4" class="game-image">
-                </div>
-                <div class="gallery-nav">
-                    <button onclick="scrollGallery('android-apps-gallery', -1)">←</button>
-                    <button onclick="scrollGallery('android-apps-gallery', 1)">→</button>
-                </div>
+    <!-- CONTACT -->
+    <section class="contact-wrap" id="contact">
+        <div class="sec-header reveal"><span class="sec-num">→</span><h2>Contact</h2></div>
+        <div class="contact-card reveal">
+            <div>
+                <h2>Let's improve product quality <span>together</span></h2>
+                <p>Open to Senior QA roles, contract testing engagements &amp; remote opportunities worldwide.</p>
+                <div class="avail"><span class="ping"></span> Available now · Any timezone · Worldwide</div>
             </div>
-
-            <div class="timeline-section">
-                <h3><b>Simulator Developer (AKA Zorvan)</b></h3>
-                <p>My next chapter took me to <a href="https://web.archive.org/web/20180830171458/http://simulator.ir/games/"><b>Simulator Developer</b></a> 
-                (also known as <a href="https://web.archive.org/web/20170714111201/http://www.zorvangamestudio.com/"><b>Zorvan</b></a> Game Studio Find more on 
-                <a href="https://pitchbook.com/profiles/company/483860-80#overview">Pitchbook</a>, or visit <a href="https://www.ircg.ir/fa/company/10">IRCG</a> - Iran's Computer and Video Games Foundation). 
-                This was my first real experience in a game studio, and it was a game-changer. At the time, the studio had already released two successful game titles.</p>
-                 <br>   
-                <p><b>Titles:</b></p>
-                    <ul>
-                    
-                    <li>The "AsmanDez I" (More on <a href="https://codamon.com/2010/07/azmandez-irans-first-mmo/">Codamon</a> and <a href="https://browsermmorpg.com/game-asmandez--678">BrowserMMO-RPG</a>)</li>
-                    <li>The "AsmanDez II" (Visit game's <a href="http://asmandez.net/">website</a>)</li>
-                    
-                    </ul>
-                <br>
-                <p>They built their reputation upon those successful titles, 
-                by wining International awards, such as "Best Indie Game, Audience Award, MMO of the Year 2013" 
-                (Checkout <a href="https://www.mmooftheyear.com/asmandez-ii">MMO of The Year</a>, 
-                <a href="https://www.hispantv.com/noticias/ciencia-tecnologia/142473/videojuego-irani-en-la-final-del-mmo">hispantv</a> news, 
-                <a href="https://rinf.com/alt-news/breaking-news/german-contest-nominates-iranian-game/">rinf news</a> for "Greman Contest Nominates Video game", 
-                and this article on <a href="https://en.ircg.ir/press/16/Iran-online-game-tops-German-contest">IRCG</a>: "Iran online game tops German contest").
-                They soon became famous among other game studios in Iran and in other places of the world. And now by joining them, 
-                    I could have had the opportunity to gain an invaluable experience while doing the QA work on their new games.</p>
-
-                <div class="image-gallery">
-                    
-                    <img src="./repo/2. Simulator Developer AKA Zorvan/Zorvan.jpg" alt="Zorvan0" class="game-image">
-                    <img src="./repo/2. Simulator Developer AKA Zorvan/Zorvan1.jpg" alt="Zorvan1" class="game-image">
-                    <img src="./repo/2. Simulator Developer AKA Zorvan/Zorvan2.jpg" alt="Zorvan2" class="game-image">
-                    <img src="./repo/2. Simulator Developer AKA Zorvan/Zorvan3.jpg" alt="Zorvan3" class="game-image">
-                    <img src="./repo/2. Simulator Developer AKA Zorvan/Zorvan4.jpg" alt="Zorvan4" class="game-image">
-                </div>
-
-                <br>
-                <p>We worked on two mobile game projects: <a href="https://web.archive.org/web/20210516171858/http://zorvangamestudio.com/portfolio/tactics-game/"><b>Tactics</b></a>, 
-                a real-time strategy game similar to Boom Beach, and <a href="http://web.archive.org/web/20210516183427/http://zorvangamestudio.com/portfolio/rastak-game/"><b>Northern Farm</b></a>, 
-                a farming simulation game where you could plant crops and go fishing and sell veggies to your neighbours. 
-                Each project had its unique challenges, and I was mesmerized by the magic of game design. However, I had challenges on doing the QA on each project. 
-                Since each one had a different Genre. For example, one challenge on Northern Farm was to make sure when campagins finishes no one is able to win an award, 
-                by taking advantage of using a VPN connection or Slow connection, so that server thinks they submited before the finish time and etc. 
-                Or on Tactics, one challenge was to check each weapon's Damage, Range of attack, and fire-rate so that in different combinations that each player selects to put them, they do not become OP.</p>
-
-                <br>   
-                <p><b>Tactics project:</b></p>
-                <div class="image-gallery" id="tactics-gallery">
-
-                    <img src="./repo/2. Simulator Developer AKA Zorvan/Tactics1.jpg" alt="Tactics 1" class="game-image"> 
-                    <img src="./repo/2. Simulator Developer AKA Zorvan/Tactics2.jpg" alt="Tactics 2" class="game-image"> 
-                    <img src="./repo/2. Simulator Developer AKA Zorvan/Tactics5.jpg" alt="Tactics 5" class="game-image">
-                    <img src="./repo/2. Simulator Developer AKA Zorvan/Tactics4.jpg" alt="Tactics 3" class="game-image"> 
-                    <img src="./repo/2. Simulator Developer AKA Zorvan/Tactics3.jpg" alt="Tactics 3" class="game-image"> 
-
-                </div>
-                <div class="gallery-nav">
-                    <button onclick="scrollGallery('tactics-gallery', -1)">←</button>
-                    <button onclick="scrollGallery('tactics-gallery', 1)">→</button>
-                </div>
-
-                <br>
-                <p><b>Northern Farm Project:</b></p>
-                <div class="image-gallery" id="northernfarm-gallery">
-
-                    <img src="./repo/2. Simulator Developer AKA Zorvan/Northern Farm.jpg" alt="Northern Farm 1" class="game-image"> 
-                    <img src="./repo/2. Simulator Developer AKA Zorvan/Northern Farm2.jpg" alt="Northern Farm 2" class="game-image"> 
-                    <img src="./repo/2. Simulator Developer AKA Zorvan/Northern Farm3.jpg" alt="Northern Farm 3" class="game-image">
-                    <img src="./repo/2. Simulator Developer AKA Zorvan/Northern Farm4.jpg" alt="Northern Farm 4" class="game-image">
-                    <img src="./repo/2. Simulator Developer AKA Zorvan/assets.jpg" alt="assets" class="game-image">
-                    
-                </div>
-                <div class="gallery-nav">
-                    <button onclick="scrollGallery('northernfarm-gallery', -1)">←</button>
-                    <button onclick="scrollGallery('northernfarm-gallery', 1)">→</button>
-                </div>
-                
-                <br>
-                <p>While polishing my QA skills, I dove deep into game mechanics, dynamics, and learning the behind-the-scenes magic of making a game. 
-                I became fascinated by the role of data in game design, and understood that statistics were everything! Data revealed players’ feelings, tastes, and preferences, 
-                guiding us on how to enhance their experience. It also showed us how campaigns and <b>Live Ops</b> impacted the overall <b>retention rates</b>. 
-                However, data couldn’t fully explain why players churned, which remained a puzzle for game designers. 
-                I loved this challenge. It felt like a game within a game, a constant momentum of beating your own record to win more players or starting over.</p>
-
-                <br>
-                    <p><b>Some achievements I conquered during the time:</b></p>
-                 <ul>
-                    
-                    <li>Minimized vague levels by <b>35%</b> through first-time user experience tests (<b>FTUE</b>), exploratory gameplay tests, 
-                        Playtests, UAT, and functional tests on mobile devices, sculpted a high-quality mobile game build version.</li>
-                    <li>Leveraged over <b>1500</b> test cases and test executions in TestRail. Logged defects in JIRA and reported to Stakeholders.</li>
-                    <li>Increased in-app purchases by <b>22%</b> through AB testing on in-game item balancing and <b>Live-Ops</b> design.</li>
-                        
-                    </ul>
-            
-
-                <br>
-                <p>The whole exposure to game design and being in the studio, triggered me to take several courses on Game Design and Computer Science to better understand how games 
-                    are built and kept alive, which enriched my QA perspective and made me a more well-rounded QA Tester.</p>
-
-                <br>
-                    <p><b>Course Titles:</b></p>
-                    <ul>
-                    
-                    <li><b>“Computer Science and Programming Specialization”</b> - by London University: creating 2D graphics and creating interactive graphics with <b>JavaScript (P5.js)</b>.</li>
-                    <li><b>“Introduction to Game Design”</b> - course by CalArts: Game design, Balancing Systems. 
-                    <li><b>“Principles of Game Design”</b> - course by Michigan State University: game designing process, level designing, game balancing: rewarding systems, play patterns, balancing flow.</li>
-                    <li><b>“Game Design and Development 1:2D shooter”</b> - course by Michigan State University: designing a 2D shooter game with <b>Unity 3D engine</b>. </li>
-                        
-                    </ul>
-            </div>
-            <br>
-
-            
-            <div class="timeline-section">
-                <h3><b>Alpha Cloud</b></h3>
-                <p>Sadly, <b>Zorvan</b> Game Studio disbanded, so I packed my bags and moved to <a href="https://playpod.ir/en/"><b>Playpod</b></a>, a company under the Fanap holding umbrella 
-                    (later acquired by <a href="https://www.alphaco.cloud/"><b>Alpha Cloud</b></a>). Playpod was a groundbreaking Cloud-Gaming platform for eSports — 
-                    the first cloud gaming console in the Middle East! It allowed players to enjoy top-ranked games for free on their phones (iOS and Android), desktop computers (with minimum hardware) 
-                    or web browsers, without needing consoles like Xbox or PlayStation.</p>
-                
-                <div class="image-gallery">
-                    
-                    <img src="./repo/3. Alpha Cloud/Alpha.jpg" alt="Alpha0" class="game-image">
-                    <img src="./repo/3. Alpha Cloud/Alpha1.jpg" alt="Alpha1" class="game-image">
-                    <img src="./repo/3. Alpha Cloud/Alpha2.jpg" alt="Alpha2" class="game-image">
-                    <img src="./repo/3. Alpha Cloud/Alpha4.jpg" alt="Alpha4" class="game-image">
-                    <img src="./repo/3. Alpha Cloud/Alpha5.jpg" alt="Alpha5" class="game-image">
-                </div>
-                <br>
-
-                <p>I joined as a QA Engineer and deepened my understanding of the Software Development Life Cycle (<b>SDLC</b>) and QA fundamentals. 
-                    Working on Playpod exposed me to the technologies behind cloud platforms (Such as load testing via <b>K6</b> on Azure Kubernetes, 
-                    utilizing <b>Playwright</b> to automate some of QA work, Monitoring tools like Fiddler, Grafana and Loki and etc.)
-                    and cloud gaming. I sharpened my skills in ensuring seamless user experiences, Collaborating with <b>+4 cross-functional</b> teams, brought an impressive <b>28%</b> increment in bug fixes, 
-                    and <b>19%</b> in feature delivery; On a platform that demanded high performance and reliability, which was both challenging and rewarding.</p>
-                            
-                    <div class="image-gallery" id="playpod-first-gallery">
-                    <!-- Add 2 images here -->
-                    <img src="./repo/3. Alpha Cloud/Playpod.png" alt="Playpod 1" class="game-image"> 
-                    <img src="./repo/3. Alpha Cloud/Playpod1.png" alt="Playpod 2" class="game-image">
-                    <img src="./repo/3. Alpha Cloud/Playpod5.jpg" alt="Playpod 3" class="game-image"> 
-                    <img src="./repo/3. Alpha Cloud/Playpod3.png" alt="Playpod 4" class="game-image"> 
-                    <img src="./repo/3. Alpha Cloud/Playpod4.png" alt="Playpod 5" class="game-image">
-                    <img src="./repo/3. Alpha Cloud/Playpod2.png" alt="Playpod 3" class="game-image"> 
-
-                        
-                </div>
-                <div class="gallery-nav">
-                    <button onclick="scrollGallery('playpod-first-gallery', -1)">←</button>
-                    <button onclick="scrollGallery('playpod-first-gallery', 1)">→</button>
-                </div>
-                <br>
-
-                <p>After 1.5 year of hard work and dedication and showcasing my skills and the value I bring to the team, I was promoted to <a href=""><b>QA Lead</b></a> role on <b>Aplha Cloud</b>.</p> 
-            <p>This allowed me to have the starting ground for flourishing my skills and fostering a team dynamic as a leader on the new project which was <a href="https://arium.gg/"><b>Arium</b></a>, 
-                building it from the ground up. During the time, I managed to Spearhead and coach 4 junior testers on both cloud-gaming projects of <a href="https://arium.gg/"><b>Arium</b></a> and 
-                <a href="https://playpod.ir/en/"><b>Playpod</b></a>, resulting in a remarkable <b>46%</b> increase in QA team capacity. Collaborated with <b>+4 cross-functional</b> teams on 
-                multiple concurrent projects and brought an attained a <b>99.99% crash-free</b> Android app delivery, through compatibility, UI, regression and Manual testing while coaching the team.</p>
- 
-                
-                <div class="image-gallery" id="playpod-second-gallery">
-
-                    <img src="./repo/3. Alpha Cloud/arium.jpg" alt="arium 1" class="game-image"> 
-                    <img src="./repo/3. Alpha Cloud/arium1.png" alt="arium 2" class="game-image"> 
-                    <img src="./repo/3. Alpha Cloud/arium2.png" alt="arium 3" class="game-image"> 
-                    <img src="./repo/3. Alpha Cloud/arium3.png" alt="arium 4" class="game-image"> 
-                    <img src="./repo/3. Alpha Cloud/arium4.png" alt="arium 5" class="game-image"> 
-                    <img src="./repo/3. Alpha Cloud/arium5.png" alt="arium 6" class="game-image"> 
-
-            
-                </div>
-                <div class="gallery-nav">
-                    <button onclick="scrollGallery('playpod-second-gallery', -1)">←</button>
-                    <button onclick="scrollGallery('playpod-second-gallery', 1)">→</button>
-                </div>
-            </div>
-
-
-            
-            <div class="timeline-section">
-                <h3><b>ICE GLOBAL</b></h3>
-                <p>When I joined ICE Global, I thought QA would be straightforward—test features, report bugs, and move on. But I quickly learned that at ICE, quality was everyone’s job, and I became the voice of that quality.</p>
-                <p>I didn’t just test tickets; I lived inside them. I scrutinized user stories, challenged unclear requirements, double-checked designs, and hunted down edge cases no one else considered. My goal was to ensure that every feature made sense for resellers, customers, and internal teams. I cared about the user experience—did the flow make sense? Was the error message clear? Could a reseller navigate this at midnight with no support?</p>
-                <p>One defining moment came when our QA lead went on leave. Instead of staying in my lane, I stepped up. I ran daily standups, monitored channels, followed up with developers, product managers, and designers, and ensured nothing slipped through the cracks. It was tough, but it taught me that leadership isn’t a title—it’s about showing up when needed most.</p>
-                <p>Another highlight was a sprint where we boosted our delivery rate from 56% to 86%. It wasn’t magic; it was about working smarter. I made sure QA wasn’t a bottleneck but a catalyst, helping developers move faster with clear, proactive communication.</p>
-                <p>I also took pride in my documentation efforts. I documented every process, tricky flow, and lesson learned—not because I had to, but because I wanted the next QA to have a smoother ride. To me, documentation is how you say, “I care about this team’s future.”</p>
-                <p>At ICE, I learned that being a great QA isn’t about saying “no” the loudest. It’s about asking the right questions, connecting teams, seeing risks before they happen, and standing up for quality even under tight deadlines.</p>
-            </div>
-
-            <!-- Wins -->
-            <div class="timeline-section">
-                <h3><b>Some Wins I’m Proud Of</b></h3>
-                <ul>
-                    <li>Stepped in to <strong>lead QA efforts</strong> when the QA lead was away, managing all follow-ups, handovers, and processes.</li>
-                    <li>Owned and improved QA for features like the <strong>Mentorship Program, Reseller Journey, Fulfillment Process</strong>, and <strong>Wallet Management</strong>.</li>
-                    <li>Helped the team go from <strong>56% delivery to 86%</strong> in one sprint by improving QA collaboration with Product and Engineering.</li>
-                    <li>Found and escalated critical production issues, some of which were <strong>fixed within hours</strong> thanks to fast reactions and thorough investigations.</li>
-                    <li>Created clear, practical <strong>documentation</strong> to make onboarding easier and processes smoother for future teammates.</li>
-                    <li>Worked across <strong>Product, Design, and Engineering</strong> to close gaps and <strong>prevent issues before they reached production</strong>.</li>
-                    <li>Balanced speed and quality by focusing on what really mattered—<strong>the user’s experience</strong>.</li>
-                </ul>
-                <p>At the end of the day, my time at ICE wasn’t just about being a QA. It was about becoming someone the team could depend on, someone who wasn’t afraid to ask uncomfortable questions, and someone who never forgot that every ticket was a small part of someone’s experience with our product.</p>
-                <p>That’s the kind of QA I am. And that’s the kind of QA I’ll continue to be.</p>
+            <div class="contact-list">
+                <a class="contact-link-card" href="mailto:amirhsamson93@gmail.com">
+                    <div class="contact-ico" style="background:var(--accent)">✉</div>
+                    <div><small>EMAIL</small><span class="val">amirhsamson93@gmail.com</span></div>
+                    <span class="arrow">↗</span>
+                </a>
+                <a class="contact-link-card" href="https://www.linkedin.com/in/amir-samson/" target="_blank" rel="noopener">
+                    <div class="contact-ico" style="background:#0A66C2">in</div>
+                    <div><small>LINKEDIN</small><span class="val">linkedin.com/in/amir-samson</span></div>
+                    <span class="arrow">↗</span>
+                </a>
+                <a class="contact-link-card" href="https://github.com/AmirSamson/" target="_blank" rel="noopener">
+                    <div class="contact-ico" style="background:#333">⌥</div>
+                    <div><small>GITHUB</small><span class="val">github.com/AmirSamson</span></div>
+                    <span class="arrow">↗</span>
+                </a>
             </div>
         </div>
+    </section>
 
-        <!-- Journey Links -->
-        <div class="journey-links">
-            <p><b>Explore other journeys:</b></p>
-            <p>Return to <a href="index.html">Home</a> for an overview.</p>
-            <p>Check out my <a href="CS-journey.html">Computer Science Journey</a> for CS experiences.</p>
-        </div>
+    <footer class="site-footer">
+        © 2026 · <b>AMIR SASANI</b> · SENIOR QA ENGINEER · ISTANBUL, TR
+    </footer>
 
-        <!-- Contact Information -->
-        <br><h3>Contact Information</h3>
-        <div class="contact-info">
-            <div class="contact-item">
-                <img src="./repo/mail-icon.svg" alt="Email" class="contact-icon">
-                <a href="mailto:amirhsamson93@gmail.com" class="contact-link">amirhsamson93@gmail.com</a>
-            </div>
-            <div class="contact-item">
-                <img src="./repo/linkedin-icon.svg" alt="LinkedIn" class="contact-icon">
-                <a href="https://www.linkedin.com/in/amir-samson/" class="contact-link">LinkedIn page</a>
-            </div>
-            <div class="contact-item">
-                <img src="./repo/github-icon.svg" alt="GitHub" class="contact-icon">
-                <a href="https://github.com/AmirSamson/" class="contact-link">GitHub page</a>
-            </div>
-        </div>
-    </div>
-
-    <!-- JavaScript for Scroll Animation and Gallery Navigation -->
-    <script>
-        // Function to handle scroll animation for timeline sections
-        function handleScroll() {
-            const sections = document.querySelectorAll('.timeline-section');
-            const triggerPoint = window.innerHeight * 0.8;
-
-            sections.forEach(section => {
-                const sectionTop = section.getBoundingClientRect().top;
-                if (sectionTop < triggerPoint) {
-                    section.classList.add('visible');
-                }
-            });
-        }
-
-        // Function to scroll gallery
-        function scrollGallery(galleryId, direction) {
-            const gallery = document.getElementById(galleryId);
-            const scrollAmount = 300; // Adjust this value to control scroll distance
-            gallery.scrollBy({
-                left: direction * scrollAmount,
-                behavior: 'smooth'
-            });
-        }
-
-        window.addEventListener('scroll', handleScroll);
-        window.addEventListener('load', handleScroll);
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>

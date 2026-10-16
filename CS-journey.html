@@ -1,367 +1,139 @@
-<!-- CS-journey.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Amir Sasani's Computer Science journey — from a CAPTCHA to Computer Vision, AR/VR and immersive game development.">
+    <meta name="theme-color" content="#0D0B1E">
+    <title>Computer Science Journey — Amir Sasani</title>
     <link rel="icon" type="image/x-icon" href="./repo/favicon.ico">
-    <title>Computer Science Journey</title>
-    <style>
-        /* Reset default margins and padding */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Roboto', Arial, sans-serif; /* Material Design font */
-            line-height: 1.6;
-            background-color: #000000;
-            color: #ffffff;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
-
-        /* Navbar styling */
-        .navbar {
-            background-color: #333;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-            overflow: hidden;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .navbar a {
-            color: #ffffff;
-            text-align: center;
-            padding: 14px 16px;
-            text-decoration: none;
-            font-size: clamp(14px, 4vw, 17px);
-            font-weight: 500;
-            flex-grow: 1;
-            position: relative;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .navbar a:hover {
-            background-color: #555;
-            color: #ffffff;
-            transform: translateY(-2px);
-            box-shadow: 0 2px 4px rgba(255, 255, 255, 0.2);
-        }
-
-        .navbar a.active {
-            background-color: #a00326;
-            color: #ffffff;
-            box-shadow: 0 2px 4px rgba(160, 3, 38, 0.4);
-        }
-
-        /* Content styling */
-        .content {
-            padding: 24px;
-            text-align: center;
-            max-width: 1200px;
-            margin: 0 auto;
-            background: transparent;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-            border-radius: 4px;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        /* Timeline styling */
-        .timeline {
-            position: relative;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 24px 0;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 50%;
-            width: 4px;
-            height: 100%;
-            background: linear-gradient(to bottom, #a00326, #333);
-            transform: translateX(-50%);
-            z-index: 0;
-        }
-
-        .timeline-section {
-            position: relative;
-            margin: 48px 0;
-            padding: 24px;
-            background-color: #333;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-            opacity: 0;
-            transform: translateY(50px);
-            transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-            z-index: 1;
-        }
-
-        .timeline-section.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Removed the ::before pseudo-element that created the red dot */
-        /* .timeline-section::before { ... } */
-
-        .timeline-section h2, .timeline-section h3 {
-            margin-bottom: 16px;
-            font-size: clamp(1.25rem, 4vw, 1.75rem);
-            font-weight: 500;
-            color: #a00326;
-        }
-
-        .timeline-section p {
-            font-size: clamp(1rem, 3vw, 1.2rem);
-            margin-bottom: 16px;
-            font-weight: 400;
-        }
-
-        .timeline-section ul {
-            list-style: none;
-            text-align: left;
-            max-width: 600px;
-            margin: 0 auto 16px;
-        }
-
-        .timeline-section ul li {
-            font-size: clamp(1rem, 3vw, 1.2rem);
-            margin-bottom: 8px;
-            position: relative;
-            padding-left: 24px;
-        }
-
-        .timeline-section ul li::before {
-            content: '•';
-            position: absolute;
-            left: 0;
-            color: #a00326;
-            font-size: 1.5rem;
-        }
-
-        /* Journey links */
-        .journey-links {
-            margin-top: 24px;
-        }
-
-        .journey-links a {
-            color: #a00326;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .journey-links a:hover {
-            text-decoration: underline;
-            color: #ffffff;
-            text-shadow: 0 2px 4px rgba(255, 255, 255, 0.3);
-            transform: translateY(-2px);
-        }
-
-        /* Contact section styling */
-        .contact-info {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 16px;
-            margin-top: 24px;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            background-color: #333;
-            padding: 12px 16px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .contact-item:hover {
-            background-color: #a00326;
-            transform: translateY(-4px);
-            box-shadow: 0 4px 8px rgba(160, 3, 38, 0.4);
-        }
-
-        .contact-icon {
-            width: 20px;
-            height: auto;
-            vertical-align: middle;
-            margin-right: 12px;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .contact-icon:hover {
-            transform: scale(1.1);
-            filter: brightness(150%);
-        }
-
-        .contact-link {
-            color: #ffffff;
-            text-decoration: none;
-            font-size: clamp(1rem, 3vw, 1.1rem);
-            font-weight: 500;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .contact-link:hover {
-            color: #ffffff;
-            text-decoration: underline;
-            text-shadow: 0 2px 4px rgba(255, 255, 255, 0.3);
-        }
-
-        /* Media Queries for Responsiveness */
-        @media (max-width: 600px) {
-            .navbar {
-                flex-direction: column;
-            }
-
-            .navbar a {
-                padding: 12px;
-                width: 100%;
-            }
-
-            .content {
-                padding: 16px;
-            }
-
-            .timeline::before {
-                left: 24px;
-            }
-
-            .timeline-section {
-                margin: 24px 0;
-                padding: 16px;
-            }
-
-            .contact-info {
-                flex-direction: column;
-                gap: 12px;
-            }
-
-            .navbar a:hover, .journey-links a:hover, .contact-item:hover, .contact-icon:hover {
-                transform: translateY(-1px);
-                box-shadow: 0 1px 2px rgba(255, 255, 255, 0.2);
-            }
-        }
-
-        @media (max-width: 360px) {
-            .navbar a {
-                font-size: 14px;
-            }
-
-            .content {
-                padding: 12px;
-            }
-
-            .timeline-section {
-                margin: 16px 0;
-                padding: 12px;
-            }
-
-            .navbar a:hover, .journey-links a:hover, .contact-item:hover, .contact-icon:hover {
-                transform: none;
-                box-shadow: none;
-                text-shadow: none;
-            }
-        }
-    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
-    <!-- Navigation Bar -->
-    <div class="navbar">
-        <a href="index.html">Home</a>
-        <a href="qa-journey.html">QA Journey</a>
-        <a class="active" href="CS-journey.html">Computer Science Journey</a>
+
+    <!-- NAV -->
+    <nav class="site-nav">
+        <a href="index.html" class="nav-brand">
+            <img src="./repo/favicon-32x32.png" alt="" class="nav-logo">
+            <span>Amir <em>Sasani</em></span>
+        </a>
+        <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="qa-journey.html">QA Journey</a>
+            <a href="CS-journey.html" class="active">CS Journey</a>
+            <a href="index.html#contact" class="nav-cta">Hire me</a>
+        </div>
+    </nav>
+
+    <!-- PAGE HERO -->
+    <header class="page-hero">
+        <div class="crumbs"><a href="index.html">HOME</a> / CS JOURNEY</div>
+        <h1>My <span>Computer Science</span> Journey</h1>
+        <p class="sub">It started with a single CAPTCHA that stopped one of my automation tests — and turned into a passion for Computer Vision, AR/VR and immersive games.</p>
+    </header>
+
+    <!-- PATH -->
+    <div class="steps reveal">
+        <div class="step">CAPTCHA</div>
+        <div class="step">Image processing</div>
+        <div class="step">Pattern recognition &amp; OCR</div>
+        <div class="step">AR &amp; VR</div>
+        <div class="step">Immersive games</div>
     </div>
 
-    <!-- CS Journey Content -->
-    <div class="content">
-        <h1>My Computer Science Journey</h1>
-        <div class="timeline">
-            <!-- Introduction -->
-            <div class="timeline-section">
-                <h2>Where It All Began</h2>
-                <p>I started this journey because of a simple CAPTCHA. My interest in Computer Science was sparked during my early years as a QA Engineer. While writing a routine automation test for a login page, I encountered a CAPTCHA that halted the test. This curiosity led me to explore the technology behind it, igniting my passion for the field.</p>
-            </div>
+    <main class="timeline">
 
-            <!-- Exploration of CAPTCHA -->
-            <div class="timeline-section">
-                <h3>Exploring CAPTCHA Technology</h3>
-                <p>This exploration introduced me to image processing, pattern recognition, and optical character recognition (OCR)—the foundations of CAPTCHA systems. I wondered what other applications this technology could have, opening a new world of possibilities.</p>
-            </div>
+        <section class="chapter reveal">
+            <div class="chapter-kicker">CHAPTER 01</div>
+            <h2>Where it all began</h2>
+            <p>I started this journey because of a simple CAPTCHA. My interest in Computer Science was sparked during my early years as a QA Engineer. While writing a routine automation test for a login page, I encountered a CAPTCHA that halted the test. This curiosity led me to explore the technology behind it, igniting my passion for the field.</p>
+        </section>
 
-            <!-- Interest in AR/VR -->
-            <div class="timeline-section">
-                <h3>Diving into AR and VR</h3>
-                <p>Fascinated by this technology, I delved into Augmented Reality (AR) and Virtual Reality (VR). With my 2 years of experience in the game industry as a Game Designer and QA Engineer, I saw the potential to combine Computer Vision with game development for more immersive experiences.</p>
+        <section class="chapter reveal">
+            <div class="chapter-kicker">CHAPTER 02</div>
+            <h2>Exploring CAPTCHA technology</h2>
+            <p>This exploration introduced me to image processing, pattern recognition, and optical character recognition (OCR)—the foundations of CAPTCHA systems. I wondered what other applications this technology could have, opening a new world of possibilities.</p>
+            <div class="chips">
+                <span class="chip">Image Processing</span><span class="chip">Pattern Recognition</span><span class="chip">OCR</span>
             </div>
+        </section>
 
-            <!-- Projects and Skills -->
-            <div class="timeline-section">
-                <h3>Projects and Skills</h3>
-                <p>Here’s what I’ve been working on and learning along the way:</p>
-                <ul>
-                    <li>Project 1: [Description]</li>
-                    <li>Project 2: [Description]</li>
-                    <li>Skills Learned: [List skills]</li>
-                </ul>
-                <p>Ultimately, I aim to apply my knowledge of Computer Vision, specifically AR and VR, to create more immersive and realistic games, leveraging my background in the game industry.</p>
+        <section class="chapter reveal">
+            <div class="chapter-kicker">CHAPTER 03</div>
+            <h2>Diving into AR and VR</h2>
+            <p>Fascinated by this technology, I delved into Augmented Reality (AR) and Virtual Reality (VR). With my 2 years of experience in the game industry as a Game Designer and QA Engineer, I saw the potential to combine Computer Vision with game development for more immersive experiences.</p>
+            <div class="chips">
+                <span class="chip">Computer Vision</span><span class="chip">AR</span><span class="chip">VR</span><span class="chip">Game Design</span>
             </div>
-        </div>
+        </section>
 
-        <!-- Journey Links -->
-        <div class="journey-links">
-            <p><b>Explore other journeys:</b></p>
-            <p>Return to <a href="index.html">Home</a> for an overview.</p>
-            <p>Check out my <a href="qa-journey.html">QA Journey</a> for QA experiences.</p>
-        </div>
+        <section class="chapter reveal">
+            <div class="chapter-kicker">CHAPTER 04</div>
+            <h2>Projects and skills</h2>
+            <p>Here’s what I’ve been working on and learning along the way:</p>
+            <ul>
+                <li><b>Project 1:</b> <span class="placeholder-note" style="display:inline-block; padding:.1rem .7rem;">description coming soon</span></li>
+                <li><b>Project 2:</b> <span class="placeholder-note" style="display:inline-block; padding:.1rem .7rem;">description coming soon</span></li>
+                <li><b>Skills learned:</b> <span class="placeholder-note" style="display:inline-block; padding:.1rem .7rem;">list coming soon</span></li>
+            </ul>
+            <p class="closing">Ultimately, I aim to apply my knowledge of Computer Vision, specifically AR and VR, to create more immersive and realistic games, leveraging my background in the game industry.</p>
+        </section>
+    </main>
 
-        <!-- Contact Information -->
-        <br><h3>Contact Information</h3>
-        <div class="contact-info">
-            <div class="contact-item">
-                <img src="./repo/mail-icon.svg" alt="Email" class="contact-icon">
-                <a href="mailto:amirhsamson93@gmail.com" class="contact-link">amirhsamson93@gmail.com</a>
-            </div>
-            <div class="contact-item">
-                <img src="./repo/linkedin-icon.svg" alt="LinkedIn" class="contact-icon">
-                <a href="https://www.linkedin.com/in/amir-samson/" class="contact-link">LinkedIn page</a>
-            </div>
-            <div class="contact-item">
-                <img src="./repo/github-icon.svg" alt="GitHub" class="contact-icon">
-                <a href="https://github.com/AmirSamson/" class="contact-link">GitHub page</a>
-            </div>
-        </div>
+    <!-- OTHER JOURNEYS -->
+    <div class="journey-links">
+        <a class="journey-card reveal" href="index.html">
+            <small>OVERVIEW</small>
+            <h3>Back to Home</h3>
+            <p>Return to the overview of skills, projects and contact details.</p>
+            <span class="go">Home →</span>
+        </a>
+        <a class="journey-card reveal" href="qa-journey.html">
+            <small>NEXT JOURNEY</small>
+            <h3>QA Journey</h3>
+            <p>From localization tester to QA Lead across games, cloud gaming and e-commerce.</p>
+            <span class="go">Explore →</span>
+        </a>
     </div>
 
-    <!-- JavaScript for Scroll Animation -->
-    <script>
-        // Function to handle scroll animation for timeline sections
-        function handleScroll() {
-            const sections = document.querySelectorAll('.timeline-section');
-            const triggerPoint = window.innerHeight * 0.8;
+    <!-- CONTACT -->
+    <section class="contact-wrap" id="contact">
+        <div class="sec-header reveal"><span class="sec-num">→</span><h2>Contact</h2></div>
+        <div class="contact-card reveal">
+            <div>
+                <h2>Let's build something <span>immersive</span></h2>
+                <p>Open to Senior QA roles, contract testing engagements &amp; remote opportunities worldwide.</p>
+                <div class="avail"><span class="ping"></span> Available now · Any timezone · Worldwide</div>
+            </div>
+            <div class="contact-list">
+                <a class="contact-link-card" href="mailto:amirhsamson93@gmail.com">
+                    <div class="contact-ico" style="background:var(--accent)">✉</div>
+                    <div><small>EMAIL</small><span class="val">amirhsamson93@gmail.com</span></div>
+                    <span class="arrow">↗</span>
+                </a>
+                <a class="contact-link-card" href="https://www.linkedin.com/in/amir-samson/" target="_blank" rel="noopener">
+                    <div class="contact-ico" style="background:#0A66C2">in</div>
+                    <div><small>LINKEDIN</small><span class="val">linkedin.com/in/amir-samson</span></div>
+                    <span class="arrow">↗</span>
+                </a>
+                <a class="contact-link-card" href="https://github.com/AmirSamson/" target="_blank" rel="noopener">
+                    <div class="contact-ico" style="background:#333">⌥</div>
+                    <div><small>GITHUB</small><span class="val">github.com/AmirSamson</span></div>
+                    <span class="arrow">↗</span>
+                </a>
+            </div>
+        </div>
+    </section>
 
-            sections.forEach(section => {
-                const sectionTop = section.getBoundingClientRect().top;
-                if (sectionTop < triggerPoint) {
-                    section.classList.add('visible');
-                }
-            });
-        }
+    <footer class="site-footer">
+        © 2026 · <b>AMIR SASANI</b> · SENIOR QA ENGINEER · ISTANBUL, TR
+    </footer>
 
-        window.addEventListener('scroll', handleScroll);
-        window.addEventListener('load', handleScroll);
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>

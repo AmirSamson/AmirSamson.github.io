@@ -3,672 +3,343 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Amir Sasani (Samson) — Senior QA Engineer with 7+ years in Fintech, e-commerce, cloud gaming and games across mobile, Windows and web.">
+    <meta name="theme-color" content="#0D0B1E">
     <title>Amir Sasani — Senior QA Engineer</title>
     <link rel="icon" type="image/x-icon" href="./repo/favicon.ico">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --bg: #0D0B1E;
-            --surface: #1A1730;
-            --accent: #a00326;
-            --accent-light: #ff6f61;
-            --text: #F8FAFC;
-            --slate: #CBD5E1;
-        }
-        * { margin:0; padding:0; box-sizing:border-box; }
-        body {
-            font-family: 'Inter', sans-serif;
-            background: var(--bg);
-            color: var(--slate);
-            line-height: 1.6;
-        }
-        nav {
-            position: fixed;
-            top: 0; left: 0; right: 0;
-            height: 56px;
-            background: rgba(13,11,30,0.95);
-            backdrop-filter: blur(20px);
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0 2rem;
-            z-index: 1000;
-            border-bottom: 1px solid rgba(160,3,38,0.2);
-        }
-        .nav-brand {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            color: var(--text);
-            text-decoration: none;
-            font-weight: 700;
-        }
-        .nav-logo {
-            width: 32px;
-            height: 32px;
-            border-radius: 8px;
-            object-fit: cover;
-            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
-        }
-        .nav-links a {
-            color: var(--slate);
-            text-decoration: none;
-            margin-left: 2rem;
-            font-weight: 500;
-            transition: color 0.2s;
-        }
-        .nav-links a:hover, .nav-links a.active {
-            color: white;
-        }
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            padding: 80px 2rem 4rem;
-            position: relative;
-        }
-        .hero-inner {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 420px;
-            gap: 4rem;
-        }
-        h1 {
-            font-size: clamp(2.8rem, 5vw, 4.5rem);
-            font-weight: 800;
-            color: var(--text);
-            line-height: 1.05;
-        }
-        .hero-role {
-            color: var(--accent-light);
-            font-family: 'JetBrains Mono', monospace;
-            margin: 1rem 0;
-        }
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(3,1fr);
-            gap: 1rem;
-            margin: 2rem 0;
-        }
-        .stat {
-            background: var(--surface);
-            padding: 1rem;
-            border-radius: 12px;
-            text-align: center;
-        }
-        .stat-num {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--accent);
-        }
-        .btn {
-            padding: 12px 28px;
-            border-radius: 9999px;
-            font-weight: 600;
-            text-decoration: none;
-            display: inline-block;
-        }
-        .btn-primary {
-            background: var(--accent);
-            color: white;
-        }
-        .section {
-            padding: 5rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        .sec-header {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 2rem;
-        }
-        .sec-num {
-            font-family: 'JetBrains Mono', monospace;
-            color: var(--accent-light);
-        }
-        .timeline, .cards {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-        }
-        .card, .timeline-item {
-            background: var(--surface);
-            border-radius: 16px;
-            padding: 2rem;
-            border: 1px solid rgba(160,3,38,0.2);
-        }
-        .gallery {
-            display: flex;
-            overflow-x: auto;
-            gap: 1rem;
-            padding: 1rem 0;
-        }
-        .gallery img {
-            width: 180px;
-            border-radius: 12px;
-            flex-shrink: 0;
-        }
-                /* Projects Styles */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-            gap: 2rem;
-        }
-        .project-card {
-            background: var(--surface);
-            border-radius: 16px;
-            overflow: hidden;
-            border: 1px solid rgba(160,3,38,0.2);
-            transition: all 0.3s ease;
-        }
-        .project-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1);
-        }
-        .project-card img {
-            width: 100%;
-            height: 220px;
-            object-fit: cover;
-        }
-        .project-info {
-            padding: 1.5rem;
-        }
-        .project-info h3 {
-            font-size: 1.4rem;
-            margin-bottom: 0.5rem;
-            color: var(--text);
-        }
-        .project-info p {
-            color: var(--slate);
-            margin-bottom: 1rem;
-            line-height: 1.5;
-        }
-        .project-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-bottom: 1.2rem;
-        }
-        .tag {
-            background: rgba(160,3,38,0.15);
-            color: var(--accent-light);
-            font-size: 0.8rem;
-            padding: 4px 10px;
-            border-radius: 9999px;
-            font-family: 'JetBrains Mono', monospace;
-        }
-        .project-links {
-            display: flex;
-            gap: 1rem;
-        }
-        .project-links a {
-            color: var(--accent-light);
-            text-decoration: none;
-            font-weight: 500;
-        }
-        .project-links a:hover {
-            color: white;
-        }
-
-        /* Platforms & Domains Styles */
-        .platforms-section {
-            padding: 5rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        .platforms-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 4rem;
-        }
-        
-        .platform-card {
-            background: var(--surface);
-            border-radius: 16px;
-            padding: 1.8rem 1.2rem;
-            text-align: center;
-            border: 1px solid rgba(160,3,38,0.2);
-            transition: all 0.3s ease;
-        }
-        
-        .platform-card:hover {
-            transform: translateY(-6px);
-            border-color: var(--accent);
-        }
-        
-        .platform-icon {
-            font-size: 2.8rem;
-            margin-bottom: 1rem;
-            display: block;
-        }
-        
-        .platform-card h3 {
-            color: var(--text);
-            margin-bottom: 0.4rem;
-            font-size: 1.25rem;
-        }
-        
-        .platform-card p {
-            color: var(--slate);
-            font-size: 0.95rem;
-            line-height: 1.4;
-        }
-        
-        .tags-container {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
-        
-        .tag-group {
-            background: var(--surface);
-            border-radius: 12px;
-            padding: 1.2rem;
-            border: 1px solid rgba(160,3,38,0.15);
-        }
-        
-        .tag-group h4 {
-            color: var(--accent-light);
-            margin-bottom: 1rem;
-            font-size: 1rem;
-            font-family: 'JetBrains Mono', monospace;
-        }
-        
-        .tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-        
-        .tag {
-            background: rgba(160,3,38,0.12);
-            color: var(--accent-light);
-            padding: 6px 14px;
-            border-radius: 9999px;
-            font-size: 0.9rem;
-        }
-        footer {
-            text-align: center;
-            padding: 3rem;
-            font-size: 0.9rem;
-            color: var(--slate);
-        }
-        @media (max-width: 900px) {
-            .hero-inner { grid-template-columns: 1fr; }
-        }
-    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
-    <nav>
-        <a href="#" class="nav-brand">
-            <img src="./repo/favicon-32x32.png" alt="Amir Sasani" class="nav-logo">
-            <span>Amir Sasani</span>
+
+    <!-- NAV -->
+    <nav class="site-nav">
+        <a href="#hero" class="nav-brand">
+            <img src="./repo/favicon-32x32.png" alt="" class="nav-logo">
+            <span>Amir <em>Sasani</em></span>
         </a>
+        <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
         <div class="nav-links">
             <a href="#about">About</a>
             <a href="#experience">Experience</a>
             <a href="#skills">Skills</a>
             <a href="#projects">Projects</a>
-            <a href="#contact" class="btn-primary">Contact</a>
+            <a href="qa-journey.html">QA Journey</a>
+            <a href="CS-journey.html">CS Journey</a>
+            <a href="#contact" class="nav-cta">Hire me</a>
         </div>
     </nav>
 
-          <!-- HERO -->
-    <section class="hero" id="hero">
+    <!-- HERO -->
+    <header class="hero" id="hero">
         <div class="hero-inner">
             <div>
-                <div style="display:inline-flex; align-items:center; gap:8px; background:rgba(160,3,38,0.15); padding:6px 16px; border-radius:9999px; margin-bottom:1rem;">
-                    <span style="display:inline-block; width:8px; height:8px; background:#34D399; border-radius:50%; animation:ping 2s infinite;"></span>
-                    OPEN TO WORK — ANY TIMEZONE
-                </div>
-                <h1>Amir Sasani <span style="color:var(--accent-light);">(Samson)</span></h1>
+                <div class="live-pill"><span class="ping"></span> OPEN TO WORK · ANY TIMEZONE</div>
+                <h1>Amir Sasani <span class="alt">(Samson)</span></h1>
                 <p class="hero-role">Senior QA Engineer • Computer Vision Enthusiast</p>
-                <p style="max-width:480px; font-size:1.1rem;"> 
-                    7+ years of QA experience in Fintech and e-commerce applications across mobile, Windows, and web platforms.
-                </p>
-                <div style="margin-top:2rem;">
-                    <a href="#contact" class="btn-primary" style="margin-right:1rem;">Let's Connect</a>
-                    <a href="#projects" style="color:var(--accent-light); text-decoration:none;">View Projects ↓</a>
+                <p class="hero-lead">7+ years of QA experience in Fintech and e-commerce applications across mobile, Windows, and web platforms.</p>
+                <div class="hero-actions">
+                    <a href="#contact" class="btn btn-primary">Let's Connect</a>
+                    <a href="#experience" class="btn btn-ghost">Experience</a>
+                    <a href="#projects" class="btn btn-ghost">View Projects ↓</a>
                 </div>
             </div>
 
-                     <!-- Right Side Card -->
-            <div style="background:var(--surface); border-radius:16px; padding:1.8rem; border:1px solid rgba(160,3,38,0.3); height: fit-content;">
-                <img src="./repo/Am S-hoodie.jpg" alt="Amir Sasani" style="width:100%; border-radius:12px; margin-bottom:1.5rem;">
-
-                <!-- Stats -->
-                <div class="stats" style="margin-bottom: 1.5rem;">
-                    <div class="stat"><div class="stat-num" style="font-size:1.6rem;">7+</div><div style="font-size:0.85rem;">Years QA</div></div>
-                    <div class="stat"><div class="stat-num" style="font-size:1.6rem;">5+</div><div style="font-size:0.85rem;">Projects</div></div>
-                    <div class="stat"><div class="stat-num" style="font-size:1.6rem;">3+</div><div style="font-size:0.85rem;">Domains</div></div>
+            <aside class="profile-card">
+                <div class="profile-photo">
+                    <img src="./repo/Am S-hoodie.jpg" alt="Amir Sasani" onerror="this.remove()">
+                    <span class="tag-open"><span class="ping"></span> Open to work · Any timezone</span>
                 </div>
-
-                <!-- Core Skills -->
-                <div>
-                    <h4 style="color: var(--accent-light); font-size: 0.85rem; margin-bottom: 0.8rem; text-align: center; font-family: 'JetBrains Mono', monospace;">
-                        CORE SKILLS
-                    </h4>
-                    <div style="display: flex; flex-wrap: wrap; gap: 5px; justify-content: center;">
-                        <span style="background: rgba(160,3,38,0.18); color: var(--accent-light); padding: 4px 10px; border-radius: 9999px; font-size: 0.73rem;">Manual Testing</span>
-                        <span style="background: rgba(160,3,38,0.18); color: var(--accent-light); padding: 4px 10px; border-radius: 9999px; font-size: 0.73rem;">API Testing</span>
-                        <span style="background: rgba(160,3,38,0.18); color: var(--accent-light); padding: 4px 10px; border-radius: 9999px; font-size: 0.73rem;">Automation</span>
-                        <span style="background: rgba(160,3,38,0.18); color: var(--accent-light); padding: 4px 10px; border-radius: 9999px; font-size: 0.73rem;">Postman</span>
-                        <span style="background: rgba(160,3,38,0.18); color: var(--accent-light); padding: 4px 10px; border-radius: 9999px; font-size: 0.73rem;">Playwright</span>
-                        <span style="background: rgba(160,3,38,0.18); color: var(--accent-light); padding: 4px 10px; border-radius: 9999px; font-size: 0.73rem;">Appium</span>
-                        <span style="background: rgba(160,3,38,0.18); color: var(--accent-light); padding: 4px 10px; border-radius: 9999px; font-size: 0.73rem;">SQL</span>
-                        <span style="background: rgba(160,3,38,0.18); color: var(--accent-light); padding: 4px 10px; border-radius: 9999px; font-size: 0.73rem;">CI/CD</span>
-                        <span style="background: rgba(160,3,38,0.18); color: var(--accent-light); padding: 4px 10px; border-radius: 9999px; font-size: 0.73rem;">Agile</span>
-                    </div>
+                <div class="stats">
+                    <div class="stat"><div class="stat-num">7+</div><div class="stat-label">Years QA</div></div>
+                    <div class="stat"><div class="stat-num">5+</div><div class="stat-label">Projects</div></div>
+                    <div class="stat"><div class="stat-num">3+</div><div class="stat-label">Domains</div></div>
                 </div>
-            </div>
+                <div class="mini-title">CORE SKILLS</div>
+                <div class="chips sm center">
+                    <span class="chip">Manual Testing</span><span class="chip">API Testing</span><span class="chip">Automation</span>
+                    <span class="chip">Postman</span><span class="chip">Playwright</span><span class="chip">Appium</span>
+                    <span class="chip">SQL</span><span class="chip">CI/CD</span><span class="chip">Agile</span>
+                </div>
+            </aside>
         </div>
-    </section>
-    <!-- ABOUT -->
+    </header>
+
+    <!-- IMPACT BAND -->
+    <div class="band">
+        <div class="band-inner">
+            <div class="reveal"><div class="band-num">7<span>+</span></div><div class="band-label">Years in QA</div></div>
+            <div class="reveal"><div class="band-num">1500<span>+</span></div><div class="band-label">Test cases executed</div></div>
+            <div class="reveal"><div class="band-num">99.99<span>%</span></div><div class="band-label">Crash-free Android delivery</div></div>
+            <div class="reveal"><div class="band-num">46<span>%</span></div><div class="band-label">QA team capacity increase</div></div>
+            <div class="reveal"><div class="band-num">86<span>%</span></div><div class="band-label">Sprint delivery rate</div></div>
+        </div>
+    </div>
+
+    <!-- 01 ABOUT -->
     <section class="section" id="about">
-        <div class="sec-header">
-            <span class="sec-num">01 —</span>
-            <h2>About Me</h2>
-        </div>
-        <div class="card">
-            <p>Hi, I'm Amir Sasani (Samson). I'm a passionate QA Engineer and Machine Learning enthusiast with a strong background in testing mobile, web, and desktop applications.</p>
-            <p>My interests extend beyond QA into Frontend Development, Game Design, Content Creation, Localization, Video Editing, and Computer Science. I enjoy exploring how technology, design, and user experience intersect to create products that people genuinely enjoy using.</p>
-            <p>In my free time, I enjoy calisthenics, playing guitar, reading about neuroscience, making coffee, and watching anime. Music and philosophy are my constant companions.</p>
+        <div class="sec-header reveal"><span class="sec-num">01 —</span><h2>About me</h2></div>
+        <div class="about-grid">
+            <div class="card reveal">
+                <h3>Profile</h3>
+                <p>Hi, I'm Amir Sasani (Samson). I'm a passionate QA Engineer and Machine Learning enthusiast with a strong background in testing mobile, web, and desktop applications.</p>
+            </div>
+            <div class="card reveal">
+                <h3>Interests</h3>
+                <p>My interests extend beyond QA into Frontend Development, Game Design, Content Creation, Localization, Video Editing, and Computer Science. I enjoy exploring how technology, design, and user experience intersect to create products that people genuinely enjoy using.</p>
+            </div>
+            <div class="card reveal">
+                <h3>Off the clock</h3>
+                <p>In my free time, I enjoy calisthenics, playing guitar, reading about neuroscience, making coffee, and watching anime. Music and philosophy are my constant companions.</p>
+            </div>
         </div>
     </section>
 
-    <!-- EXPERIENCE -->
+    <!-- 02 EXPERIENCE -->
     <section class="section" id="experience">
-        <div class="sec-header">
-            <span class="sec-num">02 —</span>
-            <h2>Experience</h2>
+        <div class="sec-header reveal"><span class="sec-num">02 —</span><h2>Experience</h2></div>
+
+        <div class="tabs reveal" role="tablist">
+            <button class="tab-btn active" role="tab" aria-selected="true" data-tab="exp-fan"><strong>FanGames</strong><small>GAMES · LOCALIZATION</small></button>
+            <button class="tab-btn" role="tab" aria-selected="false" data-tab="exp-zorvan"><strong>Simulator Developer</strong><small>GAME STUDIO · ZORVAN</small></button>
+            <button class="tab-btn" role="tab" aria-selected="false" data-tab="exp-alpha"><strong>Alpha Cloud</strong><small>CLOUD GAMING</small></button>
+            <button class="tab-btn" role="tab" aria-selected="false" data-tab="exp-ice"><strong>ICE Global</strong><small>E-COMMERCE · FINTECH</small></button>
         </div>
-        <div style="display:flex; gap:1rem; margin-bottom:1rem;">
-            <button onclick="switchTab(0)" class="tab-btn active">QA Journey</button>
-            <button onclick="switchTab(1)" class="tab-btn">CS Journey</button>
-        </div>
-        <!-- QA Tab -->
-        <div id="qa-tab" class="tab-content">
-            <!-- Your full QA timeline from previous qa-journey.html here (shortened for brevity) -->
-            <div class="timeline-item">
-                <h3>Fanafzar - FanGames</h3>
-                <p>QA Tester & Localization Tester for 30+ games...</p>
+
+        <div class="card reveal">
+            <!-- FanGames -->
+            <div class="tab-panel active" id="exp-fan" role="tabpanel">
+                <h3>Localization Tester → QA Tester</h3>
+                <div class="org">Fanafzar · FanGames</div>
+                <p>Started in QA as a Localization Tester, then moved up to QA Tester. We licensed, localized, tested and published 30+ games from companies worldwide on Android app markets such as CafeBazar and Myket — across Action, MMO, RPG, Sports and more.</p>
+                <p>Later we built two hybrid cloud-based game-marketplace Android apps, BaziGushi and Porbazi — my first deep dive into Regression, UAT and quality verification (QV) on Android apps from A to Z.</p>
+                <div class="metric-row">
+                    <div class="metric"><b>30<span>+</span></b><small>games localized &amp; published</small></div>
+                    <div class="metric"><b>2</b><small>marketplace Android apps tested end-to-end</small></div>
+                </div>
+                <div class="chips"><span class="chip">Localization</span><span class="chip">Regression</span><span class="chip">UAT</span><span class="chip">Android</span><span class="chip">Quality Verification</span></div>
+                <a class="link-arrow" href="qa-journey.html">Read the full story →</a>
             </div>
-            <!-- Add more timeline items as needed -->
-        </div>
-        <!-- CS Tab -->
-        <div id="cs-tab" class="tab-content" style="display:none;">
-            <div class="card">
-                <h3>Where It All Began</h3>
-                <p>My journey started with a CAPTCHA that sparked my interest in Computer Vision, AR/VR, and game development.</p>
+
+            <!-- Zorvan -->
+            <div class="tab-panel" id="exp-zorvan" role="tabpanel">
+                <h3>QA Engineer · Mobile Games</h3>
+                <div class="org">Simulator Developer (Zorvan Game Studio)</div>
+                <p>My first real experience in a game studio — QA on two mobile titles: Tactics (real-time strategy) and Northern Farm (farming simulation). Balancing weapons, preventing leaderboard exploits and digging into retention data and Live Ops.</p>
+                <div class="metric-row">
+                    <div class="metric"><b>35<span>%</span></b><small>fewer vague levels via FTUE &amp; playtests</small></div>
+                    <div class="metric"><b>1500<span>+</span></b><small>test cases &amp; executions in TestRail</small></div>
+                    <div class="metric"><b>22<span>%</span></b><small>more in-app purchases via A/B testing</small></div>
+                </div>
+                <div class="chips"><span class="chip">FTUE</span><span class="chip">Playtesting</span><span class="chip">TestRail</span><span class="chip">JIRA</span><span class="chip">A/B Testing</span><span class="chip">Live Ops</span></div>
+                <a class="link-arrow" href="qa-journey.html">Read the full story →</a>
             </div>
+
+            <!-- Alpha Cloud -->
+            <div class="tab-panel" id="exp-alpha" role="tabpanel">
+                <h3>QA Engineer → QA Lead</h3>
+                <div class="org">Alpha Cloud · Playpod &amp; Arium</div>
+                <p>Joined Playpod — the first cloud gaming console in the Middle East — and was promoted to QA Lead after 1.5 years. Built QA for Arium from the ground up and coached four junior testers across both cloud-gaming platforms.</p>
+                <div class="metric-row">
+                    <div class="metric"><b>99.99<span>%</span></b><small>crash-free Android delivery</small></div>
+                    <div class="metric"><b>46<span>%</span></b><small>increase in QA team capacity</small></div>
+                    <div class="metric"><b>28<span>%</span></b><small>more bug fixes · 19% faster feature delivery</small></div>
+                </div>
+                <div class="chips"><span class="chip">Playwright</span><span class="chip">K6</span><span class="chip">Azure Kubernetes</span><span class="chip">Grafana</span><span class="chip">Loki</span><span class="chip">Fiddler</span></div>
+                <a class="link-arrow" href="qa-journey.html">Read the full story →</a>
+            </div>
+
+            <!-- ICE Global -->
+            <div class="tab-panel" id="exp-ice" role="tabpanel">
+                <h3>QA Engineer</h3>
+                <div class="org">ICE Global · Fedshi</div>
+                <p>Quality was everyone's job — and I became its voice. I owned QA for the Mentorship Program, Reseller Journey, Fulfillment Process and Wallet Management, stepped up to lead QA while the lead was away, and wrote the documentation the next QA would thank me for.</p>
+                <div class="metric-row">
+                    <div class="metric"><b>56<span>→</span>86<span>%</span></b><small>sprint delivery rate in one sprint</small></div>
+                    <div class="metric"><b>Hours</b><small>to fix critical production issues I escalated</small></div>
+                </div>
+                <div class="chips"><span class="chip">E-commerce</span><span class="chip">Payments</span><span class="chip">Wallet</span><span class="chip">Documentation</span><span class="chip">QA Leadership</span></div>
+                <a class="link-arrow" href="qa-journey.html">Read the full story →</a>
+            </div>
+        </div>
+
+        <div class="card teaser reveal">
+            <div>
+                <h3>My Computer Science journey</h3>
+                <p>It started with a CAPTCHA that stopped one of my automation tests — and sparked my interest in Computer Vision, AR/VR and game development.</p>
+            </div>
+            <a href="CS-journey.html" class="btn btn-primary">Explore CS Journey →</a>
         </div>
     </section>
 
-    <!-- SKILLS -->
+    <!-- 03 SKILLS -->
     <section class="section" id="skills">
-        <div class="sec-header">
-            <span class="sec-num">03 —</span>
-            <h2>Skills & Tools</h2>
-        </div>
-        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(140px,1fr)); gap:1rem;">
-            <!-- Add your skills as chips -->
+        <div class="sec-header reveal"><span class="sec-num">03 —</span><h2>Skills &amp; tools</h2></div>
+        <div class="skills-grid">
+            <div class="skill-group reveal"><h4>Testing types</h4><div class="chips"><span class="chip">Manual</span><span class="chip">Functional</span><span class="chip">Regression</span><span class="chip">UAT</span><span class="chip">Exploratory</span><span class="chip">Compatibility</span><span class="chip">FTUE</span></div></div>
+            <div class="skill-group reveal"><h4>API &amp; performance</h4><div class="chips"><span class="chip">Postman</span><span class="chip">K6</span><span class="chip">Fiddler</span><span class="chip">Grafana</span><span class="chip">Loki</span></div></div>
+            <div class="skill-group reveal"><h4>Automation</h4><div class="chips"><span class="chip">Playwright</span><span class="chip">Appium</span><span class="chip">CI/CD</span></div></div>
+            <div class="skill-group reveal"><h4>Test management</h4><div class="chips"><span class="chip">TestRail</span><span class="chip">JIRA</span><span class="chip">Test cases</span><span class="chip">Defect reporting</span></div></div>
+            <div class="skill-group reveal"><h4>Methodologies</h4><div class="chips"><span class="chip">Agile</span><span class="chip">SDLC</span><span class="chip">A/B Testing</span><span class="chip">Live Ops</span></div></div>
+            <div class="skill-group reveal"><h4>Data &amp; cloud</h4><div class="chips"><span class="chip">SQL</span><span class="chip">Azure Kubernetes</span><span class="chip">Cloud Gaming</span></div></div>
+            <div class="skill-group reveal"><h4>Leadership</h4><div class="chips"><span class="chip">QA Lead</span><span class="chip">Junior Mentoring</span><span class="chip">Cross-functional teams</span><span class="chip">Documentation</span></div></div>
+            <div class="skill-group reveal"><h4>CS &amp; game dev</h4><div class="chips"><span class="chip">Computer Vision</span><span class="chip">OCR</span><span class="chip">Unity 3D</span><span class="chip">JavaScript (p5.js)</span><span class="chip">Game Design</span></div></div>
         </div>
     </section>
 
-    <!-- PLATFORMS & DOMAINS -->
-<section class="platforms-section" id="platforms">
-    <div class="sec-header">
-        <span class="sec-num">04 —</span>
-        <h2>Platforms & Domains</h2>
-    </div>
-
-    <div class="platforms-grid">
-        <div class="platform-card">
-            <span class="platform-icon">🛒</span>
-            <h3>E-Commerce</h3>
-            <p>Resale • Payments • Marketplace</p>
+    <!-- 04 PLATFORMS -->
+    <section class="section" id="platforms">
+        <div class="sec-header reveal"><span class="sec-num">04 —</span><h2>Platforms &amp; domains</h2></div>
+        <div class="platforms-grid">
+            <div class="platform-card reveal"><span class="platform-icon">🛒</span><h3>E-Commerce</h3><p>Resale • Payments • Marketplace</p></div>
+            <div class="platform-card reveal"><span class="platform-icon">📱</span><h3>Mobile</h3><p>iOS &amp; Android</p></div>
+            <div class="platform-card reveal"><span class="platform-icon">🌐</span><h3>Web Apps</h3><p>SaaS • WebView • PWA</p></div>
+            <div class="platform-card reveal"><span class="platform-icon">💰</span><h3>Fintech</h3><p>Banking • Payments • Finance</p></div>
+            <div class="platform-card reveal"><span class="platform-icon">🎮</span><h3>Games</h3><p>PC • Mobile • Localization</p></div>
+            <div class="platform-card reveal"><span class="platform-icon">🪟</span><h3>Windows Apps</h3><p>Desktop Applications</p></div>
         </div>
-        <div class="platform-card">
-            <span class="platform-icon">📱</span>
-            <h3>Mobile</h3>
-            <p>iOS & Android</p>
-        </div>
-        <div class="platform-card">
-            <span class="platform-icon">🌐</span>
-            <h3>Web Apps</h3>
-            <p>SaaS • WebView • PWA</p>
-        </div>
-        <div class="platform-card">
-            <span class="platform-icon">💰</span>
-            <h3>Fintech</h3>
-            <p>Banking • Payments • Finance</p>
-        </div>
-        <div class="platform-card">
-            <span class="platform-icon">🎮</span>
-            <h3>Games</h3>
-            <p>PC • Mobile • Localization</p>
-        </div>
-        <div class="platform-card">
-            <span class="platform-icon">🪟</span>
-            <h3>Windows Apps</h3>
-            <p>Desktop Applications</p>
-        </div>
-    </div>
-
-    <div class="tags-container">
-        <div class="tag-group">
+        <div class="skill-group reveal" style="margin-top:1.6rem;">
             <h4>Platforms</h4>
-            <div class="tags">
-                <span class="tag">Web</span>
-                <span class="tag">iOS</span>
-                <span class="tag">Android</span>
-                <span class="tag">SaaS</span>
-                <span class="tag">PWA</span>
-                <span class="tag">Windows</span>
-            </div>
-        </div>
-    </div>
-</section>
-
-    <!-- PROJECTS -->
-    <section class="section" id="projects">
-        <div class="sec-header">
-            <span class="sec-num">04 —</span>
-            <h2>Projects</h2>
-        </div>
-
-        <div class="projects-grid" id="projects-grid"></div>
-
-        <div style="text-align: center; margin-top: 3rem;">
-            <button id="show-more-btn" class="btn-primary" style="padding: 14px 36px; font-size: 1.1rem;">
-                Show More Projects
-            </button>
+            <div class="chips"><span class="chip">Web</span><span class="chip">iOS</span><span class="chip">Android</span><span class="chip">SaaS</span><span class="chip">PWA</span><span class="chip">Windows</span></div>
         </div>
     </section>
 
-    <!-- CONTACT -->
-<section class="section" id="contact" style="background: #0A0818; padding: 6rem 2rem;">
-    <div class="sec-header" style="max-width: 1200px; margin: 0 auto 3rem;">
-        <span class="sec-num">05 —</span>
-        <h2 style="color: white;">Contact</h2>
-        <div style="height: 3px; width: 60px; background: #a00326; margin-top: 8px;"></div>
-    </div>
+    <!-- 05 PROJECTS -->
+    <section class="section" id="projects">
+        <div class="sec-header reveal"><span class="sec-num">05 —</span><h2>Projects</h2></div>
+        <div class="projects-grid" id="projects-grid"></div>
+        <div class="center-row">
+            <button id="show-more-btn" class="btn btn-primary">Show more projects</button>
+        </div>
+    </section>
 
-    <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; background: #110F24; border-radius: 20px; padding: 3rem; border: 1px solid rgba(160,3,38,0.2);">
-        
-        <!-- Left Side -->
-        <div>
-            <h2 style="font-size: 2.2rem; line-height: 1.2; margin-bottom: 1.5rem; color: white;">
-                Let's improve product quality <span style="color: #ff6f61;">together</span>
-            </h2>
-            <p style="font-size: 1.1rem; color: #CBD5E1; margin-bottom: 1.5rem;">
-                Open to Senior QA roles, contract testing engagements &amp; remote opportunities worldwide.<br><br>
-                Based in Istanbul, Turkey — available across any timezone.
-            </p>
-            
-            <div style="display: inline-flex; align-items: center; gap: 12px; background: rgba(52,211,153,0.15); color: #34D399; padding: 10px 20px; border-radius: 9999px; font-weight: 500; border: 1px solid rgba(52,211,153,0.3);">
-                <span style="display: inline-block; width: 10px; height: 10px; background: #34D399; border-radius: 50%; box-shadow: 0 0 8px #34D399;"></span>
-                Available now • Any timezone • Worldwide
+    <!-- 06 CONTACT -->
+    <section class="contact-wrap" id="contact">
+        <div class="sec-header reveal"><span class="sec-num">06 —</span><h2>Contact</h2></div>
+        <div class="contact-card reveal">
+            <div>
+                <h2>Let's improve product quality <span>together</span></h2>
+                <p>Open to Senior QA roles, contract testing engagements &amp; remote opportunities worldwide.<br><br>Based in Istanbul, Turkey — available across any timezone.</p>
+                <div class="avail"><span class="ping"></span> Available now · Any timezone · Worldwide</div>
+            </div>
+            <div class="contact-list">
+                <a class="contact-link-card" href="mailto:amirhsamson93@gmail.com">
+                    <div class="contact-ico" style="background:var(--accent)">✉</div>
+                    <div><small>EMAIL</small><span class="val">amirhsamson93@gmail.com</span></div>
+                    <span class="arrow">↗</span>
+                </a>
+                <a class="contact-link-card" href="https://www.linkedin.com/in/amir-samson/" target="_blank" rel="noopener">
+                    <div class="contact-ico" style="background:#0A66C2">in</div>
+                    <div><small>LINKEDIN</small><span class="val">linkedin.com/in/amir-samson</span></div>
+                    <span class="arrow">↗</span>
+                </a>
+                <a class="contact-link-card" href="https://github.com/AmirSamson" target="_blank" rel="noopener">
+                    <div class="contact-ico" style="background:#333">⌥</div>
+                    <div><small>GITHUB</small><span class="val">github.com/AmirSamson</span></div>
+                    <span class="arrow">↗</span>
+                </a>
             </div>
         </div>
+    </section>
 
-        <!-- Right Side - Contact Info -->
-        <div style="display: flex; flex-direction: column; gap: 1rem;">
-            
-            <a href="mailto:amirhsamson93@gmail.com" style="text-decoration: none; color: inherit;">
-                <div style="background: #1A1730; padding: 1.25rem 1.5rem; border-radius: 12px; display: flex; align-items: center; gap: 1rem; transition: all 0.3s;">
-                    <div style="width: 48px; height: 48px; background: #a00326; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.4rem;">📧</div>
-                    <div>
-                        <div style="font-size: 0.9rem; color: #94A3B8;">EMAIL</div>
-                        <div style="color: white; font-weight: 500;">amirhsamson93@gmail.com</div>
-                    </div>
-                </div>
-            </a>
-
-            <a href="https://www.linkedin.com/in/amir-samson/" target="_blank" style="text-decoration: none; color: inherit;">
-                <div style="background: #1A1730; padding: 1.25rem 1.5rem; border-radius: 12px; display: flex; align-items: center; gap: 1rem; transition: all 0.3s;">
-                    <div style="width: 48px; height: 48px; background: #0A66C2; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem;">in</div>
-                    <div>
-                        <div style="font-size: 0.9rem; color: #94A3B8;">LINKEDIN</div>
-                        <div style="color: white; font-weight: 500;">linkedin.com/in/amir-samson</div>
-                    </div>
-                </div>
-            </a>
-
-            <a href="https://github.com/AmirSamson" target="_blank" style="text-decoration: none; color: inherit;">
-                <div style="background: #1A1730; padding: 1.25rem 1.5rem; border-radius: 12px; display: flex; align-items: center; gap: 1rem; transition: all 0.3s;">
-                    <div style="width: 48px; height: 48px; background: #333; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.6rem;">🐙</div>
-                    <div>
-                        <div style="font-size: 0.9rem; color: #94A3B8;">GITHUB</div>
-                        <div style="color: white; font-weight: 500;">github.com/AmirSamson</div>
-                    </div>
-                </div>
-            </a>
-
-        </div>
-    </div>
-</section>
-
-    <footer>
-        © 2026 Amir Sasani • QA Engineer • Istanbul, Turkey
+    <footer class="site-footer">
+        © 2026 · <b>AMIR SASANI</b> · SENIOR QA ENGINEER · ISTANBUL, TR
     </footer>
-<script>
-    // === Your existing scripts (unchanged) ===
-    function switchTab(n) {
-        document.querySelectorAll('.tab-content').forEach(el => el.style.display = 'none');
-        document.getElementById(n === 0 ? 'qa-tab' : 'cs-tab').style.display = 'block';
-        document.querySelectorAll('.tab-btn').forEach((btn, i) => btn.classList.toggle('active', i === n));
-    }
 
-    // Smooth scroll for nav links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            e.preventDefault();
-            document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
-        });
-    });
+    <script src="script.js"></script>
+    <script>
+        const projects = [
+            {
+                title: "Fedshi.com E-Commerce Platform",
+                desc: "Comprehensive QA for a large resale marketplace including payment systems, user flows, and mobile app testing.",
+                image: "./repo/4. ICE Global/Screenshot 2026-07-04 004015.png",
+                tags: ["Web", "Mobile", "API", "Fintech", "E-commerce"],
+                live: "https://www.fedshi.com/en/home/"
+            },
+            {
+                title: "Magrid Learning Solutions - Educational Game",
+                desc: "End-to-end testing of a multi-platform Educational Math game for children with disabilities (Luxembourg).",
+                image: "./repo/Magrid Images/Screenshot 2026-07-04 003717.png",
+                tags: ["Android", "iOS", "Postman", "Appium"],
+                live: "https://magrid.education/"
+            },
+            {
+                title: "Arium Cloud Gaming platform",
+                desc: "Tested Web3 Payment Gateway features, user dashboard, and integration with multiple APIs using Playwright and K6. Achieved 99.99% crash-free rate.",
+                image: "./repo/3.%20Alpha%20Cloud/arium3.png",
+                tags: ["Playwright", "Automation", "Web3", "Payment Gateways", "Cloud Gaming", "Streaming"],
+                live: "https://web.archive.org/web/20250603200617/https://arium.gg/"
+            },
+            {
+                title: "Playpod Cloud Gaming platform",
+                desc: "Tested Payment features, Streaming quality, realtime user interface, and integration with multiple APIs using Playwright and K6. Achieved 99.99% crash-free rate.",
+                image: "./repo/3. Alpha Cloud/Playpod Website.jpg",
+                tags: ["Playwright", "Automation", "Fintech", "Payment Gateways", "Cloud Gaming", "Streaming"],
+                live: "https://playpod.ir/"
+            },
+            {
+                title: "PlayPod TV show",
+                desc: "Hosted for Playpod Tv show for latest game news and trends on YT and LinkedIn.",
+                image: "./repo/3. Alpha Cloud/PlaypodTV.jpeg",
+                tags: ["Host", "Content Creation", "Game trends"],
+                live: "https://playpod.ir/"
+            },
+            {
+                title: "Alpha.Cloud company",
+                desc: "Tested Web3 Payment Gateway features, user dashboard, and integration with multiple APIs using Playwright and K6. Achieved 99.99% crash-free rate.",
+                image: "./repo/3. Alpha Cloud/AlphaCo.cloud.jpg",
+                tags: ["Playwright", "Automation", "AI", "Unreal Engine 5"],
+                live: "http://alphaco.cloud/"
+            },
+            {
+                title: "Game QA Project",
+                desc: "Localization and functional testing for 15+ mobile and PC games.",
+                image: "./repo/projects/game-qa.jpg",
+                tags: ["Games", "Localization", "Manual Testing"],
+                live: "qa-journey.html"
+            }
+            // Add more projects below following the same format.
+            // Optional: github: "https://github.com/..."  (the GitHub link only shows when set)
+        ];
 
-    // === NEW PROJECTS SCRIPT ===
- const projects = [
-        {
-            title: "Fedshi.com E-Commerce Platform",
-            desc: "Comprehensive QA for a large resale marketplace including payment systems, user flows, and mobile app testing.",
-            image: "./repo/4. ICE Global/Screenshot 2026-07-04 004015.png",  
-            tags: ["Web", "Mobile", "API", "Fintech", "E-commerce"],
-            live: "https://www.fedshi.com/en/home/",   
-            // github: "https://github.com/AmirSamson/ecommerce-qa"   
-        },
-        {
-            title: "Magrid Learning Solutions - Educational Game",
-            desc: "End-to-end testing of a multi-platform Educational Math game for children with disabilities (Luxembourg). ",
-            image: "./repo/Magrid Images/Screenshot 2026-07-04 003717.png",
-            tags: ["Android", "iOS", "Postman", "Appium"],
-            live: "https://magrid.education/",
-            // github: "#"
-        },
-        {
-            title: "Arium Cloud Gaming platform",
-            desc: "Tested Web3 Payment Gateway features, user dashboard, and integration with multiple APIs using Playwright and K6. Achieved 99.99% crash-free rate.",
-            image: "./repo/3.%20Alpha%20Cloud/arium3.png",
-            tags: ["Playwright", "Automation", "Web3", "Payment Gateways", "Cloud Gaming", "Streaming"],
-            live: "https://web.archive.org/web/20250603200617/https://arium.gg/",
-        },
-        {
-            title: "Playpod Cloud Gaming platform",
-            desc: "Tested Payment features, Streaming quality, realtime user interface, and integration with multiple APIs using Playwright and K6. Achieved 99.99% crash-free rate.",
-            image: "./repo/3. Alpha Cloud/Playpod Website.jpg",
-            tags: ["Playwright", "Automation", "Fintech" , "Payment Gateways", "Cloud Gaming", "Streaming"],
-            live: "https://playpod.ir/",
-        },
-             {
-            title: "PlayPod TV show",
-            desc: "Hosted for Playpod Tv show for latest game news and trends on YT and LinkedIn.",
-            image: "./repo/3. Alpha Cloud/PlaypodTV.jpeg",
-            tags: ["Host", "Content Creation", "Game trends"],
-            live: "https://playpod.ir/",
-   
-        },
-        {
-            title: "Alpha.Cloud company",
-            desc: "Tested Web3 Payment Gateway features, user dashboard, and integration with multiple APIs using Playwright and K6. Achieved 99.99% crash-free rate.",
-            image: "./repo/3. Alpha Cloud/AlphaCo.cloud.jpg",
-            tags: ["Playwright", "Automation", "AI", "Unreal Engine 5"],
-            live: "http://alphaco.cloud/",
-   
-        },
-        {
-            title: "Game QA Project",
-            desc: "Localization and functional testing for 15+ mobile and PC games.",
-            image: "./repo/projects/game-qa.jpg",
-            tags: ["Games", "Localization", "Manual Testing"],
-            live: "#",
-            github: "#"
+        const grid = document.getElementById('projects-grid');
+        const moreBtn = document.getElementById('show-more-btn');
+        let visible = 6;
+
+        function esc(s) { return String(s).replace(/"/g, '&quot;'); }
+
+        function renderProjects(count) {
+            grid.innerHTML = '';
+            projects.slice(0, count).forEach(function (p, i) {
+                const external = /^https?:/.test(p.live);
+                const card = document.createElement('article');
+                card.className = 'project-card';
+                card.style.animationDelay = (i % 6) * 60 + 'ms';
+                card.innerHTML =
+                    '<div class="project-media"><img src="' + esc(p.image) + '" alt="' + esc(p.title) + '" loading="lazy" onerror="this.remove()"></div>' +
+                    '<div class="project-info">' +
+                        '<h3>' + p.title + '</h3>' +
+                        '<p>' + p.desc + '</p>' +
+                        '<div class="chips sm">' + p.tags.map(function (t) { return '<span class="chip">' + t + '</span>'; }).join('') + '</div>' +
+                        '<div class="project-links">' +
+                            '<a href="' + esc(p.live) + '"' + (external ? ' target="_blank" rel="noopener"' : '') + '>' + (external ? 'Live Demo →' : 'Read more →') + '</a>' +
+                            (p.github ? '<a href="' + esc(p.github) + '" target="_blank" rel="noopener">GitHub</a>' : '') +
+                        '</div>' +
+                    '</div>';
+                grid.appendChild(card);
+            });
         }
-        // Add more projects below following the same format
-    ];
 
-    const projectsGrid = document.getElementById('projects-grid');
-    const showMoreBtn = document.getElementById('show-more-btn');
-    let visibleCount = 6;
-
-    function renderProjects(count) {
-        projectsGrid.innerHTML = '';
-        projects.slice(0, count).forEach(project => {
-            const card = document.createElement('div');
-            card.className = 'project-card';
-            card.innerHTML = `
-                <img src="${project.image}" alt="${project.title}">
-                <div class="project-info">
-                    <h3>${project.title}</h3>
-                    <p>${project.desc}</p>
-                    <div class="project-tags">
-                        ${project.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
-                    </div>
-                    <div class="project-links">
-                        <a href="${project.live}" target="_blank">Live Demo →</a>
-                        <a href="${project.github}" target="_blank">GitHub</a>
-                    </div>
-                </div>
-            `;
-            projectsGrid.appendChild(card);
+        renderProjects(visible);
+        if (projects.length <= visible) moreBtn.parentElement.style.display = 'none';
+        moreBtn.addEventListener('click', function () {
+            visible = projects.length;
+            renderProjects(visible);
+            moreBtn.parentElement.style.display = 'none';
         });
-    }
-
-    // Initial render
-    renderProjects(visibleCount);
-
-    // Show More Button
-    if (showMoreBtn) {
-        showMoreBtn.addEventListener('click', () => {
-            visibleCount = projects.length;
-            renderProjects(visibleCount);
-            showMoreBtn.style.display = 'none';
-        });
-    }
-</script>
+    </script>
 </body>
 </html>
